@@ -292,6 +292,7 @@ proxy-groups:
   - {name: 🟦Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
   - {name: 🟦OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
   - {name: 🌈Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
+  - {name: 🐦X(Twitter), type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
   - {name: 🧬TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
   - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
   - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
@@ -436,7 +437,7 @@ rules:
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,🛫Telegram
   - RULE-SET,TikTok,🧬TikTok
-  - RULE-SET,Twitter,🚀节点选择
+  - RULE-SET,Twitter,🐦X(Twitter)
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,JueJinCN,🎯全球直连
