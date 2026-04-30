@@ -1,4 +1,7 @@
-# Clash 配置
+# NAME            : Config For Clash
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-04-30 16:42:57 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口

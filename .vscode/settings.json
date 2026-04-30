@@ -1,6 +1,6 @@
 {
   "fileheader.configObj": {
-    "autoAdd": true,
+    "autoAdd": false,
     "autoAddLine": 100,
     "supportAutoLanguage": ["js"],
     "prohibitAutoAdd": ["md", "txt", "yaml", "lsr", "lcf", "list"],
@@ -33,16 +33,12 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        "match": ".*(\\/|\\\\)Clash(\\/|\\\\)Rules(\\/|\\\\).+\\.yaml$",
-        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForYaml.js\" \"${file}\""
+        "match": ".*(\\/|\\\\)(Clash|Loon|General)(\\/|\\\\)Rules(\\/|\\\\).+\\.(yaml|lsr|list|txt)$",
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/rulesHeaderRewrite.js\" \"${file}\""
       },
       {
-        "match": ".*(\\/|\\\\)Loon(\\/|\\\\)Rules(\\/|\\\\).+\\.lsr$",
-        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForLsr.js\" \"${file}\""
-      },
-      {
-        "match": ".*(\\/|\\\\)General(\\/|\\\\)Rules(\\/|\\\\).+\\.list$",
-        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForList.js\" \"${file}\""
+        "match": ".*(\\/|\\\\)(Clash|Loon|General)(\\/|\\\\)Config(\\/|\\\\).+\\.(yaml|lcf|conf)$",
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/configHeaderRewrite.js\" \"${file}\""
       }
     ]
   }
