@@ -195,7 +195,7 @@
               const iconWrapper = document.createElement('div')
               iconWrapper.classList.add('icon-wrapper')
 
-              (imgList || []).forEach((imgPath) => {
+              ;(imgList || []).forEach((imgPath) => {
                 const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
 
                 const iconItem = document.createElement('div')
