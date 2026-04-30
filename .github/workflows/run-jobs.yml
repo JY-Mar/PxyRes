@@ -30,6 +30,7 @@ on:
       - "Scripts/**/*.js"
       - "scriptsForPython/**/*.py"
       - "scriptsForPython/**/*.css"
+      - 'templates/**/*.html'
 
 # 设置权限
 permissions:
