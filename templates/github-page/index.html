@@ -169,10 +169,6 @@
         })
       }
     </script>
-    <script type="module">
-      // 导入同目录下 images.json
-      import images from './images.json' assert { type: 'json' }
-    </script>
   </head>
   <body>
     <h1>Icons 图片展示</h1>
@@ -186,42 +182,46 @@
     <script>
       const iconContainer = document.getElementById('icon-container')
       if (iconContainer) {
-        images.forEach((folderPath, imgList) => {
-          const container = document.createElement('div')
-          const h2 = document.createElement('h2')
-          h2.innerHTML = folderPath
-          const group = document.createElement('div')
-          group.classList.add('group')
+        fetch('./images.json')
+          .then((res) => res.json())
+          .then((data) => {
+            Object.entries(data || []).forEach(([imgList, folderPath]) => {
+              const container = document.createElement('div')
+              const h2 = document.createElement('h2')
+              h2.innerHTML = folderPath
+              const group = document.createElement('div')
+              group.classList.add('group')
 
-          const iconWrapper = document.createElement('div')
-          iconWrapper.classList.add('icon-wrapper')
+              const iconWrapper = document.createElement('div')
+              iconWrapper.classList.add('icon-wrapper')
 
-          imgList.forEach((imgPath) => {
-            const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
+              (imgList || []).forEach((imgPath) => {
+                const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
 
-            const iconItem = document.createElement('div')
-            iconItem.classList.add('icon-item', 'medium')
-            iconItem.title = imgName
+                const iconItem = document.createElement('div')
+                iconItem.classList.add('icon-item', 'medium')
+                iconItem.title = imgName
 
-            const imgWrapper = document.createElement('div')
-            imgWrapper.classList.add('img-wrapper')
+                const imgWrapper = document.createElement('div')
+                imgWrapper.classList.add('img-wrapper')
 
-            const img = document.createElement('img')
-            img.src = imgPath
-            img.alt = imgPath
+                const img = document.createElement('img')
+                img.src = imgPath
+                img.alt = imgPath
 
-            const iconTip = document.createElement('div')
-            iconTip.classList.add('icon-tip')
+                const iconTip = document.createElement('div')
+                iconTip.classList.add('icon-tip')
 
-            imgWrapper.appendChild(img)
-            iconItem.appendChild(imgWrapper)
-            iconWrapper.append(iconItem, iconTip)
-            group.appendChild(iconWrapper)
+                imgWrapper.appendChild(img)
+                iconItem.appendChild(imgWrapper)
+                iconWrapper.append(iconItem, iconTip)
+                group.appendChild(iconWrapper)
+              })
+
+              container.append(h2, group)
+              iconContainer.appendChild(container)
+            })
           })
-
-          container.append(h2, group)
-          iconContainer.appendChild(container)
-        })
       }
 
       window.onload = () => {

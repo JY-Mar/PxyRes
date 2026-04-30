@@ -95,7 +95,6 @@ jobs:
           # 注意：使用 envsubst 时，可以指定只替换特定的变量，防止干扰 HTML 里的其他 $ 符号
           envsubst '$OUTPUT_DIR' < templates/github-page/index.html > docs/index.html
 
-
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
