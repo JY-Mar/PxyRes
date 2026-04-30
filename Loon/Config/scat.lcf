@@ -54,14 +54,18 @@ bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.
 Filter_Region_HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_MO = NameRegex, FilterKey = "^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Filter_Region_CHINA = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|🇲🇴|澳门|🇹🇼|台湾|(\b(HK|HKG|Hong|MO|MAC|Macau|Macao|TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_MY = NameRegex, FilterKey = "^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_IN = NameRegex, FilterKey = "^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Filter_Region_ASIA = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|🇰🇷|韩国|韓|南朝鲜|首尔|🇸🇬|新加坡|星洲|狮城|狮|🇲🇾|马来西亚|大马|马来|🇮🇳|印度|新德里|印|(\b(JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|MY|Malaysia|IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_CA = NameRegex, FilterKey = "^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Filter_Region_AMERICA = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(US|USA|United States|CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_AU = NameRegex, FilterKey = "^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Filter_Region_OCEANIA = NameRegex, FilterKey = "^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_GB = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_FR = NameRegex, FilterKey = "^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_DE = NameRegex, FilterKey = "^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
@@ -69,63 +73,69 @@ Filter_Region_IT = NameRegex, FilterKey = "^(?=.*((?i)🇮🇹|意大利|罗马|
 Filter_Region_NL = NameRegex, FilterKey = "^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_LU = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Region_LT = NameRegex, FilterKey = "^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+Filter_Region_EUROPE = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
 Filter_Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-# Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-🚀节点选择 = select,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png
-♻️自动选择 = url-test,Filter_Global,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png
-🚀手动切换 = select,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,🎯全球直连,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Manual.png
-# ⚠️流量用量 = select,Filter_Used,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Available.png
-🎯全球直连 = select,DIRECT,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png
-🛑全球拦截 = select,REJECT,DIRECT,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png
-🛠️故障转移 = fallback,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,interval = 300,max-timeout = 5000,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Final.png
-🐟漏网之鱼 = select,🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bywave.png
-# 专属策略组
-✨AI = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png
-✨Copilot = select,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png
-✨Gemini = select,✨AI,🌈Google,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png
-✨OpenAI = select,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png
-🍎Apple = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-🍎AppleVPN = select,🍎Apple,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-🟦MicrosoftProxy = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-🟦Microsoft = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-🟦Bing = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png
-🟦OneDrive = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png
-🌈Google = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Google.png
-🐦X(Twitter) = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/X.png
-🧬TikTok = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png
-🛫Telegram = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png
-🎬YouTube = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png
-🎥Netflix = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
-🐭Disney = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇨🇳国内,🌏亚洲,🌎美洲,🌏大洋洲,🌍欧洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
-📺Bahamut = select,🇨🇳台湾,🚀手动切换,🎯全球直连,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
-🎮游戏节点 = select,Filter_Game,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Game.png
-🇨🇳国内 = select,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png
-🌏亚洲 = select,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png
-🌎美洲 = select,🇺🇸美国,🇨🇦加拿大,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png
-🌏大洋洲 = select,🇦🇺澳洲,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png
-🌍欧洲 = select,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png
-# 延迟优先策略组 Low Latency Preference
-🇭🇰香港 = url-test,Filter_Region_HK,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png
-🇲🇴澳门 = url-test,Filter_Region_MO,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png
-🇨🇳台湾 = url-test,Filter_Region_TW,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png
-🇯🇵日本 = url-test,Filter_Region_JP,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png
-🇰🇷韩国 = url-test,Filter_Region_KR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png
-🇸🇬星洲 = url-test,Filter_Region_SG,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png
-🇲🇾马来 = url-test,Filter_Region_MY,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png
-🇮🇳印度 = url-test,Filter_Region_IN,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png
-🇺🇸美国 = url-test,Filter_Region_US,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png
-🇨🇦加拿大 = url-test,Filter_Region_CA,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png
-🇦🇺澳洲 = url-test,Filter_Region_AU,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png
-🇬🇧英国 = url-test,Filter_Region_GB,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png
-🇫🇷法国 = url-test,Filter_Region_FR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png
-🇩🇪德国 = url-test,Filter_Region_DE,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png
-🇮🇹意大利 = url-test,Filter_Region_IT,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png
-🇳🇱荷兰 = url-test,Filter_Region_NL,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png
-🇱🇺卢森堡 = url-test,Filter_Region_LU,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png
-🇱🇹立陶宛 = url-test,Filter_Region_LT,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png
+# 基础策略
+🚀节点选择 = select, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png
+♻️自动选择 = url-test, Filter_Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png
+🚀手动切换 = select, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Available.png
+🎯全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png
+🛑全球拦截 = select, REJECT, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png
+🛠️故障转移 = fallback, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Final.png
+🐟漏网之鱼 = select, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bywave.png
+# App专属 App-Specific
+✨AI = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png
+✨Copilot = select, ✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png
+✨Gemini = select, ✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png
+✨OpenAI = select, ✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png
+🍎Apple = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
+🍎AppleVPN = select, 🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
+🪟MicrosoftProxy = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
+🪟Microsoft = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
+🪟Bing = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png
+🪟OneDrive = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png
+🤖Google = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Google.png
+🐦X_Twitter = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/X.png
+🎵TikTok = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png
+🛫Telegram = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
+🐭Disney = select, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
+📺Bahamut = select, 🇨🇳台湾LF, 🚀手动切换, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
+🎮游戏节点 = select, Filter_Game, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Game.png
+# 区域选择
+🌏国内 = select, 🇭🇰香港LF, 🇲🇴澳门LF, 🇨🇳台湾LF, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png
+🌏亚洲 = select, 🇯🇵日本LF, 🇰🇷韩国LF, 🇸🇬星洲LF, 🇲🇾马来LF, 🇮🇳印度LF, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png
+🌎美洲 = select, 🇺🇸美国LF, 🇨🇦加拿大LF, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png
+🌏洋洲 = select, 🇦🇺澳洲LF, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png
+🌍欧洲 = select, 🇬🇧英国LF, 🇫🇷法国LF, 🇩🇪德国LF, 🇮🇹意大利LF, 🇳🇱荷兰LF, 🇱🇺卢森堡LF, 🇱🇹立陶宛LF, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png
+# 延迟优先 Latency-First
+🌏国内LF = url-test, Filter_Region_CHINA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png
+🌏亚洲LF = url-test, Filter_Region_ASIA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png
+🌎美洲LF = url-test, Filter_Region_US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png
+🌏洋洲LF = url-test, Filter_Region_OCEANIA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png
+🌍欧洲LF = url-test, Filter_Region_EUROPE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png
+🇭🇰香港LF, url-test, Filter_Region_HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png
+🇲🇴澳门LF = url-test, Filter_Region_MO, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png
+🇨🇳台湾LF = url-test, Filter_Region_TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png
+🇯🇵日本LF = url-test, Filter_Region_JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png
+🇰🇷韩国LF = url-test, Filter_Region_KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png
+🇸🇬星洲LF = url-test, Filter_Region_SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png
+🇲🇾马来LF = url-test, Filter_Region_MY, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png
+🇮🇳印度LF = url-test, Filter_Region_IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png
+🇺🇸美国LF = url-test, Filter_Region_US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png
+🇨🇦加拿大LF = url-test, Filter_Region_CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png
+🇦🇺澳洲LF = url-test, Filter_Region_AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png
+🇬🇧英国LF = url-test, Filter_Region_GB, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png
+🇫🇷法国LF = url-test, Filter_Region_FR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png
+🇩🇪德国LF = url-test, Filter_Region_DE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png
+🇮🇹意大利LF = url-test, Filter_Region_IT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png
+🇳🇱荷兰LF = url-test, Filter_Region_NL, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png
+🇱🇺卢森堡LF = url-test, Filter_Region_LU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png
+🇱🇹立陶宛LF = url-test, Filter_Region_LT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png
 
 [Rule]
 # Local Rule
@@ -156,17 +166,17 @@ https://rule.kelee.one/Loon/AppleProxy.lsr, policy=🍎AppleVPN, tag=AppleProxy,
 https://rule.kelee.one/Loon/iCloud.lsr, policy=🍎Apple, tag=iCloud, enabled=true
 https://rule.kelee.one/Loon/iCloudPrivateRelay.lsr, policy=🍎AppleVPN, tag=iCloudPrivateRelay, enabled=true
 # === Microsoft ===
-https://jy-mar.github.io/PxyRes/Loon/Rules/MicrosoftProxy.lsr, policy=🟦MicrosoftProxy, tag=MicrosoftProxy, enabled=true
-https://rule.kelee.one/Loon/Microsoft.lsr, policy=🟦Microsoft, tag=Microsoft, enabled=true
-https://rule.kelee.one/Loon/OneDrive.lsr, policy=🟦OneDrive, tag=OneDrive, enabled=true
-https://rule.kelee.one/Loon/Bing.lsr, policy=🟦Bing, tag=Bing, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/MicrosoftProxy.lsr, policy=🪟MicrosoftProxy, tag=MicrosoftProxy, enabled=true
+https://rule.kelee.one/Loon/Microsoft.lsr, policy=🪟Microsoft, tag=Microsoft, enabled=true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy=🪟OneDrive, tag=OneDrive, enabled=true
+https://rule.kelee.one/Loon/Bing.lsr, policy=🪟Bing, tag=Bing, enabled=true
 # === Google ===
-https://rule.kelee.one/Loon/Google.lsr, policy=🌈Google, tag=Google, enabled=true
-https://rule.kelee.one/Loon/GoogleDrive.lsr, policy=🌈Google, tag=GoogleDrive, enabled=true
-https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=🌈Google, tag=GoogleEarth, enabled=true
-https://rule.kelee.one/Loon/GoogleFCM.lsr, policy=🌈Google, tag=GoogleFCM, enabled=true
-https://rule.kelee.one/Loon/GoogleSearch.lsr, policy=🌈Google, tag=GoogleSearch, enabled=true
-https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=🌈Google, tag=GoogleVoice, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=🤖Google, tag=Google, enabled=true
+https://rule.kelee.one/Loon/GoogleDrive.lsr, policy=🤖Google, tag=GoogleDrive, enabled=true
+https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=🤖Google, tag=GoogleEarth, enabled=true
+https://rule.kelee.one/Loon/GoogleFCM.lsr, policy=🤖Google, tag=GoogleFCM, enabled=true
+https://rule.kelee.one/Loon/GoogleSearch.lsr, policy=🤖Google, tag=GoogleSearch, enabled=true
+https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=🤖Google, tag=GoogleVoice, enabled=true
 # === Media ===
 https://rule.kelee.one/Loon/Spotify.lsr, policy=🚀节点选择, tag=Spotify, enabled=true
 https://rule.kelee.one/Loon/YouTube.lsr, policy=🎬YouTube, tag=YouTube, enabled=true
@@ -182,15 +192,15 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, 
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
 https://rule.kelee.one/Loon/Telegram.lsr, policy=🛫Telegram, tag=Telegram, enabled=true
-https://rule.kelee.one/Loon/TikTok.lsr, policy=🧬TikTok, tag=TikTok, enabled=true
-https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦X(Twitter), tag=Twitter, enabled=true
+https://rule.kelee.one/Loon/TikTok.lsr, policy=🎵TikTok, tag=TikTok, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦X_Twitter, tag=X_Twitter, enabled=true
 # === Code ===
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
 # === Adv ===
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvertisingLite, enabled=false
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvLite, enabled=false
 # === Proxy ===
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 # === Direct ===
