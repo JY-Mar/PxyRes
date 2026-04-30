@@ -447,7 +447,7 @@ rules:
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,🛫Telegram
   - RULE-SET,TikTok,🎵TikTok
-  - RULE-SET,Twitter,🐦X_Twitter
+  - RULE-SET,X_Twitter,🐦X_Twitter
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,JueJinCN,🎯全球直连
