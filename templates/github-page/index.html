@@ -188,16 +188,18 @@
             if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
               Object.entries(data || {}).forEach(([folderPath, imgList]) => {
                 const container = document.createElement('div')
-                const h2 = document.createElement('h2')
-                h2.innerHTML = folderPath
+                // 分组标题
+                const subtitle = document.createElement('h2')
+                subtitle.innerHTML = folderPath
+                // 分组主体
                 const group = document.createElement('div')
                 group.classList.add('group')
 
-                const iconWrapper = document.createElement('div')
-                iconWrapper.classList.add('icon-wrapper')
-
                 if (typeof imgList === 'object' && imgList instanceof Array) {
                   ;(imgList || []).forEach((imgPath) => {
+                    const iconWrapper = document.createElement('div')
+                    iconWrapper.classList.add('icon-wrapper')
+
                     const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
 
                     const iconItem = document.createElement('div')
@@ -221,7 +223,7 @@
                   })
                 }
 
-                container.append(h2, group)
+                container.append(subtitle, group)
                 iconContainer.appendChild(container)
               })
             }
