@@ -72,18 +72,28 @@ jobs:
           cp Loon/Config/scat.lcf docs/Loon/Config/scat-ad.lcf
           cp -r Scripts docs/Scripts
           cp -r Icons docs/Icons
-          rsync -avP scriptsForPython/style.css docs/assets/
 
       - name: 🧠 Run grouping script in Icons/
         env:
           OUTPUT_DIR: docs
         run: python scriptsForPython/generate_images_json.py
 
-      - name: 🧱 Generate index.html from images.json
+      # - name: 🧱 Generate index.html from images.json
+      #   env:
+      #     OUTPUT_DIR: docs
+      #   run: |
+      #     python scriptsForPython/generate_icons_html.py
+
+      - name: 🧱 Generate "index.html" from template
         env:
           OUTPUT_DIR: docs
         run: |
-          python scriptsForPython/generate_icons_html.py
+          # 确保输出目录存在
+          mkdir -p docs
+          # 读取模板，替换变量，输出到最终位置
+          # 注意：使用 envsubst 时，可以指定只替换特定的变量，防止干扰 HTML 里的其他 $ 符号
+          envsubst '$OUTPUT_DIR' < templates/github-page/index.html > docs/index.html
+
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3

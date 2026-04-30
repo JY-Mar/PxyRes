@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icons 图片展示</title>
+    <style>
+      :root {
+        --font-size-lg: 1rem;
+        --font-size: 0.875rem;
+        --font-size-sm: 0.75rem;
+
+        --icon-size-lg: 9rem;
+        --icon-size: 6rem;
+        --icon-size-sm: 4rem;
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: #f9f9f9;
+          color: #000000;
+        }
+        .group > .icon-wrapper > .icon-item {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .group > .icon-wrapper > .icon-item:hover {
+          background-color: #ffffff !important;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #222222;
+          color: #ffffff;
+        }
+        .group > .icon-wrapper > .icon-item {
+          box-shadow: 0 0 0 1px rgba(88, 88, 88, 0.3);
+        }
+        .group > .icon-wrapper > .icon-item:hover {
+          background-color: #333333 !important;
+        }
+      }
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        margin-top: 2.5rem;
+      }
+      .group {
+        display: grid;
+      }
+      .group:has(.icon-wrapper > .icon-item.large) {
+        grid-template-columns: repeat(auto-fit, var(--icon-size-lg));
+        gap: 1.7rem 1.4rem;
+      }
+      .group:has(.icon-wrapper > .icon-item.medium) {
+        grid-template-columns: repeat(auto-fit, var(--icon-size));
+        gap: 1.5rem 1.2rem;
+      }
+      .group:has(.icon-wrapper > .icon-item.small) {
+        grid-template-columns: repeat(auto-fit, var(--icon-size-sm));
+        gap: 1.3rem 1rem;
+      }
+      .group > .icon-wrapper {
+        will-change: scale, width, height;
+        transition:
+          scale 0.25s ease,
+          width 0.25s ease,
+          height 0.25s ease;
+      }
+      .group > .icon-wrapper:has(.icon-item.large) {
+        width: var(--icon-size-lg);
+      }
+      .group > .icon-wrapper:has(.icon-item.medium) {
+        width: var(--icon-size);
+      }
+      .group > .icon-wrapper:has(.icon-item.small) {
+        width: var(--icon-size-sm);
+      }
+      .group > .icon-wrapper:has(.icon-item:hover) {
+        scale: 1.2;
+        z-index: 2;
+        width: unset !important;
+        height: unset !important;
+      }
+      .group > .icon-wrapper {
+        position: relative;
+      }
+      .group > .icon-wrapper > .icon-item {
+        border-radius: 6px;
+        cursor: pointer;
+        will-change: background-color;
+        transition: background-color 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+      .group > .icon-wrapper > .icon-item:hover + .icon-tip {
+        position: absolute;
+        background-color: #666666;
+      }
+      .group > .icon-wrapper > .icon-item:hover.large + .icon-tip,
+      .group > .icon-wrapper > .icon-item:hover.medium + .icon-tip,
+      .group > .icon-wrapper > .icon-item:hover.small + .icon-tip {
+        left: 0;
+        bottom: 1px;
+      }
+      .group > .icon-wrapper > .icon-item > .img-wrapper {
+        padding: 10px;
+      }
+      .group > .icon-wrapper > .icon-item > .img-wrapper > img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+      .group > .icon-wrapper > .icon-item.large,
+      .group > .icon-wrapper > .icon-item.medium,
+      .group > .icon-wrapper > .icon-item.small {
+        width: inherit;
+      }
+      .group > .icon-wrapper > .icon-item.large {
+        height: var(--icon-size-lg);
+      }
+      .group > .icon-wrapper > .icon-item.medium {
+        height: var(--icon-size);
+      }
+      .group > .icon-wrapper > .icon-item.small {
+        height: var(--icon-size-sm);
+      }
+      .group > .icon-wrapper > .icon-item:hover.large,
+      .group > .icon-wrapper > .icon-item:hover.medium,
+      .group > .icon-wrapper > .icon-item:hover.small {
+        height: inherit !important;
+      }
+      .group > .icon-wrapper > .icon-tip {
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        will-change: bottom, font-size, background-color;
+        transition:
+          bottom 0.25s ease,
+          font-size 0.25s ease,
+          background-color 0.25s ease;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+      .group > .icon-wrapper:has(.icon-item.large) > .icon-tip {
+        font-size: var(--font-size-lg);
+      }
+      .group > .icon-wrapper:has(.icon-item.medium) > .icon-tip {
+        font-size: var(--font-size);
+      }
+      .group > .icon-wrapper:has(.icon-item.small) > .icon-tip {
+        font-size: var(--font-size-sm);
+      }
+    </style>
+    <script>
+      function setSize(size) {
+        document.querySelectorAll('.icon-item').forEach((item) => {
+          item.classList.remove('large', 'medium', 'small')
+          item.classList.add(size)
+        })
+      }
+    </script>
+    <script type="module">
+      // 导入同目录下 images.json
+      import images from './images.json' assert { type: 'json' }
+    </script>
+  </head>
+  <body>
+    <h1>Icons 图片展示</h1>
+    <div style="text-align: right; margin-bottom: 20px">
+      <label>图标大小：</label>
+      <button onclick="setSize('large')">大</button>
+      <button onclick="setSize('medium')">中</button>
+      <button onclick="setSize('small')">小</button>
+      <div id="icon-container"></div>
+    </div>
+    <script>
+      const iconContainer = document.getElementById('icon-container')
+      if (iconContainer) {
+        images.forEach((folderPath, imgList) => {
+          const container = document.createElement('div')
+          const h2 = document.createElement('h2')
+          h2.innerHTML = folderPath
+          const group = document.createElement('div')
+          group.classList.add('group')
+
+          const iconWrapper = document.createElement('div')
+          iconWrapper.classList.add('icon-wrapper')
+
+          imgList.forEach((imgPath) => {
+            const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
+
+            const iconItem = document.createElement('div')
+            iconItem.classList.add('icon-item', 'medium')
+            iconItem.title = imgName
+
+            const imgWrapper = document.createElement('div')
+            imgWrapper.classList.add('img-wrapper')
+            iconItem.appendChild(imgWrapper)
+
+            const img = document.createElement('img')
+            img.src = imgPath
+            img.alt = imgPath
+            imgWrapper.appendChild(img)
+
+            const iconTip = document.createElement('div')
+            iconTip.classList.add('icon-tip')
+
+            iconWrapper.append(iconItem, iconTip)
+            group.appendChild(iconWrapper)
+          })
+
+          container.append(h2, group)
+          iconContainer.appendChild(container)
+        })
+      }
+
+      window.onload = () => {
+        setSize('medium')
+      }
+    </script>
+  </body>
+</html>
