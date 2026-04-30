@@ -205,16 +205,16 @@
 
             const imgWrapper = document.createElement('div')
             imgWrapper.classList.add('img-wrapper')
-            iconItem.appendChild(imgWrapper)
 
             const img = document.createElement('img')
             img.src = imgPath
             img.alt = imgPath
-            imgWrapper.appendChild(img)
 
             const iconTip = document.createElement('div')
             iconTip.classList.add('icon-tip')
 
+            imgWrapper.appendChild(img)
+            iconItem.appendChild(imgWrapper)
             iconWrapper.append(iconItem, iconTip)
             group.appendChild(iconWrapper)
           })
