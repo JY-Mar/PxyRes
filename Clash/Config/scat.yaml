@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 19:58:20 GMT+8
+# UPDATED         : 2026-05-06 20:12:10 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -189,7 +189,7 @@ dns:
 #region 锚点
 Anchors:
   # [url-test | fallback | load-balance] 策略组自动择优测速地址 url
-  GroupHealthCheckUrl: &GroupHealthCheckUrl 'http://cp.cloudflare.com/generate_204'
+  GroupHealthCheckUrl: &GroupHealthCheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
   # [url-test | fallback | load-balance] 策略组测速间隔（秒）
   GroupHealthCheckInterval: &GroupHealthCheckInterval 300
   # [url-test | fallback | load-balance] 策略组代理节点切换容差（毫秒）
