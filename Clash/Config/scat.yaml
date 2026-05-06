@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 15:13:04 GMT+8
+# UPDATED         : 2026-05-06 19:58:20 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -136,7 +136,7 @@ dns:
   # 使用系统 hosts 文件
   use-system-hosts: false
   # fake-ip 或 redir-host
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
@@ -303,7 +303,7 @@ proxy-groups:
   - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
   - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
   - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
-  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
+  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌎美洲LF, 🌎美洲, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
   - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
   - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
   - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
