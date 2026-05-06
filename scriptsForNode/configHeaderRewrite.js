@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-04-30 16:44:15 +0800
+ * UPDATED         : 2026-05-06 09:45:06 +0800
  * DESC            : 更新配置文件时间
  */
 
@@ -64,9 +64,9 @@ if (/^#\s*(Clash|Loon)\s*.+/i.test(lines[0])) {
 }
 let ptr = 0
 while (ptr < lines.length) {
-  if (/^#\s*(NAME|UPDATED|UPDATER)\s*.+/.test(lines[ptr])) {
+  if (/^#\s*(NAME|AUTHOR|REPO|UPDATED|UPDATER)\s*.+/.test(lines[ptr])) {
     lines.splice(ptr, 1)
-  } else if (lines[ptr] === '') {
+  } else if (lines[ptr].trim() === '') {
     break
   } else {
     ptr++
