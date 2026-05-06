@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 09:46:14 GMT+8
+# UPDATED         : 2026-05-06 14:42:19 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -350,6 +350,7 @@ rule-providers:
   Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProviders}
   Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProviders}
   OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProviders}
+  Doubao: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Doubao.yaml, path: ./ruleset/Doubao.yaml, <<: *RuleProviders}
   # === Apple ===
   Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
@@ -393,6 +394,7 @@ rule-providers:
   JueJinCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/JueJinCN.yaml, path: ./ruleset/JueJinCN.yaml, <<: *RuleProviders}
   LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
   iKelee: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/iKelee.yaml, path: ./ruleset/iKelee.yaml, <<: *RuleProviders}
+  ElementPlus: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ElementPlus.yaml, path: ./ruleset/ElementPlus.yaml, <<: *RuleProviders}
   # === Adv ===
   AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProviders}
   # === Proxy ===
@@ -417,6 +419,7 @@ rules:
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
   - RULE-SET,AI,✨AI
+  - RULE-SET,Doubao,🎯全球直连
   # === Apple ===
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
@@ -460,6 +463,7 @@ rules:
   - RULE-SET,JueJinCN,🎯全球直连
   - RULE-SET,LinuxDo,🚀节点选择
   - RULE-SET,iKelee,🎯全球直连
+  - RULE-SET,ElementPlus,🎯全球直连
   # === Adv ===
   - RULE-SET,AdvLite,🛑全球拦截
   # === Proxy ===

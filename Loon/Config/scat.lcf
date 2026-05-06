@@ -1,9 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-04-30 16:44:26 GMT+8
-# AUTHOR          : JY-Mar
-# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-06 14:43:25 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -161,6 +159,7 @@ https://rule.kelee.one/Loon/Copilot.lsr, policy=✨Copilot, tag=Copilot, enabled
 https://rule.kelee.one/Loon/Gemini.lsr, policy=✨Gemini, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨OpenAI, tag=OpenAI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Doubao.lsr, policy=🎯全球直连, tag=Doubao, enabled=true
 # === Apple ===
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
 https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=true
@@ -204,6 +203,7 @@ https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, ena
 https://jy-mar.github.io/PxyRes/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ElementPlus.lsr, policy=🎯全球直连, tag=ElementPlus, enabled=true
 # === Adv ===
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvLite, enabled=false
 # === Proxy ===

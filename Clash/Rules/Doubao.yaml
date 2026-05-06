@@ -1,0 +1,15 @@
+# NAME            : Doubao
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-06 14:40:47 GMT+8
+# DOMAIN          : 4
+# DOMAIN-SUFFIX   : 2
+# TOTAL           : 6
+
+payload:
+  - DOMAIN,mcs.doubao.com
+  - DOMAIN,opt.doubao.com
+  - DOMAIN,www.doubao.com
+  - DOMAIN-SUFFIX,doubao.com
+  - DOMAIN,lf3-cdn-tos.bytecdntp.com
+  - DOMAIN-SUFFIX,bytecdntp.com
