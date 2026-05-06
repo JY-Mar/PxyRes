@@ -1,0 +1,9 @@
+# NAME            : CodeCDN
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-06 15:13:29 GMT+8
+# DOMAIN-SUFFIX   : 2
+# TOTAL           : 2
+
+DOMAIN-SUFFIX,unpkg.com
+DOMAIN-SUFFIX,jsdelivr.net

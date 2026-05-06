@@ -1,13 +1,9 @@
 # NAME            : ElementPlus
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 14:35:36 GMT+8
-# DOMAIN          : 6
-# TOTAL           : 6
+# UPDATED         : 2026-05-06 15:11:37 GMT+8
+# DOMAIN-SUFFIX   : 1
+# TOTAL           : 1
 
-DOMAIN,unpkg.com
-DOMAIN,cdn.jsdelivr.net
-DOMAIN,lf3-cdn-tos.bytecdntp.com
-DOMAIN,element-plus.org
-DOMAIN,fonts.googleapis.com
-DOMAIN,fonts.gstatic.com
+# Element Plus 官网
+DOMAIN-SUFFIX,element-plus.org

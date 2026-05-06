@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 14:43:25 GMT+8
+# UPDATED         : 2026-05-06 15:13:20 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -159,7 +159,6 @@ https://rule.kelee.one/Loon/Copilot.lsr, policy=✨Copilot, tag=Copilot, enabled
 https://rule.kelee.one/Loon/Gemini.lsr, policy=✨Gemini, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨OpenAI, tag=OpenAI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/Doubao.lsr, policy=🎯全球直连, tag=Doubao, enabled=true
 # === Apple ===
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
 https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=true
@@ -190,6 +189,7 @@ https://rule.kelee.one/Loon/Disney.lsr, policy=🐭Disney, tag=Disney, enabled=t
 https://rule.kelee.one/Loon/Bahamut.lsr, policy=📺Bahamut, tag=Bahamut, enabled=true
 https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=🎯全球直连, tag=VidHub, enabled=true
+https://rule.kelee.one/Loon/ByteDance.lsr, policy=🎯全球直连, tag=ByteDance, enabled=true
 # === Monitor ===
 https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
 # === Social ===
@@ -204,6 +204,7 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ElementPlus.lsr, policy=🎯全球直连, tag=ElementPlus, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/CodeCDN.lsr, policy=🎯全球直连, tag=CodeCDN, enabled=true
 # === Adv ===
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvLite, enabled=false
 # === Proxy ===
