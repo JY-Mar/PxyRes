@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-07 09:31:54 GMT+8
+# UPDATED         : 2026-05-07 10:01:01 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -53,9 +53,11 @@ ipv6: true
 # UDP 支持
 udp: true
 # 外部控制器(HTTP)监听地址
-external-controller: 127.0.0.1:17890
+external-controller: 0.0.0.0:17890
 # 请求头Authorization:Bearer <secret>
 secret: "9527"
+# 外部用户界面路径(默认:工作目录/ui)
+external-ui: dashboard
 
 bind-address: '*'
 #endregion
