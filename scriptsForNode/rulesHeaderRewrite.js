@@ -4,7 +4,7 @@
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
  * UPDATED         : 2026-04-30 16:42:48 +0800
- * DESC            : 重写规则文件头信息
+ * DESC            : 规则文件 头信息重写
  */
 
 const path = require('path')

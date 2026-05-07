@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-06 20:12:10 GMT+8
+# UPDATED         : 2026-05-07 09:31:54 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -189,81 +189,81 @@ dns:
 #region 锚点
 Anchors:
   # [url-test | fallback | load-balance] 策略组自动择优测速地址 url
-  GroupHealthCheckUrl: &GroupHealthCheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
+  proxy-test-url: &proxy-test-url 'https://cp.cloudflare.com/generate_204'
   # [url-test | fallback | load-balance] 策略组测速间隔（秒）
-  GroupHealthCheckInterval: &GroupHealthCheckInterval 300
+  proxy-test-interval: &proxy-test-interval 300
   # [url-test | fallback | load-balance] 策略组代理节点切换容差（毫秒）
-  GroupProxySwitchTolerance: &GroupProxySwitchTolerance 50
+  proxy-test-tolerance: &proxy-test-tolerance 50
   # [url-test | fallback | load-balance] 策略组测速超时（毫秒）（超出则判定为失败）
-  GroupHealthCheckTimeout: &GroupHealthCheckTimeout 5000
+  test-timeout: &test-timeout 5000
   # [url-test | fallback | load-balance] 策略组测速失败次数（在 timeout 时间长度内,请求失败 max-failed-times 次,强制提前主动触发健康检查）
-  GroupHealthCheckMaxFailedTimes: &GroupHealthCheckMaxFailedTimes 3
+  switch-node-after-failure-times: &switch-node-after-failure-times 3
   # 订阅源更新间隔（秒）
-  ProviderUpdateInterval: &ProviderUpdateInterval 86400
+  provider-update-interval: &provider-update-interval 86400
   # 订阅源健康检查间隔（秒）
-  ProviderHealthCheckInterval: &ProviderHealthCheckInterval 600
+  internet-test-interval: &internet-test-interval 600
   # 订阅源健康检查 url
-  ProviderHealthCheckUrl: &ProviderHealthCheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
-  # 策略组 [url-test每 GroupHealthCheckInterval 秒一次惰性健康检查，容差 GroupProxySwitchTolerance 毫秒，时延超过 GroupHealthCheckTimeout 毫秒判定为失败，失败 GroupHealthCheckMaxFailedTimes 次则自动触发健康检查]
-  UrlTestGroup:
-    &UrlTestGroup {
+  internet-test-url: &internet-test-url 'https://connectivitycheck.platform.hicloud.com/generate_204'
+  # 策略组 [url-test每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  url-test:
+    &url-test {
       type: url-test,
-      url: *GroupHealthCheckUrl,
-      interval: *GroupHealthCheckInterval,
-      tolerance: *GroupProxySwitchTolerance,
+      url: *proxy-test-url,
+      interval: *proxy-test-interval,
+      tolerance: *proxy-test-tolerance,
       lazy: true,
-      timeout: *GroupHealthCheckTimeout,
-      max-failed-times: *GroupHealthCheckMaxFailedTimes,
+      timeout: *test-timeout,
+      max-failed-times: *switch-node-after-failure-times,
       include-all: false
     }
-  # 策略组 [fallback每 GroupHealthCheckInterval 秒一次惰性健康检查，容差 GroupProxySwitchTolerance 毫秒，时延超过 GroupHealthCheckTimeout 毫秒判定为失败，失败 GroupHealthCheckMaxFailedTimes 次则自动触发健康检查]
-  FallbackGroup:
-    &FallbackGroup {
-      <<: *UrlTestGroup,
+  # 策略组 [fallback每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  fallback:
+    &fallback {
+      <<: *url-test,
       type: fallback,
     }
-  # 规则集 [每 ProviderUpdateInterval 秒更新一次订阅规则]
+  # 规则集 [每 provider-update-interval 秒更新一次订阅规则]
   RuleProviders: &RuleProviders {
     type: http,
     behavior: classical,
-    interval: *ProviderUpdateInterval
+    interval: *provider-update-interval
   }
-  # 代理集 [每 ProviderUpdateInterval 秒更新一次订阅节点，每 ProviderHealthCheckInterval 秒一次健康检查]
+  # 代理集 [每 provider-update-interval 秒更新一次订阅节点，每 internet-test-interval 秒一次健康检查]
   ProxyProviders: &ProxyProviders {
     type: http,
-    interval: *ProviderUpdateInterval,
+    interval: *provider-update-interval,
     health-check: {
       enable: true,
-      url: *ProviderHealthCheckUrl,
-      interval: *ProviderHealthCheckInterval,
+      url: *internet-test-url,
+      interval: *internet-test-interval,
       lazy: true
     }
   }
   # 正则筛选（正则中避免出现中文、emoji，会不兼容）
   Filters:
-    Filter_Region_HK: &Filter_Region_HK ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_MO: &Filter_Region_MO ^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_TW: &Filter_Region_TW ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_CHINA: &Filter_Region_CHINA ^(?=.*((?i)🇭🇰|香港|🇲🇴|澳门|🇹🇼|台湾|(\b(HK|HKG|Hong|MO|MAC|Macau|Macao|TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_JP: &Filter_Region_JP ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_KR: &Filter_Region_KR ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_SG: &Filter_Region_SG ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_MY: &Filter_Region_MY ^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_IN: &Filter_Region_IN ^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_ASIA: &Filter_Region_ASIA ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|🇰🇷|韩国|韓|南朝鲜|首尔|🇸🇬|新加坡|星洲|狮城|狮|🇲🇾|马来西亚|大马|马来|🇮🇳|印度|新德里|印|(\b(JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|MY|Malaysia|IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_US: &Filter_Region_US ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_CA: &Filter_Region_CA ^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_AMERICA: &Filter_Region_AMERICA ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(US|USA|United States|CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_AU: &Filter_Region_AU ^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_OCEANIA: &Filter_Region_OCEANIA ^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_UK: &Filter_Region_UK ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_FR: &Filter_Region_FR ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_DE: &Filter_Region_DE ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_IT: &Filter_Region_IT ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_NL: &Filter_Region_NL ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands|Nederland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_LU: &Filter_Region_LU ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_LT: &Filter_Region_LT ^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
-    Filter_Region_EUROPE: &Filter_Region_EUROPE ^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_HK: &Filter_Nat_HK ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_MO: &Filter_Nat_MO ^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_TW: &Filter_Nat_TW ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_CHN: &Filter_Nat_CHN ^(?=.*((?i)🇭🇰|香港|🇲🇴|澳门|🇹🇼|台湾|(\b(HK|HKG|Hong|MO|MAC|Macau|Macao|TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_JP: &Filter_Nat_JP ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_KR: &Filter_Nat_KR ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_SG: &Filter_Nat_SG ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_MY: &Filter_Nat_MY ^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_IN: &Filter_Nat_IN ^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Reg_ASI: &Filter_Reg_ASI ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|🇰🇷|韩国|韓|南朝鲜|首尔|🇸🇬|新加坡|星洲|狮城|狮|🇲🇾|马来西亚|大马|马来|🇮🇳|印度|新德里|印|(\b(JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|MY|Malaysia|IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_US: &Filter_Nat_US ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_CA: &Filter_Nat_CA ^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Reg_NAM: &Filter_Reg_NAM ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(US|USA|United States|CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_AU: &Filter_Nat_AU ^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Reg_OCE: &Filter_Reg_OCE ^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_UK: &Filter_Nat_UK ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_FR: &Filter_Nat_FR ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_DE: &Filter_Nat_DE ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_IT: &Filter_Nat_IT ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_NL: &Filter_Nat_NL ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands|Nederland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_LU: &Filter_Nat_LU ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Nat_LT: &Filter_Nat_LT ^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    Filter_Reg_EUR: &Filter_Reg_EUR ^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
     Filter_Game: &Filter_Game ^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
     Filter_Global: &Filter_Global ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
 #endregion
@@ -284,63 +284,63 @@ Anchors:
 #region 策略组
 proxy-groups:
   # 基础策略
-  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
-  - {name: ♻️自动选择, <<: *UrlTestGroup, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
-  - {name: 🚀手动切换, type: select, proxies: [🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
+  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
+  - {name: ♻️自动选择, <<: *url-test, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
+  - {name: 🚀手动切换, type: select, proxies: [🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *FallbackGroup, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Final.png}
+  - {name: 🛠️故障转移, <<: *fallback, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Final.png}
   - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bywave.png}
   # App专属 App-Specific
-  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
-  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
-  - {name: ✨Gemini, type: select, proxies: [✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
-  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
-  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🪟MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
-  - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
-  - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
-  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌎美洲LF, 🌎美洲, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
-  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
-  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
-  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
-  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
-  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎美洲LF, 🌎美洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
+  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
+  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
+  - {name: ✨Gemini, type: select, proxies: [✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
+  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
+  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🪟MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 🪟Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
+  - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
+  - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
+  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌎北美LF, 🌎北美, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
+  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
+  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
+  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
+  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
+  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
   - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾LF, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
   # 区域选择
   - {name: 🌏国内, type: select, proxies: [🇭🇰香港LF, 🇲🇴澳门LF, 🇨🇳台湾LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
   - {name: 🌏亚洲, type: select, proxies: [🇯🇵日本LF, 🇰🇷韩国LF, 🇸🇬星洲LF, 🇲🇾马来LF, 🇮🇳印度LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png}
-  - {name: 🌎美洲, type: select, proxies: [🇺🇸美国LF, 🇨🇦加拿大LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png}
+  - {name: 🌎北美, type: select, proxies: [🇺🇸美国LF, 🇨🇦加拿大LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png}
   - {name: 🌏洋洲, type: select, proxies: [🇦🇺澳洲LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png}
   - {name: 🌍欧洲, type: select, proxies: [🇬🇧英国LF, 🇫🇷法国LF, 🇩🇪德国LF, 🇮🇹意大利LF, 🇳🇱荷兰LF, 🇱🇺卢森堡LF, 🇱🇹立陶宛LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png}
   # 延迟优先 Latency-First
-  - {name: 🌏国内LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_CHINA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
-  - {name: 🌏亚洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_ASIA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
-  - {name: 🌎美洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_AMERICA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
-  - {name: 🌏洋洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_OCEANIA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
-  - {name: 🌍欧洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_EUROPE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
-  - {name: 🇭🇰香港LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
-  - {name: 🇲🇴澳门LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
-  - {name: 🇨🇳台湾LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
-  - {name: 🇯🇵日本LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
-  - {name: 🇰🇷韩国LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
-  - {name: 🇸🇬星洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
-  - {name: 🇲🇾马来LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
-  - {name: 🇮🇳印度LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
-  - {name: 🇺🇸美国LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
-  - {name: 🇨🇦加拿大LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
-  - {name: 🇦🇺澳洲LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
-  - {name: 🇬🇧英国LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
-  - {name: 🇫🇷法国LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
-  - {name: 🇩🇪德国LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
-  - {name: 🇮🇹意大利LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
-  - {name: 🇳🇱荷兰LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
-  - {name: 🇱🇺卢森堡LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
-  - {name: 🇱🇹立陶宛LF, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
+  - {name: 🌏国内LF, <<: *url-test, include-all: true, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
+  - {name: 🌏亚洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
+  - {name: 🌎北美LF, <<: *url-test, include-all: true, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
+  - {name: 🌏洋洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
+  - {name: 🌍欧洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
+  - {name: 🇭🇰香港LF, <<: *url-test, include-all: true, filter: *Filter_Nat_HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
+  - {name: 🇲🇴澳门LF, <<: *url-test, include-all: true, filter: *Filter_Nat_MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
+  - {name: 🇨🇳台湾LF, <<: *url-test, include-all: true, filter: *Filter_Nat_TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
+  - {name: 🇯🇵日本LF, <<: *url-test, include-all: true, filter: *Filter_Nat_JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
+  - {name: 🇰🇷韩国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
+  - {name: 🇸🇬星洲LF, <<: *url-test, include-all: true, filter: *Filter_Nat_SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
+  - {name: 🇲🇾马来LF, <<: *url-test, include-all: true, filter: *Filter_Nat_MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
+  - {name: 🇮🇳印度LF, <<: *url-test, include-all: true, filter: *Filter_Nat_IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
+  - {name: 🇺🇸美国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
+  - {name: 🇨🇦加拿大LF, <<: *url-test, include-all: true, filter: *Filter_Nat_CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
+  - {name: 🇦🇺澳洲LF, <<: *url-test, include-all: true, filter: *Filter_Nat_AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
+  - {name: 🇬🇧英国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
+  - {name: 🇫🇷法国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
+  - {name: 🇩🇪德国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
+  - {name: 🇮🇹意大利LF, <<: *url-test, include-all: true, filter: *Filter_Nat_IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
+  - {name: 🇳🇱荷兰LF, <<: *url-test, include-all: true, filter: *Filter_Nat_NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
+  - {name: 🇱🇺卢森堡LF, <<: *url-test, include-all: true, filter: *Filter_Nat_LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
+  - {name: 🇱🇹立陶宛LF, <<: *url-test, include-all: true, filter: *Filter_Nat_LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
 #endregion
 
 #region 规则集

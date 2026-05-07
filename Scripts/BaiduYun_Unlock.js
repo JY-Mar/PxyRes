@@ -4,7 +4,7 @@
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
  * UPDATED         : 2026-04-28 12:03:23 +0800
- * DESC            : 百度网盘整合版 解锁 SVIP、在线视频倍率/清晰度（动态数值）
+ * DESC            : 百度网盘整合版（NobyDa、chengkongyiban） 解锁 SVIP、在线视频倍率/清晰度（动态数值）
  */
 
 // #region QuantumultX

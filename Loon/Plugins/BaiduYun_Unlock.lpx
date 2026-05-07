@@ -7,8 +7,8 @@
 #!icon=https://jy-mar.github.io/PxyRes/Icons/Color/Baidu_Net_Disk.png
 #!openUrl=https://apps.apple.com/app/id547166701
 
-[Script]
-http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js,requires-body=true,script-update-interval=0,tag=BaiduYun_Unlock
-
 [MITM]
 hostname = pan.baidu.com
+
+[Script]
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js,requires-body=true,script-update-interval=0,tag=BaiduYun_Unlock
