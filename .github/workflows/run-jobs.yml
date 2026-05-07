@@ -100,12 +100,12 @@ jobs:
         with:
           path: ./docs
 
-      - name: 👉 Repository Dispatch "PxyGen"
+      - name: 👉 Repository Dispatch "JY-Mar/PxyGen"
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.CLASH_GITHUB_TOKEN }}
           repository: JY-Mar/PxyGen
-          event-type: trigger-from-PxyRes
+          event-type: Triggered From JY-Mar/PxyRes
           # 可选：你还可以传递一些数据过去
           # client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
