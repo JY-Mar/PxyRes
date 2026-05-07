@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-07 12:23:58 GMT+8
+# UPDATED         : 2026-05-07 15:21:35 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -206,7 +206,8 @@ Anchors:
   internet-test-interval: &internet-test-interval 600
   # 订阅源健康检查 url
   internet-test-url: &internet-test-url 'https://connectivitycheck.platform.hicloud.com/generate_204'
-  # 策略组 [url-test每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  # 自动测速策略组 [url-test 每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  # proxies 内节点将根据测速结果自动切换延迟最低的节点
   url-test:
     &url-test {
       type: url-test,
@@ -216,13 +217,23 @@ Anchors:
       lazy: true,
       timeout: *test-timeout,
       max-failed-times: *switch-node-after-failure-times,
-      include-all: false
+      include-all: false,
+      hidden: true
     }
-  # 策略组 [fallback每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  # 故障转移策略组 [fallback 每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  # proxies 内节点将根据测速结果自动切换从上到下第一个连通的节点
   fallback:
     &fallback {
       <<: *url-test,
-      type: fallback,
+      type: fallback
+    }
+  # 负载均衡策略组 [load-balance 每 proxy-test-interval 秒一次惰性健康检查，容差 proxy-test-tolerance 毫秒，时延超过 test-timeout 毫秒判定为失败，失败 switch-node-after-failure-times 次则自动触发健康检查]
+  # proxies 内节点将多个节点分摊流量
+  load-balance:
+    &load-balance {
+      <<: *url-test,
+      type: load-balance,
+      strategy: sticky-sessions
     }
   # 规则集 [每 provider-update-interval 秒更新一次订阅规则]
   RuleProviders: &RuleProviders {
@@ -287,7 +298,7 @@ Anchors:
 proxy-groups:
   # 基础策略
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
-  - {name: ♻️自动选择, <<: *url-test, include-all: true, filter: *Filter_Global, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
+  - {name: ♻️自动选择, <<: *url-test, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
   - {name: 🚀手动切换, type: select, proxies: [🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
@@ -320,29 +331,29 @@ proxy-groups:
   - {name: 🌏洋洲手动, type: select, proxies: [🇦🇺澳洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png}
   - {name: 🌍欧洲手动, type: select, proxies: [🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png}
   # 延迟优先 Latency-First
-  - {name: 🌏港台, <<: *url-test, include-all: true, filter: *Filter_Nat_CHN, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
-  - {name: 🌏亚洲, <<: *url-test, include-all: true, filter: *Filter_Reg_ASI, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
-  - {name: 🌎北美, <<: *url-test, include-all: true, filter: *Filter_Reg_NAM, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
-  - {name: 🌏洋洲, <<: *url-test, include-all: true, filter: *Filter_Reg_OCE, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
-  - {name: 🌍欧洲, <<: *url-test, include-all: true, filter: *Filter_Reg_EUR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
-  - {name: 🇭🇰香港, <<: *url-test, include-all: true, filter: *Filter_Nat_HK, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
-  - {name: 🇲🇴澳门, <<: *url-test, include-all: true, filter: *Filter_Nat_MO, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
-  - {name: 🇨🇳台湾, <<: *url-test, include-all: true, filter: *Filter_Nat_TW, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
-  - {name: 🇯🇵日本, <<: *url-test, include-all: true, filter: *Filter_Nat_JP, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
-  - {name: 🇰🇷韩国, <<: *url-test, include-all: true, filter: *Filter_Nat_KR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
-  - {name: 🇸🇬星洲, <<: *url-test, include-all: true, filter: *Filter_Nat_SG, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
-  - {name: 🇲🇾马来, <<: *url-test, include-all: true, filter: *Filter_Nat_MY, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
-  - {name: 🇮🇳印度, <<: *url-test, include-all: true, filter: *Filter_Nat_IN, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
-  - {name: 🇺🇸美国, <<: *url-test, include-all: true, filter: *Filter_Nat_US, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
-  - {name: 🇨🇦加拿大, <<: *url-test, include-all: true, filter: *Filter_Nat_CA, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
-  - {name: 🇦🇺澳洲, <<: *url-test, include-all: true, filter: *Filter_Nat_AU, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
-  - {name: 🇬🇧英国, <<: *url-test, include-all: true, filter: *Filter_Nat_UK, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
-  - {name: 🇫🇷法国, <<: *url-test, include-all: true, filter: *Filter_Nat_FR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
-  - {name: 🇩🇪德国, <<: *url-test, include-all: true, filter: *Filter_Nat_DE, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
-  - {name: 🇮🇹意大利, <<: *url-test, include-all: true, filter: *Filter_Nat_IT, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
-  - {name: 🇳🇱荷兰, <<: *url-test, include-all: true, filter: *Filter_Nat_NL, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
-  - {name: 🇱🇺卢森堡, <<: *url-test, include-all: true, filter: *Filter_Nat_LU, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
-  - {name: 🇱🇹立陶宛, <<: *url-test, include-all: true, filter: *Filter_Nat_LT, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
+  - {name: 🌏港台, <<: *url-test, include-all: true, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
+  - {name: 🌏亚洲, <<: *url-test, include-all: true, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
+  - {name: 🌎北美, <<: *url-test, include-all: true, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
+  - {name: 🌏洋洲, <<: *url-test, include-all: true, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
+  - {name: 🌍欧洲, <<: *url-test, include-all: true, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
+  - {name: 🇭🇰香港, <<: *url-test, include-all: true, filter: *Filter_Nat_HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
+  - {name: 🇲🇴澳门, <<: *url-test, include-all: true, filter: *Filter_Nat_MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
+  - {name: 🇨🇳台湾, <<: *url-test, include-all: true, filter: *Filter_Nat_TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
+  - {name: 🇯🇵日本, <<: *url-test, include-all: true, filter: *Filter_Nat_JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
+  - {name: 🇰🇷韩国, <<: *url-test, include-all: true, filter: *Filter_Nat_KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
+  - {name: 🇸🇬星洲, <<: *url-test, include-all: true, filter: *Filter_Nat_SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
+  - {name: 🇲🇾马来, <<: *url-test, include-all: true, filter: *Filter_Nat_MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
+  - {name: 🇮🇳印度, <<: *url-test, include-all: true, filter: *Filter_Nat_IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
+  - {name: 🇺🇸美国, <<: *url-test, include-all: true, filter: *Filter_Nat_US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
+  - {name: 🇨🇦加拿大, <<: *url-test, include-all: true, filter: *Filter_Nat_CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
+  - {name: 🇦🇺澳洲, <<: *url-test, include-all: true, filter: *Filter_Nat_AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
+  - {name: 🇬🇧英国, <<: *url-test, include-all: true, filter: *Filter_Nat_UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
+  - {name: 🇫🇷法国, <<: *url-test, include-all: true, filter: *Filter_Nat_FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
+  - {name: 🇩🇪德国, <<: *url-test, include-all: true, filter: *Filter_Nat_DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
+  - {name: 🇮🇹意大利, <<: *url-test, include-all: true, filter: *Filter_Nat_IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
+  - {name: 🇳🇱荷兰, <<: *url-test, include-all: true, filter: *Filter_Nat_NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
+  - {name: 🇱🇺卢森堡, <<: *url-test, include-all: true, filter: *Filter_Nat_LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
+  - {name: 🇱🇹立陶宛, <<: *url-test, include-all: true, filter: *Filter_Nat_LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
 #endregion
 
 #region 规则集
