@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-07 10:01:01 GMT+8
+# UPDATED         : 2026-05-07 10:55:57 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -286,63 +286,63 @@ Anchors:
 #region 策略组
 proxy-groups:
   # 基础策略
-  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
+  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
   - {name: ♻️自动选择, <<: *url-test, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
-  - {name: 🚀手动切换, type: select, proxies: [🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
+  - {name: 🚀手动切换, type: select, proxies: [🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *fallback, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Final.png}
-  - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bywave.png}
+  - {name: 🛠️故障转移, <<: *fallback, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png}
+  - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
   # App专属 App-Specific
-  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
-  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
-  - {name: ✨Gemini, type: select, proxies: [✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
-  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
-  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🪟MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
-  - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
-  - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
-  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌎北美LF, 🌎北美, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
-  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
-  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
-  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
-  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
-  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏国内LF, 🌏国内, 🌏亚洲LF, 🌏亚洲, 🌎北美LF, 🌎北美, 🌏洋洲LF, 🌏洋洲, 🌍欧洲LF, 🌍欧洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
-  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾LF, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
+  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
+  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
+  - {name: ✨Gemini, type: select, proxies: [✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
+  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
+  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🪟MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 🪟Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
+  - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
+  - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
+  - {name: 🐦X_Twitter, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌎北美, 🌎北美手动, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
+  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
+  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
+  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
+  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
+  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
+  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
   # 区域选择
-  - {name: 🌏国内, type: select, proxies: [🇭🇰香港LF, 🇲🇴澳门LF, 🇨🇳台湾LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
-  - {name: 🌏亚洲, type: select, proxies: [🇯🇵日本LF, 🇰🇷韩国LF, 🇸🇬星洲LF, 🇲🇾马来LF, 🇮🇳印度LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png}
-  - {name: 🌎北美, type: select, proxies: [🇺🇸美国LF, 🇨🇦加拿大LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png}
-  - {name: 🌏洋洲, type: select, proxies: [🇦🇺澳洲LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png}
-  - {name: 🌍欧洲, type: select, proxies: [🇬🇧英国LF, 🇫🇷法国LF, 🇩🇪德国LF, 🇮🇹意大利LF, 🇳🇱荷兰LF, 🇱🇺卢森堡LF, 🇱🇹立陶宛LF], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png}
+  - {name: 🌏港台手动, type: select, proxies: [🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
+  - {name: 🌏亚洲手动, type: select, proxies: [🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png}
+  - {name: 🌎北美手动, type: select, proxies: [🇺🇸美国, 🇨🇦加拿大], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png}
+  - {name: 🌏洋洲手动, type: select, proxies: [🇦🇺澳洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png}
+  - {name: 🌍欧洲手动, type: select, proxies: [🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png}
   # 延迟优先 Latency-First
-  - {name: 🌏国内LF, <<: *url-test, include-all: true, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
-  - {name: 🌏亚洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
-  - {name: 🌎北美LF, <<: *url-test, include-all: true, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
-  - {name: 🌏洋洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
-  - {name: 🌍欧洲LF, <<: *url-test, include-all: true, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
-  - {name: 🇭🇰香港LF, <<: *url-test, include-all: true, filter: *Filter_Nat_HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
-  - {name: 🇲🇴澳门LF, <<: *url-test, include-all: true, filter: *Filter_Nat_MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
-  - {name: 🇨🇳台湾LF, <<: *url-test, include-all: true, filter: *Filter_Nat_TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
-  - {name: 🇯🇵日本LF, <<: *url-test, include-all: true, filter: *Filter_Nat_JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
-  - {name: 🇰🇷韩国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
-  - {name: 🇸🇬星洲LF, <<: *url-test, include-all: true, filter: *Filter_Nat_SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
-  - {name: 🇲🇾马来LF, <<: *url-test, include-all: true, filter: *Filter_Nat_MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
-  - {name: 🇮🇳印度LF, <<: *url-test, include-all: true, filter: *Filter_Nat_IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
-  - {name: 🇺🇸美国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
-  - {name: 🇨🇦加拿大LF, <<: *url-test, include-all: true, filter: *Filter_Nat_CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
-  - {name: 🇦🇺澳洲LF, <<: *url-test, include-all: true, filter: *Filter_Nat_AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
-  - {name: 🇬🇧英国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
-  - {name: 🇫🇷法国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
-  - {name: 🇩🇪德国LF, <<: *url-test, include-all: true, filter: *Filter_Nat_DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
-  - {name: 🇮🇹意大利LF, <<: *url-test, include-all: true, filter: *Filter_Nat_IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
-  - {name: 🇳🇱荷兰LF, <<: *url-test, include-all: true, filter: *Filter_Nat_NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
-  - {name: 🇱🇺卢森堡LF, <<: *url-test, include-all: true, filter: *Filter_Nat_LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
-  - {name: 🇱🇹立陶宛LF, <<: *url-test, include-all: true, filter: *Filter_Nat_LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
+  - {name: 🌏港台, <<: *url-test, include-all: true, filter: *Filter_Nat_CHN, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
+  - {name: 🌏亚洲, <<: *url-test, include-all: true, filter: *Filter_Reg_ASI, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
+  - {name: 🌎北美, <<: *url-test, include-all: true, filter: *Filter_Reg_NAM, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
+  - {name: 🌏洋洲, <<: *url-test, include-all: true, filter: *Filter_Reg_OCE, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
+  - {name: 🌍欧洲, <<: *url-test, include-all: true, filter: *Filter_Reg_EUR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
+  - {name: 🇭🇰香港, <<: *url-test, include-all: true, filter: *Filter_Nat_HK, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
+  - {name: 🇲🇴澳门, <<: *url-test, include-all: true, filter: *Filter_Nat_MO, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
+  - {name: 🇨🇳台湾, <<: *url-test, include-all: true, filter: *Filter_Nat_TW, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
+  - {name: 🇯🇵日本, <<: *url-test, include-all: true, filter: *Filter_Nat_JP, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
+  - {name: 🇰🇷韩国, <<: *url-test, include-all: true, filter: *Filter_Nat_KR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
+  - {name: 🇸🇬星洲, <<: *url-test, include-all: true, filter: *Filter_Nat_SG, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
+  - {name: 🇲🇾马来, <<: *url-test, include-all: true, filter: *Filter_Nat_MY, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
+  - {name: 🇮🇳印度, <<: *url-test, include-all: true, filter: *Filter_Nat_IN, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
+  - {name: 🇺🇸美国, <<: *url-test, include-all: true, filter: *Filter_Nat_US, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
+  - {name: 🇨🇦加拿大, <<: *url-test, include-all: true, filter: *Filter_Nat_CA, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
+  - {name: 🇦🇺澳洲, <<: *url-test, include-all: true, filter: *Filter_Nat_AU, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
+  - {name: 🇬🇧英国, <<: *url-test, include-all: true, filter: *Filter_Nat_UK, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
+  - {name: 🇫🇷法国, <<: *url-test, include-all: true, filter: *Filter_Nat_FR, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
+  - {name: 🇩🇪德国, <<: *url-test, include-all: true, filter: *Filter_Nat_DE, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
+  - {name: 🇮🇹意大利, <<: *url-test, include-all: true, filter: *Filter_Nat_IT, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
+  - {name: 🇳🇱荷兰, <<: *url-test, include-all: true, filter: *Filter_Nat_NL, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
+  - {name: 🇱🇺卢森堡, <<: *url-test, include-all: true, filter: *Filter_Nat_LU, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
+  - {name: 🇱🇹立陶宛, <<: *url-test, include-all: true, filter: *Filter_Nat_LT, hidden: true, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
 #endregion
 
 #region 规则集
