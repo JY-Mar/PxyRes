@@ -1,6 +1,6 @@
 /*
  * NAME            : BaiduYun_Unlock
- * AUTHOR          : Nobyda
+ * AUTHOR          : Nobyda,JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
  * UPDATED         : 2026-05-08 15:43:36 +0800
@@ -9,7 +9,7 @@
 
 // #region QuantumultX
 // [rewrite_local]
-// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js
+// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/PxyRes/Scripts/BaiduYun/Unlock.js
 
 // [mitm]
 // hostname = pan.baidu.com

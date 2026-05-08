@@ -1,9 +1,9 @@
 /*
- * NAME            : TencentVideo_Ads
- * AUTHOR          : mieqq
+ * NAME            : VideoAds
+ * AUTHOR          : mieqq,JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 16:52:10 +0800
+ * UPDATED         : 2026-05-08 17:54:57 +0800
  * DESC            : 引用地址：https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js
  */
 /*
@@ -44,7 +44,7 @@ let body
 let bodyType = ''
 if (typeof $argument === 'undefined' || $argument === undefined || $argument === null || $argument === '') {
   body = undefined
-  console.log('[TencentVideo_Ads] requires $argument')
+  console.log('[TencentVideo_Ads] VideoAds: requires $argument')
 } else {
   if (typeof $response !== 'undefined' && $response.body) {
     body = $response.body
@@ -54,11 +54,11 @@ if (typeof $argument === 'undefined' || $argument === undefined || $argument ===
     bodyType = 'request'
   } else {
     body = undefined
-    console.log('[TencentVideo_Ads] script type error')
+    console.log('[TencentVideo_Ads] VideoAds: script type error')
   }
 }
 if (!!bodyType) {
-  console.log('[TencentVideo_Ads] http-' + bodyType)
+  console.log('[TencentVideo_Ads] VideoAds: http-' + bodyType)
 }
 
 if (body) {
@@ -78,6 +78,6 @@ if (body) {
   // 将修改后的 Body 交还给系统，完成拦截修改
   $done({ body })
 } else {
-  console.log('[TencentVideo_Ads] body Not Modify')
+  console.log('[TencentVideo_Ads] VideoAds: body Not Modify')
   $done({})
 }
