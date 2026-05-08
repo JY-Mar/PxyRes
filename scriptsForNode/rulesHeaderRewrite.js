@@ -99,10 +99,15 @@ const lines = filecontent.split(/\r?\n/)
 let above = []
 let insert = []
 let below = []
+let extraError = ''
 const lastHeaderIndex = lines.findLastIndex((v) => /(# [a-zA-Z0-9-_]+\s*:\s*)\d+/.test(v))
 const firstContentIndex = lines.findIndex((v, k) => {
   if (extname === 'yaml') {
-    return /^payload:$/.test(v)
+    const result = /^payload:$/.test(v)
+    if (!result) {
+      extraError = `"payload" line Syntax Error`
+    }
+    return result
   } else if (extname === 'lsr' || extname === 'list') {
     return k > lastHeaderIndex && (/^\s*#\s*.+/.test(v) || new RegExp(`^\\s*\(${RULETYPE.join('|')}\),\.+`).test(v))
   }
@@ -115,7 +120,7 @@ if (lastHeaderIndex > -1 && firstContentIndex > -1 && lastHeaderIndex < firstCon
   above = []
   below = lines.slice(firstContentIndex)
 } else {
-  console.error(`${extname} line error`)
+  console.error(`"${extname}" line error` + (extraError ? `. ${extraError}` : ''))
   process.exit(1)
 }
 
