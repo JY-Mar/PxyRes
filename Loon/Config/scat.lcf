@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-08 12:07:25 GMT+8
+# UPDATED         : 2026-05-08 12:24:43 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -205,6 +205,7 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择,
 https://jy-mar.github.io/PxyRes/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ElementPlus.lsr, policy=🎯全球直连, tag=ElementPlus, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/CodeCDN.lsr, policy=🎯全球直连, tag=CodeCDN, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/TecentHTTPDNS.lsr, policy=🎯全球直连, tag=TecentHTTPDNS, enabled=true
 # === Life ===
 https://jy-mar.github.io/PxyRes/Loon/Rules/MetroCN.lsr, policy=🎯全球直连, tag=MetroCN, enabled=true
 # === Adv ===
