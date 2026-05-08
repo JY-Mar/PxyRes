@@ -1,18 +1,18 @@
 # NAME            : MetroCN
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-08 12:20:00 GMT+8
-# DOMAIN-SUFFIX   : 6
-# TOTAL           : 6
+# UPDATED         : 2026-05-08 12:49:01 GMT+8
+# DOMAIN-SUFFIX   : 7
+# TOTAL           : 7
 
 # 核心业务域名
 # 物美集团
 DOMAIN-SUFFIX,dmall.com
 DOMAIN-SUFFIX,dmall.com.cn
+DOMAIN-SUFFIX,dmallcdn.com
+DOMAIN-SUFFIX,dmallstatic.com
+
 # 麦德龙
 DOMAIN-SUFFIX,metromall.cn
 DOMAIN-SUFFIX,metromall.com.cn
 DOMAIN-SUFFIX,metro.cn
-
-# 静态资源域名（防止图片加载不出来）
-DOMAIN-SUFFIX,dmallstatic.com
