@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-06 09:45:06 +0800
+ * UPDATED         : 2026-05-08 15:15:10 +0800
  * DESC            : 配置文件 头信息重写
  */
 

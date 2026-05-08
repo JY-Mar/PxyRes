@@ -39,6 +39,10 @@
       {
         "match": ".*(\\/|\\\\)(Clash|Loon|General)(\\/|\\\\)Config(\\/|\\\\).+\\.(yaml|lcf|conf)$",
         "cmd": "node \"${workspaceFolder}/scriptsForNode/configHeaderRewrite.js\" \"${file}\""
+      },
+      {
+        "match": ".*(\\/|\\\\)(Clash|Loon|General)(\\/|\\\\)Plugins(\\/|\\\\).+\\.(plugin|lpx)$",
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/pluginHeaderRewrite.js\" \"${file}\""
       }
     ]
   }

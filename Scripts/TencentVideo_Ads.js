@@ -3,7 +3,7 @@
  * AUTHOR          : mieqq
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 15:03:07 +0800
+ * UPDATED         : 2026-05-08 15:32:30 +0800
  * DESC            : 引用地址：https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js
  */
 /*
@@ -57,12 +57,14 @@ if (body) {
   // 用 '&' 分割多组替换规则
   $argument.split('&').forEach((item) => {
     // 用 '->' 分割“查找目标”和“替换内容”
-    let [source, target] = item.split('->')
-    if (!!source && !!target) {
-      // 调用上面的函数生成正则
-      let re = getRegexp(source)
-      // 执行替换
-      body = body.replace(re, target)
+    if (!!item && item.includes('->')) {
+      let [source, target] = item.split('->')
+      if (!!source) {
+        // 调用上面的函数生成正则
+        let re = getRegexp(source)
+        // 执行替换
+        body = body.replace(re, target)
+      }
     }
   })
   // 将修改后的 Body 交还给系统，完成拦截修改
