@@ -3,7 +3,7 @@
  * AUTHOR          : mieqq
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 16:03:44 +0800
+ * UPDATED         : 2026-05-08 16:52:10 +0800
  * DESC            : 引用地址：https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js
  */
 /*
@@ -40,26 +40,25 @@ function getRegexp(re_str) {
   }
 }
 
-function isValid(arg) {
-  return typeof arg !== 'undefined' && arg !== undefined && arg !== null && arg !== ''
-}
-
 let body
 let bodyType = ''
-if (!isValid($argument)) {
+if (typeof $argument === 'undefined' || $argument === undefined || $argument === null || $argument === '') {
   body = undefined
-  console.log('requires $argument')
+  console.log('[TencentVideo_Ads] requires $argument')
 } else {
-  if (isValid($response)) {
+  if (typeof $response !== 'undefined' && $response.body) {
     body = $response.body
     bodyType = 'response'
-  } else if (isValid($request)) {
+  } else if (typeof $request !== 'undefined' && $request.body) {
     body = $request.body
     bodyType = 'request'
   } else {
     body = undefined
-    console.log('script type error')
+    console.log('[TencentVideo_Ads] script type error')
   }
+}
+if (!!bodyType) {
+  console.log('[TencentVideo_Ads] http-' + bodyType)
 }
 
 if (body) {
@@ -79,6 +78,6 @@ if (body) {
   // 将修改后的 Body 交还给系统，完成拦截修改
   $done({ body })
 } else {
-  console.log(bodyType + ' body Not Modify')
+  console.log('[TencentVideo_Ads] body Not Modify')
   $done({})
 }
