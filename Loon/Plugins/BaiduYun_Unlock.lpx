@@ -11,4 +11,4 @@
 hostname = pan.baidu.com
 
 [Script]
-http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js,requires-body=true,script-update-interval=0,tag=BaiduYun_Unlock
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js, requires-body=true, script-update-interval=0, tag=百度云解锁
