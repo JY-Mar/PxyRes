@@ -3,7 +3,7 @@
  * AUTHOR          : mieqq
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 15:32:30 +0800
+ * UPDATED         : 2026-05-08 16:03:44 +0800
  * DESC            : 引用地址：https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js
  */
 /*
@@ -40,15 +40,24 @@ function getRegexp(re_str) {
   }
 }
 
+function isValid(arg) {
+  return typeof arg !== 'undefined' && arg !== undefined && arg !== null && arg !== ''
+}
+
 let body
-if (typeof $argument == 'undefined') {
+let bodyType = ''
+if (!isValid($argument)) {
+  body = undefined
   console.log('requires $argument')
 } else {
-  if ($script.type === 'http-response') {
+  if (isValid($response)) {
     body = $response.body
-  } else if ($script.type === 'http-request') {
+    bodyType = 'response'
+  } else if (isValid($request)) {
     body = $request.body
+    bodyType = 'request'
   } else {
+    body = undefined
     console.log('script type error')
   }
 }
@@ -70,6 +79,6 @@ if (body) {
   // 将修改后的 Body 交还给系统，完成拦截修改
   $done({ body })
 } else {
-  console.log('Not Modify')
+  console.log(bodyType + ' body Not Modify')
   $done({})
 }

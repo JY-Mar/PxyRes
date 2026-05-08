@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=RuCu6,LinusZ,JY-Mar
 #!tag=TencentVideo,腾讯视频,去广告
-#!date=2026-05-08 15:33:54 GMT+8
+#!date=2026-05-08 16:05:10 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/Color/Tencent_Video.png
 #!openUrl=https://apps.apple.com/app/id458318329
 
@@ -40,4 +40,4 @@ hostname = vv.video.qq.com
 
 [Script]
 # 精简个人中心、移除右下角浮窗、屏蔽皮肤
-http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo script-path = https://jy-mar.github.io/PxyRes/Scripts/TencentVideo_Ads.js, requires-body = true, argument = "sppreviewtype=\d->sppreviewtype=0&spsrt=\d->spsrt=0", tag = 移除广告
+http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo script-path=https://jy-mar.github.io/PxyRes/Scripts/TencentVideo_Ads.js, requires-body=true, timeout=20, argument="sppreviewtype=\d*->sppreviewtype=0&spsrt=\d*->spsrt=0", tag=移除广告
