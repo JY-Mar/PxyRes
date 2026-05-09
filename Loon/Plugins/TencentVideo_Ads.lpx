@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=RuCu6,LinusZ,JY-Mar
 #!tag=TencentVideo,腾讯视频,去广告
-#!date=2026-05-08 19:42:43 GMT+8
+#!date=2026-05-09 14:48:27 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/Color/Tencent_Video.png
 #!openUrl=https://apps.apple.com/app/id458318329
 
@@ -25,15 +25,10 @@ OR,((DOMAIN,pgdt.gtimg.cn),(AND,((USER-AGENT,live4iphoneRel*),(IP-CIDR,0.0.0.0/0
 URL-REGEX,^http:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.video)\.qq\.com\/\w+,REJECT
 URL-REGEX,^http:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+,REJECT
 URL-REGEX,^http:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+,REJECT
-DOMAIN, ap-guangzhou.cls.tencentcs.com, REJECT
+DOMAIN,ap-guangzhou.cls.tencentcs.com,REJECT
 
 [Rewrite]
-# 移除开屏广告请求 (需要开启 MITM)
 ^https?:\/\/vv\.video\.qq\.com\/(diff|get)vmind reject-dict
-# 屏蔽开屏广告配置请求
-# ^https?:\/\/open6\.video\.qq\.com\/fcgi-bin\/get_config reject-dict
-# 屏蔽部分弹窗逻辑
-# ^https?:\/\/video\.coral\.qq\.com\/v1\/user\/notice reject-dict
 
 [Script]
 http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo script-path=https://jy-mar.github.io/PxyRes/Scripts/TencentVideo/VideoAds.js, requires-body=true, timeout=20, argument="sppreviewtype=\d*->sppreviewtype=0&spsrt=\d*->spsrt=0", tag=移除视频片前广告
@@ -41,5 +36,4 @@ http-response ^https?:\/\/richmedia\.video\.qq\.com\/get_rich_media_info script-
 http-response ^https?:\/\/cache\.wuji\.qq\.com\/x\/api\/wuji_cache\/object script-path=https://jy-mar.github.io/PxyRes/Scripts/TencentVideo/WujiAds.js, requires-body=true, timeout=20, tag=移除无极广告
 
 [MITM]
-# hostname = v.video.qq.com, vv.video.qq.com, open6.video.qq.com, info6.video.qq.com, vd.l.qq.com, v.shnol.com
 hostname = vv.video.qq.com, richmedia.video.qq.com, cache.wuji.qq.com

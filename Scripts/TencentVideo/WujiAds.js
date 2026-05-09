@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-09 08:44:48 +0800
+ * UPDATED         : 2026-05-09 14:03:30 +0800
  * DESC            : 移除无极广告
  */
 
@@ -26,11 +26,13 @@ try {
   let obj = JSON.parse($response.body)
   if (obj.data && isArray(obj.data)) {
     // 定义需要屏蔽的黑名单关键词
-    const blacklist = ['广告', '电商', '游戏', '拉动', '促销', '推广']
+    const name_backlist = ['广告', '电商', '游戏', '拉动', '促销', '推广', '引导', '话题', '投票', '打点', '点位']
 
     obj.data = obj.data.filter((item) => {
       // 1. 根据名称过滤
-      let isAd = blacklist.some((keyword) => item.name.includes(keyword))
+      let isAd = name_backlist.some((keyword) => item.name.includes(keyword))
+      // 1.1 检查是否有关闭按钮的dom（一般来说广告都有，可能其他也有，发生误杀再说吧）
+      let hasClose = item.domList && String(item.domList).includes('关闭按钮box')
 
       // 2. 根据举报信息(report)中的内容进一步判定
       if (!isAd && item.report) {
@@ -39,7 +41,7 @@ try {
         }
       }
 
-      if (isAd) {
+      if (isAd || hasClose) {
         console.log('[TencentVideo_Ads] WujiAds: removed component ' + item.name)
         return false
       }

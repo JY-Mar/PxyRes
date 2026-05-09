@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 19:43:11 +0800
+ * UPDATED         : 2026-05-09 14:31:01 +0800
  * DESC            : 移除富媒体广告
  */
 
@@ -27,22 +27,17 @@ function isArray(obj) {
 
 try {
   let obj = JSON.parse($response.body)
-  if (has(obj, 'rich_media_info')) {
-    if (!obj.rich_media_info) {
-      obj.rich_media_info = []
-    }
-    const index = obj.rich_media_info.findIndex((v) => v.type === 'ad_frame_time')
-    if (index > -1) {
-      obj.rich_media_info[index].type = 'disabled_ad'
-      if (has(obj.rich_media_info[index], 'data') && isObject(obj.rich_media_info[index].data)) {
-        obj.rich_media_info[index].data.result = []
+  if (obj.rich_media_info && isArray(obj.rich_media_info)) {
+    obj.rich_media_info.forEach((v) => {
+      if (v.type && v.type === 'ad_frame_time') {
+        v.type = 'disabled_ad'
       }
-    } else {
-      $done({ body: JSON.stringify(obj) })
-    }
-  } else {
-    $done({ body: JSON.stringify(obj) })
+      if (v.data && isObject(v.data) && v.data.result) {
+        v.data.result = []
+      }
+    })
   }
+  $done({ body: JSON.stringify(obj) })
 } catch (error) {
   console.log('[TencentVideo_Ads] RichmediaAds: $response.body error', error)
   $done({})
