@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-08 15:10:28 GMT+8
+# UPDATED         : 2026-05-09 12:30:20 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -161,10 +161,12 @@ IP-CIDR,43.132.55.55/32,DIRECT,no-resolve
 FINAL,🐟漏网之鱼
 
 [Remote Rule]
+# 精准匹配规则
 # === AI ===
 https://rule.kelee.one/Loon/Copilot.lsr, policy=✨Copilot, tag=Copilot, enabled=true
 https://rule.kelee.one/Loon/Gemini.lsr, policy=✨Gemini, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨OpenAI, tag=OpenAI, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Qianwen.lsr, policy=🎯全球直连, tag=Qianwen, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
 # === Apple ===
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
@@ -203,18 +205,17 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, 
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
 https://rule.kelee.one/Loon/Telegram.lsr, policy=🛫Telegram, tag=Telegram, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/DouYin.lsr, policy=🎯全球直连, tag=DouYin_, enabled=true
+https://rule.kelee.one/Loon/DouYin.lsr, policy=🎯全球直连, tag=DouYin, enabled=true
 https://rule.kelee.one/Loon/TikTok.lsr, policy=🎵TikTok, tag=TikTok, enabled=true
 https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦X_Twitter, tag=X_Twitter, enabled=true
 # === Code ===
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/JueJin.lsr, policy=🎯全球直连, tag=JueJin_, enabled=true
+https://rule.kelee.one/Loon/JueJin.lsr, policy=🎯全球直连, tag=JueJin, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ElementPlus.lsr, policy=🎯全球直连, tag=ElementPlus, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/KeleeOne.lsr, policy=🎯全球直连, tag=KeleeOne, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/CodeCDN.lsr, policy=🎯全球直连, tag=CodeCDN, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/TencentHTTPDNS.lsr, policy=🎯全球直连, tag=TencentHTTPDNS, enabled=true
-# === Life ===
-https://jy-mar.github.io/PxyRes/Loon/Rules/MetroCN.lsr, policy=🎯全球直连, tag=MetroCN, enabled=true
 # === Adv ===
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvLite, enabled=false
 # === Proxy ===
@@ -223,11 +224,12 @@ https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabl
 https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
 https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/China.lsr, policy=🎯全球直连, tag=China_, enabled=true
 https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS, enabled=true
 https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
 https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=🎯全球直连, tag=ChinaDownloadCDN, enabled=true
 https://rule.kelee.one/Loon/Lan.lsr, policy=🎯全球直连, tag=Lan, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/Local.lsr, policy=🎯全球直连, tag=Local, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Lan.lsr, policy=🎯全球直连, tag=Lan_, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/GeoCN.lsr, policy=🎯全球直连, tag=GeoCN, enabled=true
 
 [Host]

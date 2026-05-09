@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-08 14:12:01 GMT+8
+# UPDATED         : 2026-05-09 12:30:11 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -363,6 +363,7 @@ rule-providers:
   Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProviders}
   Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProviders}
   OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProviders}
+  Qianwen: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Qianwen.yaml, path: ./ruleset/Qianwen.yaml, <<: *RuleProviders}
   # === Apple ===
   Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
@@ -400,18 +401,17 @@ rule-providers:
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
   Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProviders}
   Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProviders}
+  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
+  DouYin_: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/DouYin.yaml, path: ./ruleset/DouYin_.yaml, <<: *RuleProviders}
   TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProviders}
   X_Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/X_Twitter.yaml, <<: *RuleProviders}
   # === Code ===
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
-  JueJinCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/JueJinCN.yaml, path: ./ruleset/JueJinCN.yaml, <<: *RuleProviders}
+  JueJin_: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/JueJin.yaml, path: ./ruleset/JueJin_.yaml, <<: *RuleProviders}
+  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
   LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
-  iKelee: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/iKelee.yaml, path: ./ruleset/iKelee.yaml, <<: *RuleProviders}
-  ElementPlus: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ElementPlus.yaml, path: ./ruleset/ElementPlus.yaml, <<: *RuleProviders}
+  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProviders}
   CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProviders}
-  TencentHTTPDNS: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/TencentHTTPDNS.yaml, path: ./ruleset/TencentHTTPDNS.yaml, <<: *RuleProviders}
-  # === Life ===
-  MetroCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MetroCN.yaml, path: ./ruleset/MetroCN.yaml, <<: *RuleProviders}
   # === Adv ===
   AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProviders}
   # === Proxy ===
@@ -420,21 +420,23 @@ rule-providers:
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
+  China_: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/China.yaml, path: ./ruleset/China_.yaml, <<: *RuleProviders}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
-  Local: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Local.yaml, path: ./ruleset/Local.yaml, <<: *RuleProviders}
+  Lan_: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Lan.yaml, path: ./ruleset/Lan_.yaml, <<: *RuleProviders}
   GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
 #endregion
 
 #region 规则匹配
 rules:
-  # 普通规则
+  # 精准匹配规则
   # === AI ===
   - RULE-SET,Copilot,✨Copilot
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
+  - RULE-SET,Qianwen,🎯全球直连
   - RULE-SET,AI,✨AI
   # === Apple ===
   - RULE-SET,Apple,🍎Apple
@@ -473,18 +475,18 @@ rules:
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,🛫Telegram
+  - RULE-SET,DouYin_,🎯全球直连
+  - RULE-SET,DouYin,🎯全球直连
   - RULE-SET,TikTok,🎵TikTok
   - RULE-SET,X_Twitter,🐦X_Twitter
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
-  - RULE-SET,JueJinCN,🎯全球直连
+  - RULE-SET,JueJin_,🎯全球直连
+  - RULE-SET,JueJin,🎯全球直连
   - RULE-SET,LinuxDo,🚀节点选择
-  - RULE-SET,iKelee,🎯全球直连
+  - RULE-SET,KeleeOne,🎯全球直连
   - RULE-SET,ElementPlus,🎯全球直连
   - RULE-SET,CodeCDN,🎯全球直连
-  - RULE-SET,TencentHTTPDNS,🎯全球直连
-  # === Life ===
-  - RULE-SET,MetroCN,🎯全球直连
   # === Adv ===
   - RULE-SET,AdvLite,🛑全球拦截
   # === Proxy ===
@@ -493,11 +495,12 @@ rules:
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
+  - RULE-SET,China_,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
   - RULE-SET,Lan,🎯全球直连
-  - RULE-SET,Local,🎯全球直连
+  - RULE-SET,Lan_,🎯全球直连
   - RULE-SET,GeoCN,🎯全球直连
   # 兜底规则
   - MATCH,🐟漏网之鱼

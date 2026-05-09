@@ -1,0 +1,32 @@
+# NAME            : China
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-09 12:06:34 GMT+8
+# DOMAIN-SUFFIX   : 10
+# IP-CIDR         : 6
+# TOTAL           : 16
+
+# region 上海漕河泾开发区
+DOMAIN-SUFFIX,shlingang.com
+DOMAIN-SUFFIX,investcaohejing.cn
+DOMAIN-SUFFIX,caohejing.com
+# endregion
+
+# region 物美集团 - 麦德龙
+DOMAIN-SUFFIX,dmall.com
+DOMAIN-SUFFIX,dmall.com.cn
+DOMAIN-SUFFIX,dmallcdn.com
+DOMAIN-SUFFIX,dmallstatic.com
+DOMAIN-SUFFIX,metromall.cn
+DOMAIN-SUFFIX,metromall.com.cn
+DOMAIN-SUFFIX,metro.cn
+# endregion
+
+# region 腾讯 HTTPDNS
+IP-CIDR,182.254.116.116/32,no-resolve
+IP-CIDR,119.29.29.29/32,no-resolve
+IP-CIDR,119.29.29.98/32,no-resolve
+IP-CIDR,119.29.29.99/32,no-resolve
+IP-CIDR,43.132.43.43/32,no-resolve
+IP-CIDR,43.132.55.55/32,no-resolve
+# endregion

@@ -1,9 +1,10 @@
-# NAME            : Local
+# NAME            : Lan
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-04-28 14:16:03 GMT+8
+# UPDATED         : 2026-05-09 12:05:09 GMT+8
 # GEOIP           : 1
 # TOTAL           : 1
 
-# 内网全直连
-GEOIP,LAN,no-resolve
+payload:
+  # 内网全直连
+  - GEOIP,LAN,no-resolve

@@ -25,32 +25,25 @@ function isArray(obj) {
   return isObject(obj) && obj instanceof Array
 }
 
-if ($response.body) {
-  let obj
-  let isError = false
-  try {
-    obj = JSON.parse($response.body)
-    if (has(obj, 'rich_media_info')) {
-      if (!obj.rich_media_info) {
-        obj.rich_media_info = []
-      }
-      const index = obj.rich_media_info.findIndex((v) => v.type === 'ad_frame_time')
-      if (index > -1) {
-        obj.rich_media_info[index].type = 'disabled_ad'
-        if (has(obj.rich_media_info[index], 'data') && isObject(obj.rich_media_info[index].data)) {
-          obj.rich_media_info[index].data.result = []
-        }
-      } else {
-        $done({ body: JSON.stringify(obj) })
+try {
+  let obj = JSON.parse($response.body)
+  if (has(obj, 'rich_media_info')) {
+    if (!obj.rich_media_info) {
+      obj.rich_media_info = []
+    }
+    const index = obj.rich_media_info.findIndex((v) => v.type === 'ad_frame_time')
+    if (index > -1) {
+      obj.rich_media_info[index].type = 'disabled_ad'
+      if (has(obj.rich_media_info[index], 'data') && isObject(obj.rich_media_info[index].data)) {
+        obj.rich_media_info[index].data.result = []
       }
     } else {
       $done({ body: JSON.stringify(obj) })
     }
-  } catch (error) {
-    console.log('[TencentVideo_Ads] RichmediaAds: $response.body JSON.parse error', error)
-    isError = true
-    $done({})
+  } else {
+    $done({ body: JSON.stringify(obj) })
   }
-} else {
+} catch (error) {
+  console.log('[TencentVideo_Ads] RichmediaAds: $response.body error', error)
   $done({})
 }
