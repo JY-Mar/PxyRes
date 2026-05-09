@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-09 12:30:11 GMT+8
+# UPDATED         : 2026-05-09 13:34:33 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -485,7 +485,6 @@ rules:
   - RULE-SET,JueJin,🎯全球直连
   - RULE-SET,LinuxDo,🚀节点选择
   - RULE-SET,KeleeOne,🎯全球直连
-  - RULE-SET,ElementPlus,🎯全球直连
   - RULE-SET,CodeCDN,🎯全球直连
   # === Adv ===
   - RULE-SET,AdvLite,🛑全球拦截
