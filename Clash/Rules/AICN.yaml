@@ -1,0 +1,66 @@
+# NAME            : AICN
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-11 10:45:43 GMT+8
+# DOMAIN          : 2
+# DOMAIN-SUFFIX   : 36
+# DOMAIN-KEYWORD  : 1
+# TOTAL           : 39
+
+payload:
+  # --- DeepSeek ---
+  - DOMAIN-SUFFIX,deepseek.cn
+  - DOMAIN-SUFFIX,deepseek.com
+
+  # --- 通义千问 ---
+  - DOMAIN,uc.cmd
+  - DOMAIN-SUFFIX,tongyi.ai
+  - DOMAIN-SUFFIX,tongyi.com
+  - DOMAIN-SUFFIX,qianwen.com
+  - DOMAIN-SUFFIX,qwen.cn
+  - DOMAIN-SUFFIX,alibabacloud.com
+  - DOMAIN-SUFFIX,lingma.aliyun.com
+  - DOMAIN-SUFFIX,wanxiang.aliyun.com
+  - DOMAIN-SUFFIX,aliyuncs.com
+  - DOMAIN-SUFFIX,mmstat.com
+
+  # --- 豆包 ---
+  - DOMAIN,tp-pay.snssdk.com
+  - DOMAIN-SUFFIX,doubao.com
+  - DOMAIN-SUFFIX,bytegecko.com
+  - DOMAIN-SUFFIX,byteimg.com
+  - DOMAIN-SUFFIX,bytecdntp.com
+  - DOMAIN-SUFFIX,zijieapi.com
+  - DOMAIN-SUFFIX,volces.com
+  - DOMAIN-SUFFIX,volcengine.com
+  - DOMAIN-SUFFIX,marscode.cn
+  - DOMAIN-SUFFIX,trae.cn
+  - DOMAIN-SUFFIX,trae.com.cn
+  - DOMAIN-KEYWORD,trae-api
+
+  # --- 文心一言 ---
+  - DOMAIN-SUFFIX,baidu.com
+  - DOMAIN-SUFFIX,baidubce.com
+  - DOMAIN-SUFFIX,comate.baidu.com
+
+  # --- 智谱 GLM ---
+  - DOMAIN-SUFFIX,chatglm.cn
+  - DOMAIN-SUFFIX,zhipuai.cn
+  - DOMAIN-SUFFIX,codegeex.cn
+
+  #--- Kimi (月之暗面) ---
+  - DOMAIN-SUFFIX,moonshot.cn
+  - DOMAIN-SUFFIX,kimi.ai
+  - DOMAIN-SUFFIX,kimi.com
+
+  # --- 腾讯元宝 ---
+  - DOMAIN-SUFFIX,yuanbao.tencent.com
+  - DOMAIN-SUFFIX,hunyuan.tencent.com
+
+  # --- 可灵 AI (快手) ---
+  - DOMAIN-SUFFIX,metaso.cn
+  - DOMAIN-SUFFIX,kuaishou.com
+  - DOMAIN-SUFFIX,klingai.com
+
+  # --- 科大讯飞 ---
+  - DOMAIN-SUFFIX,xfyun.cn
