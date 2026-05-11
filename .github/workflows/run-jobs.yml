@@ -69,8 +69,6 @@ jobs:
           mkdir -p docs
           cp -r Clash docs/Clash
           cp -r Loon docs/Loon
-          mkdir -p docs/Loon/Config
-          cp Loon/Config/scat.lcf docs/Loon/Config/scat-ad.lcf
           cp -r Scripts docs/Scripts
           cp -r Icons docs/Icons
 
