@@ -1,11 +1,11 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-12 17:59:45 GMT+8
+# UPDATED         : 2026-05-12 18:10:48 GMT+8
 # DOMAIN          : 2
-# DOMAIN-SUFFIX   : 11
+# DOMAIN-SUFFIX   : 12
 # IP-CIDR         : 6
-# TOTAL           : 19
+# TOTAL           : 20
 
 payload:
   # 上海漕河泾开发区
@@ -30,6 +30,9 @@ payload:
   - IP-CIDR,119.29.29.99/32,no-resolve
   - IP-CIDR,43.132.43.43/32,no-resolve
   - IP-CIDR,43.132.55.55/32,no-resolve
+
+  # 360智慧生活
+  - DOMAIN-SUFFIX,superapp.ifenglian.com
 
   # 信息上报
   - DOMAIN,api.qttunion.com
