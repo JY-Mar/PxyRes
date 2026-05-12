@@ -1,0 +1,162 @@
+# NAME            : Banks
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-12 17:47:15 GMT+8
+# DOMAIN-SUFFIX   : 79
+# TOTAL           : 79
+
+payload:
+  # 上海农商银行 (SHRCB)
+  - DOMAIN-SUFFIX,shrcb.com
+  - DOMAIN-SUFFIX,srcb.com
+  - DOMAIN-SUFFIX,betawm.com
+
+  # 招商银行 (CMB)
+  - DOMAIN-SUFFIX,cmbchina.com
+  - DOMAIN-SUFFIX,cmbchina.cn
+  - DOMAIN-SUFFIX,cmbimg.com
+  - DOMAIN-SUFFIX,cmbpay.com
+
+  # 光大银行 (CEB)
+  - DOMAIN-SUFFIX,cebbank.com
+  - DOMAIN-SUFFIX,cebbank.cn
+  - DOMAIN-SUFFIX,cebjt.com
+
+  # 中国银行 (BOC)
+  - DOMAIN-SUFFIX,boc.cn
+  - DOMAIN-SUFFIX,bank-of-china.com
+  - DOMAIN-SUFFIX,boc.com.cn
+
+  # 工商银行 (ICBC)
+  - DOMAIN-SUFFIX,icbc.com.cn
+  - DOMAIN-SUFFIX,95588.com
+  - DOMAIN-SUFFIX,icbcnet.com.cn
+
+  # 建设银行 (CCB)
+  - DOMAIN-SUFFIX,ccb.com
+  - DOMAIN-SUFFIX,ccb.cn
+  - DOMAIN-SUFFIX,ccb.com.cn
+  - DOMAIN-SUFFIX,ccbimg.com
+
+  # 农业银行 (ABC)
+  - DOMAIN-SUFFIX,abchina.com
+  - DOMAIN-SUFFIX,abchina.com.cn
+  - DOMAIN-SUFFIX,95599.cn
+
+  # 交通银行 (COMM)
+  - DOMAIN-SUFFIX,bankcomm.com
+  - DOMAIN-SUFFIX,bankcomm.com.cn
+
+  # 浦发银行 (SPDB)
+  - DOMAIN-SUFFIX,spdb.com.cn
+  - DOMAIN-SUFFIX,spdbdev.com
+
+  # 中信银行 (CITIC)
+  - DOMAIN-SUFFIX,citicbank.com
+  - DOMAIN-SUFFIX,citic.com.cn
+
+  # 民生银行 (CMBC)
+  - DOMAIN-SUFFIX,cmbc.com.cn
+  - DOMAIN-SUFFIX,cmbc.com
+
+  # 广发银行 (CGB)
+  - DOMAIN-SUFFIX,cgbchina.com.cn
+  - DOMAIN-SUFFIX,cgbchina.com
+
+  # 兴业银行 (CIB)
+  - DOMAIN-SUFFIX,cib.com.cn
+  - DOMAIN-SUFFIX,cibchina.com
+
+  # 平安银行 (PINGAN)
+  - DOMAIN-SUFFIX,pingan.com.cn
+  - DOMAIN-SUFFIX,pingan.com
+  - DOMAIN-SUFFIX,pabank.com.cn
+
+  # 华夏银行 (HXB)
+  - DOMAIN-SUFFIX,hxb.com.cn
+  - DOMAIN-SUFFIX,hxbank.com.cn
+
+  # 浙商银行 (CZB)
+  - DOMAIN-SUFFIX,czbank.com
+  - DOMAIN-SUFFIX,czbank.com.cn
+
+  # 中国邮政储蓄银行 (PSBC)
+  - DOMAIN-SUFFIX,psbc.com
+  - DOMAIN-SUFFIX,psbc.com.cn
+
+  # 北京银行 (BOB)
+  - DOMAIN-SUFFIX,bankofbeijing.com.cn
+  - DOMAIN-SUFFIX,bob.net.cn
+
+  # 上海银行 (BOS)
+  - DOMAIN-SUFFIX,bos.cn
+  - DOMAIN-SUFFIX,bankofshanghai.com
+
+  # 宁波银行 (NBCB)
+  - DOMAIN-SUFFIX,nbcb.com.cn
+  - DOMAIN-SUFFIX,nbcbank.com
+
+  # 渤海银行 (CBHB)
+  - DOMAIN-SUFFIX,cbhb.com.cn
+  - DOMAIN-SUFFIX,cbhb.net
+
+  # 恒丰银行 (EGB)
+  - DOMAIN-SUFFIX,egbank.com.cn
+  - DOMAIN-SUFFIX,hfbank.com.cn
+
+  # 江苏银行 (JSB)
+  - DOMAIN-SUFFIX,jsbchina.cn
+  - DOMAIN-SUFFIX,jsb.com.cn
+
+  # 南京银行 (NJCB)
+  - DOMAIN-SUFFIX,njcb.com.cn
+
+  # 徽商银行 (HSB)
+  - DOMAIN-SUFFIX,hsbank.com.cn
+
+  # 杭州银行 (HZB)
+  - DOMAIN-SUFFIX,hzbank.com.cn
+
+  # 成都银行 (BOCD)
+  - DOMAIN-SUFFIX,bocd.com.cn
+
+  # 重庆银行 (CQBC)
+  - DOMAIN-SUFFIX,cqcbank.com
+
+  # 厦门银行 (BOXM)
+  - DOMAIN-SUFFIX,xmbankonline.com
+
+  # 长沙银行 (BOCS)
+  - DOMAIN-SUFFIX,cscb.cn
+
+  # 北京农商银行 (BJRCB)
+  - DOMAIN-SUFFIX,bjrcb.com
+
+  # 广州农商银行 (GRCB)
+  - DOMAIN-SUFFIX,grcb.com
+
+  # 重庆农村商业银行 (CRCB)
+  - DOMAIN-SUFFIX,cqrcb.com
+
+  # 广东省农信社/农商行 (广东农信)
+  - DOMAIN-SUFFIX,gdrcu.com.cn
+
+  # 金融支付清算兜底（银联/网联）
+  - DOMAIN-SUFFIX,unionpay.com
+  - DOMAIN-SUFFIX,unionpay.com.cn
+  - DOMAIN-SUFFIX,95516.com # 云闪付/银联客服
+  - DOMAIN-SUFFIX,cupdata.com # 银联数据
+  - DOMAIN-SUFFIX,netsunion.com.cn
+  - DOMAIN-SUFFIX,chinapay.com.cn
+  - DOMAIN-SUFFIX,pbccrc.org.cn # 征信中心
+  - DOMAIN-SUFFIX,pbcdigitalcurrency.cn # 数字人民币
+
+  # 网商银行 (MYBANK)
+  - DOMAIN-SUFFIX,mybank.cn
+
+  # 微众银行 (WeBank)
+  - DOMAIN-SUFFIX,webank.com
+  - DOMAIN-SUFFIX,webankimg.com
+
+  # 百信银行 (aiBank)
+  - DOMAIN-SUFFIX,aibank.com

@@ -1,10 +1,9 @@
-# NAME            : Lan
+# NAME            : GeoLAN
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-09 12:05:09 GMT+8
+# UPDATED         : 2026-05-12 17:52:47 GMT+8
 # GEOIP           : 1
 # TOTAL           : 1
 
-payload:
-  # 内网全直连
-  - GEOIP,LAN,no-resolve
+# 内网全直连
+GEOIP,LAN,no-resolve
