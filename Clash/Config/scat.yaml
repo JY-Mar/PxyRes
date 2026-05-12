@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-12 17:53:06 GMT+8
+# UPDATED         : 2026-05-12 18:00:13 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -359,12 +359,12 @@ proxy-groups:
 #region 规则集
 rule-providers:
   # --- Direct ---
-  AIs: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/AIs.yaml, path: ./ruleset/AIs.yaml, <<: *RuleProviders}
-  Banks: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Banks.yaml, path: ./ruleset/Banks.yaml, <<: *RuleProviders}
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
-  China_: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/China.yaml, path: ./ruleset/China_.yaml, <<: *RuleProviders}
+  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
+  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
@@ -432,8 +432,6 @@ rule-providers:
 #region 规则匹配
 rules:
   # 国内直连规则
-  - RULE-SET,AIs,🎯全球直连
-  - RULE-SET,Banks,🎯全球直连
   - RULE-SET,VidHub,🎯全球直连
   - RULE-SET,ByteDance,🎯全球直连
   - RULE-SET,DouYin,🎯全球直连
@@ -446,7 +444,9 @@ rules:
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
-  - RULE-SET,China_,🎯全球直连
+  - RULE-SET,ChinaLand,🎯全球直连
+  - RULE-SET,ChinaBank,🎯全球直连
+  - RULE-SET,ChinaAI,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
