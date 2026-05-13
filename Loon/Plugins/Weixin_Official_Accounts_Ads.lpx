@@ -1,0 +1,21 @@
+#!name=微信公众号去广告
+#!desc=过滤微信公众号广告
+#!homepage=https://github.com/JY-Mar/PxyRes
+#!author=RuCu6,ZeroM26,JY-Mar
+#!tag=微信,微信公众号,Weixin,Wechat,去广告
+#!date=2026-05-13 10:25:07 GMT+8
+#!icon=https://jy-mar.github.io/PxyRes/Icons/Color/Wechat.png
+#!openUrl=https://apps.apple.com/app/id41448124
+
+[Rule]
+DOMAIN-SUFFIX,wxs.qq.com,REJECT
+
+[Rewrite]
+# 移除公众号中的推广内容 //mp.weixin.qq.com
+^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? reject-dict
+^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword reject-dict
+
+# [Script]
+
+[MITM]
+hostname = mp.weixin.qq.com

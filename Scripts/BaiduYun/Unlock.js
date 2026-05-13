@@ -1,9 +1,9 @@
 /*
- * NAME            : BaiduYun_Unlock
+ * NAME            : Unlock
  * AUTHOR          : Nobyda,JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-08 15:43:36 +0800
+ * UPDATED         : 2026-05-13 09:07:14 +0800
  * DESC            : 百度网盘整合版（NobyDa、chengkongyiban） 解锁 SVIP、在线视频倍率/清晰度（动态数值）
  */
 

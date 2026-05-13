@@ -1,15 +1,15 @@
 /*
- * NAME            : WujiAds
+ * NAME            : Rm_Wuji_Ads
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-09 14:03:30 +0800
+ * UPDATED         : 2026-05-13 09:51:03 +0800
  * DESC            : 移除无极广告
  */
 
 // #region Surge4 / Loon
 // [Script]
-// http-response ^https?:\/\/cache\.wuji\.qq\.com\/x\/api\/wuji_cache\/object script-path=https://jy-mar.github.io/PxyRes/Scripts/TencentVideo/WujiAds.js, requires-body=true, timeout=20, tag=移除无极广告
+// http-response ^https?:\/\/cache\.wuji\.qq\.com\/x\/api\/wuji_cache\/object script-path=https://jy-mar.github.io/PxyRes/Scripts/TencentVideo/Rm_Wuji_Ads.js, requires-body=true, timeout=20, tag=移除无极广告
 
 // [MITM]
 // hostname = cache.wuji.qq.com
@@ -42,7 +42,7 @@ try {
       }
 
       if (isAd || hasClose) {
-        console.log('[TencentVideo_Ads] WujiAds: removed component ' + item.name)
+        console.log('[Rm_Wuji_Ads] removed component ' + item.name)
         return false
       }
       return true
@@ -53,6 +53,6 @@ try {
     $done({})
   }
 } catch (e) {
-  console.log('[TencentVideo_Ads] WujiAds: javascript error ' + e)
+  console.log('[Rm_Wuji_Ads] javascript error ' + e)
   $done({})
 }

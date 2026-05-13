@@ -1,5 +1,5 @@
 /*
- * NAME            : RichmediaAds
+ * NAME            : Rm_Richmedia_Ads
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
@@ -39,6 +39,6 @@ try {
   }
   $done({ body: JSON.stringify(obj) })
 } catch (error) {
-  console.log('[TencentVideo_Ads] RichmediaAds: $response.body error', error)
+  console.log('[Rm_Richmedia_Ads] $response.body error', error)
   $done({})
 }
