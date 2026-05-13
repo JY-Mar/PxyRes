@@ -1,11 +1,11 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-13 08:13:47 GMT+8
+# UPDATED         : 2026-05-13 16:00:02 GMT+8
 # DOMAIN          : 2
-# DOMAIN-SUFFIX   : 13
+# DOMAIN-SUFFIX   : 14
 # IP-CIDR         : 6
-# TOTAL           : 21
+# TOTAL           : 22
 
 # 上海临港
 DOMAIN-SUFFIX,lgfw24hours.com
@@ -33,6 +33,8 @@ IP-CIDR,43.132.55.55/32,no-resolve
 
 # 360智慧生活
 DOMAIN-SUFFIX,superapp.ifenglian.com
+# 360智慧生活 国际域名
+DOMAIN-SUFFIX,botslab.com
 
 # 信息上报
 DOMAIN,api.qttunion.com

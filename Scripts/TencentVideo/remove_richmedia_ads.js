@@ -1,5 +1,5 @@
 /*
- * NAME            : Rm_Richmedia_Ads
+ * NAME            : remove_richmedia_ads
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
@@ -39,6 +39,6 @@ try {
   }
   $done({ body: JSON.stringify(obj) })
 } catch (error) {
-  console.log('[Rm_Richmedia_Ads] $response.body error', error)
+  console.log('[remove_richmedia_ads] $response.body error', error)
   $done({})
 }
