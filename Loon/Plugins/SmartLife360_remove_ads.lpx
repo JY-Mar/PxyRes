@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=可莉Ⓥ,JY-Mar
 #!tag=360,360智慧生活,去广告
-#!date=2026-05-13 17:53:54 GMT+8
+#!date=2026-05-14 10:32:42 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/Color/Smart_Life_360.png
 #!openUrl=https://apps.apple.com/app/id1488904375
 
@@ -17,7 +17,8 @@ DOMAIN,ad.life.360.cn,REJECT
 
 [Script]
 http-response ^https?:\/\/app\.home\.360\.cn\/v1\/voice_assistant\/get_entrance script-path=https://jy-mar.github.io/PxyRes/Scripts/SmartLife360/remove_assist.js, requires-body=true, timeout=20, tag=移除AI助手
-# http-response ^https?:\/\/jia\.360\.cn\/conf\/v1\.json script-path=https://jy-mar.github.io/PxyRes/Scripts/SmartLife360/remove_banner.js, requires-body=true, timeout=20, tag=移除AI助手
+http-response ^https?:\/\/jia\.360\.cn\/conf\/v1\.json script-path=https://jy-mar.github.io/PxyRes/Scripts/SmartLife360/remove_banner_ads.js, requires-body=true, timeout=20, tag=移除推广横幅广告
+http-response ^https?:\/\/ota5\.jia\.360\.cn\/upgrade\/getNewVersion script-path=https://jy-mar.github.io/PxyRes/Scripts/SmartLife360/remove_app_upgrade.js, requires-body=true, timeout=20, tag=移除应用升级
 
 [MITM]
-hostname = app.home.360.cn
+hostname = app.home.360.cn, *jia.360.cn
