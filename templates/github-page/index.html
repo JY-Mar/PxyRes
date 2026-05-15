@@ -20,10 +20,10 @@
           background-color: #f9f9f9;
           color: #000000;
         }
-        .group > .icon-wrapper > .icon-item {
+        .tree-body > .leaf-node > .leaf-main {
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
-        .group > .icon-wrapper > .icon-item:hover {
+        .tree-body > .leaf-node > .leaf-main:hover {
           background-color: #ffffff !important;
         }
       }
@@ -32,10 +32,10 @@
           background-color: #222222;
           color: #ffffff;
         }
-        .group > .icon-wrapper > .icon-item {
+        .tree-body > .leaf-node > .leaf-main {
           box-shadow: 0 0 0 1px rgba(88, 88, 88, 0.3);
         }
-        .group > .icon-wrapper > .icon-item:hover {
+        .tree-body > .leaf-node > .leaf-main:hover {
           background-color: #333333 !important;
         }
       }
@@ -43,54 +43,83 @@
         font-family: sans-serif;
         padding: 20px;
       }
+      .top-filter {
+        text-align: right;
+        margin-bottom: 20px;
+      }
+      .top-filter .filter-btn {
+        border-radius: 6px;
+        height: 32px;
+        width: 48px;
+        cursor: pointer;
+        display: inline-block;
+        background-color: #1677ff;
+        color: #ffffff;
+        text-align: center;
+        line-height: 32px;
+        user-select: none;
+      }
+      .top-filter .filter-btn:hover {
+        background-color: color-mix(in srgb, #1677ff, #ffffff 15%);
+      }
+      .top-filter .filter-btn:active {
+        background-color: color-mix(in srgb, #1677ff, #000000 7%);
+      }
+      .top-filter .filter-btn + .filter-btn {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
       h1 {
         text-align: center;
       }
       h2 {
-        margin-top: 2.5rem;
+        margin-top: 2rem;
         text-align: left;
       }
-      .group {
+      .tree-body {
         display: grid;
       }
-      .group:has(.icon-wrapper > .icon-item.large) {
+      .tree-body > .tree-node {
+        grid-column: 1 / -1;
+      }
+      .tree-body:has(.leaf-node > .leaf-main.large) {
         grid-template-columns: repeat(auto-fit, var(--icon-size-lg));
         gap: 1.7rem 1.4rem;
       }
-      .group:has(.icon-wrapper > .icon-item.medium) {
+      .tree-body:has(.leaf-node > .leaf-main.medium) {
         grid-template-columns: repeat(auto-fit, var(--icon-size));
         gap: 1.5rem 1.2rem;
       }
-      .group:has(.icon-wrapper > .icon-item.small) {
+      .tree-body:has(.leaf-node > .leaf-main.small) {
         grid-template-columns: repeat(auto-fit, var(--icon-size-sm));
         gap: 1.3rem 1rem;
       }
-      .group > .icon-wrapper {
+      .tree-body > .leaf-node {
         will-change: scale, width, height;
         transition:
           scale 0.25s ease,
           width 0.25s ease,
           height 0.25s ease;
       }
-      .group > .icon-wrapper:has(.icon-item.large) {
+      .tree-body > .leaf-node:has(.leaf-main.large) {
         width: var(--icon-size-lg);
       }
-      .group > .icon-wrapper:has(.icon-item.medium) {
+      .tree-body > .leaf-node:has(.leaf-main.medium) {
         width: var(--icon-size);
       }
-      .group > .icon-wrapper:has(.icon-item.small) {
+      .tree-body > .leaf-node:has(.leaf-main.small) {
         width: var(--icon-size-sm);
       }
-      .group > .icon-wrapper:has(.icon-item:hover) {
+      .tree-body > .leaf-node:has(.leaf-main:hover) {
         scale: 1.2;
         z-index: 2;
         width: unset !important;
         height: unset !important;
       }
-      .group > .icon-wrapper {
+      .tree-body > .leaf-node {
         position: relative;
       }
-      .group > .icon-wrapper > .icon-item {
+      .tree-body > .leaf-node > .leaf-main {
         border-radius: 6px;
         cursor: pointer;
         will-change: background-color;
@@ -101,44 +130,44 @@
         align-items: center;
         background-color: transparent;
       }
-      .group > .icon-wrapper > .icon-item:hover + .icon-tip {
+      .tree-body > .leaf-node > .leaf-main:hover + .leaf-footer {
         position: absolute;
         background-color: #666666;
       }
-      .group > .icon-wrapper > .icon-item:hover.large + .icon-tip,
-      .group > .icon-wrapper > .icon-item:hover.medium + .icon-tip,
-      .group > .icon-wrapper > .icon-item:hover.small + .icon-tip {
+      .tree-body > .leaf-node > .leaf-main:hover.large + .leaf-footer,
+      .tree-body > .leaf-node > .leaf-main:hover.medium + .leaf-footer,
+      .tree-body > .leaf-node > .leaf-main:hover.small + .leaf-footer {
         left: 0;
         bottom: 1px;
       }
-      .group > .icon-wrapper > .icon-item > .img-wrapper {
+      .tree-body > .leaf-node > .leaf-main > .img-wrap {
         padding: 10px;
       }
-      .group > .icon-wrapper > .icon-item > .img-wrapper > img {
+      .tree-body > .leaf-node > .leaf-main > .img-wrap > img {
         object-fit: contain;
         width: 100%;
         height: 100%;
       }
-      .group > .icon-wrapper > .icon-item.large,
-      .group > .icon-wrapper > .icon-item.medium,
-      .group > .icon-wrapper > .icon-item.small {
+      .tree-body > .leaf-node > .leaf-main.large,
+      .tree-body > .leaf-node > .leaf-main.medium,
+      .tree-body > .leaf-node > .leaf-main.small {
         width: inherit;
       }
-      .group > .icon-wrapper > .icon-item.large {
+      .tree-body > .leaf-node > .leaf-main.large {
         height: var(--icon-size-lg);
       }
-      .group > .icon-wrapper > .icon-item.medium {
+      .tree-body > .leaf-node > .leaf-main.medium {
         height: var(--icon-size);
       }
-      .group > .icon-wrapper > .icon-item.small {
+      .tree-body > .leaf-node > .leaf-main.small {
         height: var(--icon-size-sm);
       }
-      .group > .icon-wrapper > .icon-item:hover.large,
-      .group > .icon-wrapper > .icon-item:hover.medium,
-      .group > .icon-wrapper > .icon-item:hover.small {
+      .tree-body > .leaf-node > .leaf-main:hover.large,
+      .tree-body > .leaf-node > .leaf-main:hover.medium,
+      .tree-body > .leaf-node > .leaf-main:hover.small {
         height: inherit !important;
       }
-      .group > .icon-wrapper > .icon-tip {
+      .tree-body > .leaf-node > .leaf-footer {
         width: 100%;
         text-align: center;
         white-space: nowrap;
@@ -152,19 +181,19 @@
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
       }
-      .group > .icon-wrapper:has(.icon-item.large) > .icon-tip {
+      .tree-body > .leaf-node:has(.leaf-main.large) > .leaf-footer {
         font-size: var(--font-size-lg);
       }
-      .group > .icon-wrapper:has(.icon-item.medium) > .icon-tip {
+      .tree-body > .leaf-node:has(.leaf-main.medium) > .leaf-footer {
         font-size: var(--font-size);
       }
-      .group > .icon-wrapper:has(.icon-item.small) > .icon-tip {
+      .tree-body > .leaf-node:has(.leaf-main.small) > .leaf-footer {
         font-size: var(--font-size-sm);
       }
     </style>
     <script>
       function setSize(size) {
-        document.querySelectorAll('.icon-item').forEach((item) => {
+        document.querySelectorAll('.leaf-main').forEach((item) => {
           item.classList.remove('large', 'medium', 'small')
           item.classList.add(size)
         })
@@ -173,61 +202,85 @@
   </head>
   <body>
     <h1>Icons 图片展示</h1>
-    <div style="text-align: right; margin-bottom: 20px">
+    <div class="top-filter">
       <label>图标大小：</label>
-      <button onclick="setSize('large')">大</button>
-      <button onclick="setSize('medium')">中</button>
-      <button onclick="setSize('small')">小</button>
-      <div id="icon-container"></div>
+      <div class="filter-btn" onclick="setSize('large')">大</div>
+      <div class="filter-btn" onclick="setSize('medium')">中</div>
+      <div class="filter-btn" onclick="setSize('small')">小</div>
     </div>
+    <div id="icon-container"></div>
     <script>
       const iconContainer = document.getElementById('icon-container')
       if (iconContainer) {
+        const renderDataNode = (jsonObj, pElement) => {
+          if (!!jsonObj && typeof jsonObj === 'object' && Object.prototype.toString.call(jsonObj) === '[object Object]') {
+            const entries = Object.entries(jsonObj || {})
+            const leafs = entries.filter((v) => typeof v[1] === 'string' && !!v[1])
+            const nodes = entries.filter((v) => typeof v[1] === 'object' && Object.prototype.toString.call(v[1]) === '[object Object]')
+            // 图片优先
+            ;[...leafs, ...nodes].forEach(([key, value]) => {
+              if (key === '_depth') {
+                return
+              }
+              if (typeof value === 'string' && !!value) {
+                // 叶子节点
+                const leafNode = document.createElement('div')
+                leafNode.classList.add('leaf-node')
+
+                const imgName = key
+                const imgPath = value
+
+                const leafMain = document.createElement('div')
+                leafMain.classList.add('leaf-main', 'medium')
+                leafMain.title = imgName
+
+                const imgWrap = document.createElement('div')
+                imgWrap.classList.add('img-wrap')
+
+                const img = document.createElement('img')
+                img.src = imgPath
+                img.alt = imgName
+
+                const tip = document.createElement('div')
+                tip.classList.add('leaf-footer')
+                tip.innerHTML = imgName
+
+                imgWrap.appendChild(img)
+                leafMain.appendChild(imgWrap)
+                leafNode.append(leafMain, tip)
+
+                if (pElement) {
+                  pElement.appendChild(leafNode)
+                }
+              } else if (typeof value === 'object' && Object.prototype.toString.call(value) === '[object Object]') {
+                // 树节点
+                const treeNode = document.createElement('div')
+                treeNode.classList.add('tree-node')
+                treeNode.setAttribute('style', `margin-left: ${value['_depth'] * 40}px`)
+                // 分组标题
+                const treeTitle = document.createElement('h2')
+                treeTitle.classList.add('tree-title')
+                treeTitle.innerHTML = key
+                // 分组主体
+                const treeBody = document.createElement('div')
+                treeBody.classList.add('tree-body')
+
+                renderDataNode(value, treeBody)
+
+                if (pElement) {
+                  treeNode.append(treeTitle, treeBody)
+                  pElement.appendChild(treeNode)
+                }
+              }
+            })
+          }
+        }
+
         fetch('./images.json')
           .then((res) => res.json())
           .then((data) => {
             if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
-              Object.entries(data || {}).forEach(([folderPath, imgList]) => {
-                const container = document.createElement('div')
-                // 分组标题
-                const subtitle = document.createElement('h2')
-                subtitle.innerHTML = folderPath
-                // 分组主体
-                const group = document.createElement('div')
-                group.classList.add('group')
-
-                if (typeof imgList === 'object' && imgList instanceof Array) {
-                  ;(imgList || []).forEach((imgPath) => {
-                    const iconWrapper = document.createElement('div')
-                    iconWrapper.classList.add('icon-wrapper')
-
-                    const imgName = imgPath.replace(/\\/g, '/').replace(/\/+/g, '/').split('/').pop()
-
-                    const iconItem = document.createElement('div')
-                    iconItem.classList.add('icon-item', 'medium')
-                    iconItem.title = imgName
-
-                    const imgWrapper = document.createElement('div')
-                    imgWrapper.classList.add('img-wrapper')
-
-                    const img = document.createElement('img')
-                    img.src = imgPath
-                    img.alt = imgPath
-
-                    const iconTip = document.createElement('div')
-                    iconTip.classList.add('icon-tip')
-                    iconTip.innerHTML = imgName
-
-                    imgWrapper.appendChild(img)
-                    iconItem.appendChild(imgWrapper)
-                    iconWrapper.append(iconItem, iconTip)
-                    group.appendChild(iconWrapper)
-                  })
-                }
-
-                container.append(subtitle, group)
-                iconContainer.appendChild(container)
-              })
+              renderDataNode(data, iconContainer)
             }
           })
       }
