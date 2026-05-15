@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-14 11:59:49 GMT+8
+# UPDATED         : 2026-05-15 10:08:22 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -275,6 +275,7 @@ https://kelee.one/Tool/Loon/Lpx/Meizhixiuxing_remove_ads.lpx, tag=美丽修行�
 https://kelee.one/Tool/Loon/Lpx/Umetrip_remove_ads.lpx, tag=航旅纵横去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/TV_Assistant_remove_ads.lpx, tag=乐播投屏去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, tag=淘宝去广告, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Plugins/McDonald_remove_ads.lpx, tag=麦当劳去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, tag=知乎去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/ZhuanZhuan_remove_ads.lpx, tag=转转去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Switch_github_mirror.lpx, tag=Github镜像重定向, enabled=true

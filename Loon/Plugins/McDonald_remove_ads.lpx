@@ -1,0 +1,14 @@
+#!name=麦当劳去广告
+#!desc=移除开屏广告，精简Tab栏
+#!homepage=https://github.com/JY-Mar/PxyRes
+#!author=JY-Mar
+#!tag=McDonald,麦当劳,去广告
+#!date=2026-05-15 10:03:50 GMT+8
+#!icon=https://jy-mar.github.io/PxyRes/Icons/App/McDonald's.png
+#!openUrl=https://apps.apple.com/app/id1054598922
+
+[Script]
+http-response ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/tabBar script-path=https://jy-mar.github.io/PxyRes/Scripts/McDonald/Simplify_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
+
+[MITM]
+hostname = api.mcd.cn
