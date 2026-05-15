@@ -22,12 +22,6 @@ IMAGE_EXTS = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"]
 # 输出 JSON 文件路径
 json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), OUTPUT_JSON)
 
-# 分组结果
-grouped_images = {}
-
-# 处理 Icons 根目录下的图片
-root_images = []
-
 def is_image_file(name):
     return os.path.splitext(name)[1].lower() in IMAGE_EXTS
 
@@ -75,15 +69,19 @@ def collect_images_by_dir(root_path, base_dir):
             result[rel_dir] = images
     return result
 
+def save_to_json(data, output_file):
+    """
+    将数据保存为 JSON 文件，到 docs/ 目录
+    """
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"✅ {OUTPUT_JSON} 已生成：{output_file}")
+
+
 if not os.path.isdir(icons_dir):
     print(f"错误: 未找到目录 {icons_dir}")
 else:
     flat = collect_images_by_dir(icons_dir, "")
     # 保证键排序，输出稳定
-    grouped_images = {k: flat[k] for k in sorted(flat.keys())}
-
-# 写入 json 文件到 docs/ 目录
-with open(json_path, "w", encoding="utf-8") as f:
-    json.dump(grouped_images, f, ensure_ascii=False, indent=2)
-
-print(f"✅ {OUTPUT_JSON} 已生成：{json_path}")
+    result = {k: flat[k] for k in sorted(flat.keys())}
+    save_to_json(result, json_path)
