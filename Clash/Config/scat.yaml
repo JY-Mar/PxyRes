@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-12 18:00:13 GMT+8
+# UPDATED         : 2026-05-18 12:33:05 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -142,7 +142,7 @@ dns:
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter: ["*", +.lan]
+  fake-ip-filter: ["*", +.lan, short.weixin.qq.com, extshort.weixin.qq.com, minorshort.weixin.qq.com]
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver: [223.5.5.5, 223.6.6.6]

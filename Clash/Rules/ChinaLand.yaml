@@ -1,13 +1,18 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-15 08:14:41 GMT+8
+# UPDATED         : 2026-05-18 12:35:00 GMT+8
 # DOMAIN          : 2
-# DOMAIN-SUFFIX   : 19
+# DOMAIN-SUFFIX   : 21
 # IP-CIDR         : 6
-# TOTAL           : 27
+# TOTAL           : 29
 
 payload:
+  # 健康云
+  - DOMAIN-SUFFIX,wdjky.com
+  # 复旦儿科
+  - DOMAIN-SUFFIX,fdekyy.com.cn
+
   # 上海临港
   - DOMAIN-SUFFIX,lgfw24hours.com
   - DOMAIN-SUFFIX,shlingang.com

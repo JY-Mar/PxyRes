@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-15 10:08:22 GMT+8
+# UPDATED         : 2026-05-18 12:33:05 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -341,5 +341,5 @@ https://kelee.one/Tool/Loon/Lpx/1.1.1.1.lpx, tag=1.1.1.1配置管理, enabled=tr
 [Mitm]
 ca-p12 =
 ca-passphrase =
-hostname =
+hostname = -short.weixin.qq.com, -extshort.weixin.qq.com, -minorshort.weixin.qq.com
 skip-server-cert-verify = false

@@ -1,12 +1,13 @@
 # NAME            : VidHub
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-04-28 14:16:11 GMT+8
-# DOMAIN          : 2
-# DOMAIN-SUFFIX   : 2
-# TOTAL           : 4
+# UPDATED         : 2026-05-18 12:35:30 GMT+8
+# DOMAIN          : 1
+# DOMAIN-SUFFIX   : 4
+# TOTAL           : 5
 
 DOMAIN,analytics.adjust.world
-DOMAIN,1135-user-other-free-download-cdn.123295.com
 DOMAIN-SUFFIX,123295.com
 DOMAIN-SUFFIX,pd1.cjjd19.com
+DOMAIN-SUFFIX,aliyuncs.com
+DOMAIN-SUFFIX,okaapps.com
