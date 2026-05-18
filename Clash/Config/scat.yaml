@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-18 12:33:05 GMT+8
+# UPDATED         : 2026-05-18 14:24:16 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -142,7 +142,7 @@ dns:
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter: ["*", +.lan, short.weixin.qq.com, extshort.weixin.qq.com, minorshort.weixin.qq.com]
+  fake-ip-filter: ["*", +.lan]
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver: [223.5.5.5, 223.6.6.6]
@@ -365,6 +365,7 @@ rule-providers:
   ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
   ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
   ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
+  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProviders}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
@@ -446,6 +447,7 @@ rules:
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaLand,🎯全球直连
   - RULE-SET,ChinaBank,🎯全球直连
+  - RULE-SET,ChinaHosp,🎯全球直连
   - RULE-SET,ChinaAI,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连

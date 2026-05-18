@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-18 12:33:05 GMT+8
+# UPDATED         : 2026-05-18 14:24:30 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -176,6 +176,7 @@ https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download,
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaLand.lsr, policy=🎯全球直连, tag=ChinaLand, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=🎯全球直连, tag=ChinaBank, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=🎯全球直连, tag=ChinaHosp, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
 https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS, enabled=true
 https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
@@ -341,5 +342,5 @@ https://kelee.one/Tool/Loon/Lpx/1.1.1.1.lpx, tag=1.1.1.1配置管理, enabled=tr
 [Mitm]
 ca-p12 =
 ca-passphrase =
-hostname = -short.weixin.qq.com, -extshort.weixin.qq.com, -minorshort.weixin.qq.com
+hostname =
 skip-server-cert-verify = false

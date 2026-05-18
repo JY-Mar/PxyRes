@@ -1,0 +1,171 @@
+# NAME            : ChinaHosp
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-05-18 14:21:31 GMT+8
+# DOMAIN          : 5
+# DOMAIN-SUFFIX   : 73
+# TOTAL           : 78
+
+# 国家医保服务平台
+DOMAIN-SUFFIX,nhsa.gov.cn
+# 健康云/万达信息
+DOMAIN-SUFFIX,wdjky.com
+# 微医
+DOMAIN-SUFFIX,guahao.com
+# 健康报
+DOMAIN-SUFFIX,jkb.com.cn
+# 通用医疗
+DOMAIN-SUFFIX,gtmed.com.cn
+# 健康 160
+DOMAIN-SUFFIX,91160.com
+# 腾讯医疗
+DOMAIN-SUFFIX,healthcare.tencent.com
+# 阿里健康
+DOMAIN-SUFFIX,alihealth.cn
+
+# 复旦大学附属儿科医院
+DOMAIN,ch.shmu.edu.cn
+DOMAIN-SUFFIX,fdekyy.com.cn
+# 复旦大学附属中山医院
+DOMAIN-SUFFIX,zs-hospital.sh.cn
+# 复旦大学附属华山医院
+DOMAIN-SUFFIX,huashan.org.cn
+# 复旦大学附属肿瘤医院
+DOMAIN-SUFFIX,shca.org.cn
+# 复旦大学附属妇产科医院（红房子）
+DOMAIN-SUFFIX,fckyy.org.cn
+# 复旦大学附属眼耳鼻喉科医院（五官科）
+DOMAIN-SUFFIX,fdeent.org
+# 复旦大学附属公共卫生临床中心
+DOMAIN-SUFFIX,shaphc.org
+# 复旦大学附属华东医院
+DOMAIN-SUFFIX,huadonghospital.com
+# 复旦大学附属口腔医院
+DOMAIN-SUFFIX,shssdc.com.cn
+# 复旦大学附属上海市第五人民医院
+DOMAIN-SUFFIX,5thhospital.com
+# 复旦大学附属金山医院
+DOMAIN-SUFFIX,jinshanhos.org.cn
+# 复旦大学附属浦东医院
+DOMAIN-SUFFIX,
+# 复旦大学附属闵行医院、复旦大学附属中山医院闵行分院（闵行区中心医院）
+DOMAIN-SUFFIX,shpdh.org
+# 复旦大学附属中山医院青浦分院（青浦区中心医院）
+DOMAIN-SUFFIX,qphospital.com
+# 复旦大学附属肿瘤医院质子重离子中心（上海市质子重离子医院）
+DOMAIN-SUFFIX,sphoc.org.cn
+# 复旦大学附属精神卫生中心（闵行区精神卫生中心）
+DOMAIN-SUFFIX,smhc.org.cn
+
+
+# 上海交通大学医学院附属仁济医院
+DOMAIN-SUFFIX,renji.com
+# 上海交通大学医学院附属瑞金医院
+DOMAIN-SUFFIX,rjh.com.cn
+# 上海交通大学医学院附属新华医院
+DOMAIN-SUFFIX,xinhuamed.com.cn
+# 上海交通大学医学院附属第九人民医院
+DOMAIN-SUFFIX,9hospital.com.cn
+# 上海交通大学医学院附属第六人民医院
+DOMAIN-SUFFIX,6thhosp.com
+# 上海交通大学医学院附属第一人民医院
+DOMAIN-SUFFIX,shgh.cn
+# 上海交通大学医学院附属胸科医院
+DOMAIN-SUFFIX,shxkyy.com
+# 上海儿童医学中心
+DOMAIN-SUFFIX,scmc.com.cn
+# 上海市儿童医院
+DOMAIN-SUFFIX,shchildren.com.cn
+# 上海交通大学医学院附属上海市精神卫生中心
+DOMAIN-SUFFIX,smhc.org.cn
+# 中国福利会国际和平妇幼保健院（上海交通大学医学院附属国际和平妇幼保健院 | 国妇婴）
+DOMAIN-SUFFIX,ipmch.com.cn
+# 上海交通大学医学院附属同仁医院（原长宁区中心医院）
+DOMAIN-SUFFIX,shtrhospital.com
+# 上海交通大学医学院附属松江医院（原松江区中心医院）
+DOMAIN-SUFFIX,sjyy.org.cn
+
+# 同济大学附属同济医院
+DOMAIN-SUFFIX,tongjihospital.com.cn
+# 同济大学附属第十人民医院
+DOMAIN-SUFFIX,shdsyy.org.cn
+# 同济大学附属第四人民医院
+DOMAIN-SUFFIX,shdsrmyy.cn
+# 同济大学附属东方医院
+DOMAIN-SUFFIX,easthospital.cn
+# 同济大学附属肺科医院
+DOMAIN-SUFFIX,shsfkyy.com
+# 同济大学附属口腔医院
+DOMAIN,kouqiang.tongji.edu.cn
+# 同济大学附属精神卫生中心
+DOMAIN-SUFFIX,shspdjw.cn
+DOMAIN-SUFFIX,med.tongji.edu.cn
+# 同济大学附属第一妇婴保健院
+DOMAIN-DOMAIN,51mch.com
+# 同济大学附属杨浦医院
+DOMAIN-DOMAIN,shypzx.com
+# 同济大学系医院兜底
+DOMAIN-SUFFIX,tongji.edu.cn
+
+# 海军军医大学第一附属医院（长海医院）
+DOMAIN-SUFFIX,chhospital.com.cn
+# 海军军医大学第二附属医院（长征医院）
+DOMAIN-SUFFIX,shcz.com
+# 海军军医大学第三附属医院（东方肝胆）
+DOMAIN-SUFFIX,hyd3hospital.mil.cn
+# 455医院
+DOMAIN-SUFFIX,455hospital.cn
+# 海军军医大学附属公利医院
+DOMAIN-SUFFIX,glhospital.com
+
+# 上海中医药大学附属龙华医院
+DOMAIN-SUFFIX,longhua.net
+# 上海中医药大学附属曙光医院
+DOMAIN-SUFFIX,sgyy.cn
+# 上海中医药大学附属岳阳中西医结合医院
+DOMAIN-SUFFIX,shyueyanghospital.com
+# 上海中医药大学附属中医医院
+DOMAIN-SUFFIX,szy.sh.cn
+# 上海中医药大学附属上海市中西医结合医院
+DOMAIN-SUFFIX,stcmih.com
+# 上海中医药大学附属第七人民医院
+DOMAIN-SUFFIX,hosno7.com
+# 上海中医药大学附属光华医院
+DOMAIN-SUFFIX,ghhospital.com.cn
+# 上海中医药大学附属宝山医院
+DOMAIN-SUFFIX,shutcm.edu.cn
+
+# 华东师范大学附属妇幼保健院
+DOMAIN,hsc.ecnu.edu.cn
+# 华东师范大学系医院兜底
+DOMAIN-SUFFIX,ecnu.edu.cn
+
+# 上海大学附属第一医院（中日友好医院）
+DOMAIN-SUFFIX,zyyhyy.com.cn
+# 上海大学附属第二医院（温州市中心医院）
+DOMAIN-SUFFIX,wzhosp.com
+# 上海大学附属第三医院（温州市人民医院）
+DOMAIN-SUFFIX,wzsrmyy.com
+# 上海大学附属中西医结合医院（温州市中西医结合医院）
+DOMAIN-SUFFIX,wzszxy.com
+# 上海大学附属南通医院（南通市第六人民医院）
+DOMAIN-SUFFIX,nt6y.com
+# 上海大学附属孟超肿瘤医院
+DOMAIN-SUFFIX,shcancer.com
+# 上海大学系医院兜底
+DOMAIN-SUFFIX,shu.edu.cn
+
+# 北京协和医院
+DOMAIN-SUFFIX,pumch.cn
+# 北京大学第一医院
+DOMAIN-SUFFIX,pkufh.com
+# 北京大学第三医院
+DOMAIN-SUFFIX,puh3.net.cn
+# 中国医学科学院肿瘤医院
+DOMAIN-SUFFIX,cicams.ac.cn
+# 四川大学华西医院
+DOMAIN-SUFFIX,wchscu.cn
+# 中山大学附属第一医院
+DOMAIN-SUFFIX,gzsums.net
+# 浙江大学医学院附属第一医院
+DOMAIN-SUFFIX,zy91.com
