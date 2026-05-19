@@ -218,8 +218,9 @@
             const leafs = entries.filter((v) => typeof v[1] === 'string' && !!v[1])
             const nodes = entries.filter((v) => typeof v[1] === 'object' && Object.prototype.toString.call(v[1]) === '[object Object]')
             // 图片优先
+            const keyBlackList = ['_depth', '_full_path', '_parent_path']
             ;[...leafs, ...nodes].forEach(([key, value]) => {
-              if (key === '_depth') {
+              if (keyBlackList.includes(key)) {
                 return
               }
               if (typeof value === 'string' && !!value) {
