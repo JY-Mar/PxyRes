@@ -1,11 +1,11 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-19 10:31:07 GMT+8
-# DOMAIN          : 2
-# DOMAIN-SUFFIX   : 20
+# UPDATED         : 2026-05-20 07:38:26 GMT+8
+# DOMAIN          : 4
+# DOMAIN-SUFFIX   : 21
 # IP-CIDR         : 6
-# TOTAL           : 28
+# TOTAL           : 31
 
 payload:
   # 上海临港
@@ -41,6 +41,11 @@ payload:
   - DOMAIN-SUFFIX,superapp.ifenglian.com
   - DOMAIN-SUFFIX,botslab.com
   - DOMAIN-SUFFIX,zztfly.com
+
+  # Todesk
+  - DOMAIN-SUFFIX,todesk.com
+  - DOMAIN,id6.me
+  - DOMAIN,syssdk.cl2009.com
 
   # 信息上报
   - DOMAIN,api.qttunion.com
