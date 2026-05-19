@@ -224,7 +224,9 @@
       }
       .popover > .prev-img-wrap > .prev-img-main > img {
         will-change: width, height;
-        transition: width 0.15s ease, height 0.15s ease;
+        transition:
+          width 0.15s ease,
+          height 0.15s ease;
       }
     </style>
     <script>
@@ -377,15 +379,14 @@
         }
 
         let data
-        try {
-          data = await fetch('./images.json').then((res) => res.json())
-        } catch (error) {
-          data = null
-        }
-
-        if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
-          renderDataNode(data, iconContainer, '')
-        }
+        fetch('./images.json')
+          .then((res) => res.json())
+          .then((json) => {
+            data = json
+            if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
+              renderDataNode(data, iconContainer, '')
+            }
+          })
       }
 
       window.onload = () => {
