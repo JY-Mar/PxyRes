@@ -1,11 +1,11 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-18 14:24:55 GMT+8
+# UPDATED         : 2026-05-19 10:31:07 GMT+8
 # DOMAIN          : 2
-# DOMAIN-SUFFIX   : 19
+# DOMAIN-SUFFIX   : 20
 # IP-CIDR         : 6
-# TOTAL           : 27
+# TOTAL           : 28
 
 payload:
   # 上海临港
@@ -39,7 +39,6 @@ payload:
 
   # 360智慧生活
   - DOMAIN-SUFFIX,superapp.ifenglian.com
-  # 360智慧生活 国际域名
   - DOMAIN-SUFFIX,botslab.com
   - DOMAIN-SUFFIX,zztfly.com
 
@@ -52,3 +51,5 @@ payload:
 
   # LANDrop
   - DOMAIN-SUFFIX,landrop.app
+  # LocalSend
+  - DOMAIN-SUFFIX,localsend.org

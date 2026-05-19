@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-18 14:24:16 GMT+8
+# UPDATED         : 2026-05-19 10:30:01 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -358,6 +358,15 @@ proxy-groups:
 
 #region 规则集
 rule-providers:
+  # 国内直连规则
+  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
+  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProviders}
+  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
+  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProviders}
+  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProviders}
+  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
+  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProviders}
+  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProviders}
   # --- Direct ---
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
@@ -372,6 +381,7 @@ rule-providers:
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
   GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProviders}
   GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
+  # 精准匹配规则
   # --- AI ---
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
   Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProviders}
@@ -388,16 +398,16 @@ rule-providers:
   iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProviders}
   # --- Microsoft ---
   MicrosoftProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProviders}
-  Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
   Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
+  Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
   # --- Google ---
-  Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
   GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProviders}
   GoogleEarth: {url: https://rule.kelee.one/Clash/GoogleEarth.yaml, path: ./ruleset/GoogleEarth.yaml, <<: *RuleProviders}
   GoogleFCM: {url: https://rule.kelee.one/Clash/GoogleFCM.yaml, path: ./ruleset/GoogleFCM.yaml, <<: *RuleProviders}
   GoogleSearch: {url: https://rule.kelee.one/Clash/GoogleSearch.yaml, path: ./ruleset/GoogleSearch.yaml, <<: *RuleProviders}
   GoogleVoice: {url: https://rule.kelee.one/Clash/GoogleVoice.yaml, path: ./ruleset/GoogleVoice.yaml, <<: *RuleProviders}
+  Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
   # --- Media ---
   Spotify: {url: https://rule.kelee.one/Clash/Spotify.yaml, path: ./ruleset/Spotify.yaml, <<: *RuleProviders}
   YouTube: {url: https://rule.kelee.one/Clash/YouTube.yaml, path: ./ruleset/YouTube.yaml, <<: *RuleProviders}
@@ -406,24 +416,15 @@ rule-providers:
   Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
   Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProviders}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
-  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
-  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProviders}
-  # --- Monitor ---
-  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProviders}
   # --- Social ---
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
   Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProviders}
   Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProviders}
-  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
   TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProviders}
   Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProviders}
-  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProviders}
   # --- Code ---
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
-  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
   LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
-  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProviders}
-  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProviders}
   # --- Proxy ---
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # --- Adv ---
@@ -457,10 +458,10 @@ rules:
   - RULE-SET,GeoCN,🎯全球直连
   # 精准匹配规则
   # --- AI ---
+  - RULE-SET,AI,✨AI
   - RULE-SET,Copilot,✨Copilot
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
-  - RULE-SET,AI,✨AI
   # --- Apple ---
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
@@ -472,16 +473,16 @@ rules:
   - RULE-SET,iCloudPrivateRelay,🍎AppleVPN
   # --- Microsoft ---
   - RULE-SET,MicrosoftProxy,🪟MicrosoftProxy
-  - RULE-SET,Microsoft,🪟Microsoft
   - RULE-SET,OneDrive,🪟OneDrive
   - RULE-SET,Bing,🪟Bing
+  - RULE-SET,Microsoft,🪟Microsoft
   # --- Google ---
-  - RULE-SET,Google,🤖Google
   - RULE-SET,GoogleDrive,🤖Google
   - RULE-SET,GoogleEarth,🤖Google
   - RULE-SET,GoogleFCM,🤖Google
   - RULE-SET,GoogleSearch,🤖Google
   - RULE-SET,GoogleVoice,🤖Google
+  - RULE-SET,Google,🤖Google
   # --- Media ---
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,YouTube,🎬YouTube
@@ -499,10 +500,10 @@ rules:
   # --- Code ---
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,LinuxDo,🚀节点选择
-  # --- Adv ---
-  - RULE-SET,AdvLite,🛑全球拦截
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
+  # --- Adv ---
+  - RULE-SET,AdvLite,🛑全球拦截
   # 兜底规则
   - MATCH,🐟漏网之鱼
 #endregion
