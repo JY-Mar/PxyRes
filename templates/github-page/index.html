@@ -53,21 +53,29 @@
         width: 48px;
         cursor: pointer;
         display: inline-block;
-        background-color: #1677ff;
-        color: #ffffff;
+        background-color: #ffffff;
+        color: #000000;
         text-align: center;
         line-height: 32px;
         user-select: none;
       }
       .top-filter .filter-btn:hover {
         background-color: color-mix(in srgb, #1677ff, #ffffff 15%);
+        color: #ffffff;
       }
       .top-filter .filter-btn:active {
         background-color: color-mix(in srgb, #1677ff, #000000 7%);
+        color: #ffffff;
       }
       .top-filter .filter-btn + .filter-btn {
         margin-left: 0px;
         margin-right: 0px;
+      }
+      .top-filter .filter-btn.filter-btn--active,
+      .top-filter .filter-btn.filter-btn--active:hover,
+      .top-filter .filter-btn.filter-btn--active:active {
+        background-color: #1677ff;
+        color: #ffffff;
       }
       h1 {
         text-align: center;
@@ -94,13 +102,6 @@
         grid-template-columns: repeat(auto-fit, var(--icon-size-sm));
         gap: 1.3rem 1rem;
       }
-      .tree-body > .leaf-node {
-        will-change: scale, width, height;
-        transition:
-          scale 0.25s ease,
-          width 0.25s ease,
-          height 0.25s ease;
-      }
       .tree-body > .leaf-node:has(.leaf-main.large) {
         width: var(--icon-size-lg);
       }
@@ -111,7 +112,6 @@
         width: var(--icon-size-sm);
       }
       .tree-body > .leaf-node:has(.leaf-main:hover) {
-        scale: 1.2;
         z-index: 2;
         width: unset !important;
         height: unset !important;
@@ -190,9 +190,52 @@
       .tree-body > .leaf-node:has(.leaf-main.small) > .leaf-footer {
         font-size: var(--font-size-sm);
       }
+      .popover {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+      }
+      @media (prefers-color-scheme: light) {
+        .popover {
+          background: rgba(0, 0, 0, 0.6);
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        .popover {
+          background: rgba(53, 53, 53, 0.6);
+        }
+      }
+      .popover > .prev-img-wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .popover > .prev-img-wrap > .prev-img-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .popover > .prev-img-wrap > .prev-img-main > img {
+        will-change: width, height;
+        transition: width 0.15s ease, height 0.15s ease;
+      }
     </style>
     <script>
       function setSize(size) {
+        document.querySelectorAll('.filter-btn--active').forEach((item) => {
+          item.classList.remove('filter-btn--active')
+        })
+        if (!!size) {
+          const current = document.querySelector('#filter-' + size)
+          if (current) current.classList.add('filter-btn--active')
+        }
         document.querySelectorAll('.leaf-main').forEach((item) => {
           item.classList.remove('large', 'medium', 'small')
           item.classList.add(size)
@@ -204,15 +247,15 @@
     <h1>Icons 图片展示</h1>
     <div class="top-filter">
       <label>图标大小：</label>
-      <div class="filter-btn" onclick="setSize('large')">大</div>
-      <div class="filter-btn" onclick="setSize('medium')">中</div>
-      <div class="filter-btn" onclick="setSize('small')">小</div>
+      <div id="filter-large" class="filter-btn" onclick="setSize('large')">大</div>
+      <div id="filter-medium" class="filter-btn" onclick="setSize('medium')">中</div>
+      <div id="filter-small" class="filter-btn" onclick="setSize('small')">小</div>
     </div>
     <div id="icon-container"></div>
     <script>
       const iconContainer = document.getElementById('icon-container')
       if (iconContainer) {
-        const renderDataNode = (jsonObj, pElement) => {
+        const renderDataNode = (jsonObj, pElement, relPath = '') => {
           if (!!jsonObj && typeof jsonObj === 'object' && Object.prototype.toString.call(jsonObj) === '[object Object]') {
             const entries = Object.entries(jsonObj || {})
             const leafs = entries.filter((v) => typeof v[1] === 'string' && !!v[1])
@@ -239,7 +282,8 @@
                 imgWrap.classList.add('img-wrap')
 
                 const img = document.createElement('img')
-                img.src = imgPath
+                const _relPath = String(relPath || '')
+                img.src = (_relPath + imgPath).replace(/\\/g, '/').replace(/\/+/, '/')
                 img.alt = imgName
 
                 const tip = document.createElement('div')
@@ -249,6 +293,61 @@
                 imgWrap.appendChild(img)
                 leafMain.appendChild(imgWrap)
                 leafNode.append(leafMain, tip)
+
+                leafNode.onclick = () => {
+                  let popover = document.querySelector('#img-popover.popover')
+                  if (!popover) {
+                    popover = document.createElement('div')
+                    popover.id = 'img-popover'
+                    popover.classList.add('popover')
+                  }
+                  popover.style.display = 'block'
+                  document.body.style.overflow = 'hidden'
+                  let prevImgWrap = popover.querySelector('.prev-img-wrap')
+                  if (!prevImgWrap) {
+                    prevImgWrap = document.createElement('div')
+                    prevImgWrap.classList.add('prev-img-wrap')
+                    prevImgWrap.onclick = () => {
+                      popover.style.display = 'none'
+                      document.body.style.overflow = 'auto'
+                    }
+                  }
+                  let prevImgMain = popover.querySelector('.prev-img-main')
+                  if (!prevImgMain) {
+                    prevImgMain = document.createElement('div')
+                    prevImgMain.classList.add('prev-img-main')
+                  }
+                  prevImgMain.replaceChildren()
+                  const imgReal = document.createElement('img')
+                  imgReal.src = img.src
+                  imgReal.width = 256
+                  imgReal.height = 256
+                  const delta = 50
+                  imgReal.onwheel = (e) => {
+                    e.preventDefault()
+                    if (e.deltaY > 0) {
+                      // 下滚逻辑
+                      if (imgReal.width - delta < 50 || imgReal.height - delta < 50) {
+                        return
+                      }
+                      imgReal.width = imgReal.width - delta
+                      imgReal.height = imgReal.height - delta
+                    } else {
+                      // 上滚逻辑
+                      const MAX_W = document.documentElement.clientWidth || window.innerWidth
+                      const MAX_H = document.documentElement.clientHeight || window.innerHeight
+                      if (imgReal.width + delta > MAX_W || imgReal.height + delta > MAX_H) {
+                        return
+                      }
+                      imgReal.width = imgReal.width + delta
+                      imgReal.height = imgReal.height + delta
+                    }
+                  }
+                  prevImgMain.appendChild(imgReal)
+                  prevImgWrap.appendChild(prevImgMain)
+                  popover.appendChild(prevImgWrap)
+                  document.body.appendChild(popover)
+                }
 
                 if (pElement) {
                   pElement.appendChild(leafNode)
@@ -266,7 +365,7 @@
                 const treeBody = document.createElement('div')
                 treeBody.classList.add('tree-body')
 
-                renderDataNode(value, treeBody)
+                renderDataNode(value, treeBody, relPath)
 
                 if (pElement) {
                   treeNode.append(treeTitle, treeBody)
@@ -277,13 +376,16 @@
           }
         }
 
-        fetch('./images.json')
-          .then((res) => res.json())
-          .then((data) => {
-            if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
-              renderDataNode(data, iconContainer)
-            }
-          })
+        let data
+        try {
+          data = await fetch('./images.json').then((res) => res.json())
+        } catch (error) {
+          data = null
+        }
+
+        if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Object]') {
+          renderDataNode(data, iconContainer, '')
+        }
       }
 
       window.onload = () => {
