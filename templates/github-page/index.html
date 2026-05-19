@@ -227,6 +227,7 @@
         transition:
           width 0.15s ease,
           height 0.15s ease;
+        aspect-ratio: 1 / 1;
       }
     </style>
     <script>
@@ -322,27 +323,28 @@
                   prevImgMain.replaceChildren()
                   const imgReal = document.createElement('img')
                   imgReal.src = img.src
-                  imgReal.width = 256
-                  imgReal.height = 256
+                  let imgSize = 256
+                  imgReal.width = imgSize
+                  imgReal.height = imgSize
                   const delta = 50
                   imgReal.onwheel = (e) => {
                     e.preventDefault()
                     if (e.deltaY > 0) {
                       // 下滚逻辑
-                      if (imgReal.width - delta < 50 || imgReal.height - delta < 50) {
+                      if (imgReal.width - delta < 50) {
                         return
                       }
                       imgReal.width = imgReal.width - delta
-                      imgReal.height = imgReal.height - delta
+                      imgReal.height = imgReal.width - delta
                     } else {
                       // 上滚逻辑
                       const MAX_W = document.documentElement.clientWidth || window.innerWidth
                       const MAX_H = document.documentElement.clientHeight || window.innerHeight
-                      if (imgReal.width + delta > MAX_W || imgReal.height + delta > MAX_H) {
+                      if (imgReal.width + delta > MAX_W || imgReal.width + delta > MAX_H) {
                         return
                       }
                       imgReal.width = imgReal.width + delta
-                      imgReal.height = imgReal.height + delta
+                      imgReal.height = imgReal.width + delta
                     }
                   }
                   prevImgMain.appendChild(imgReal)
