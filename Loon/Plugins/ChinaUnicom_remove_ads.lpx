@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=JY-Mar
 #!tag=ChinaUnion,中国联通,去广告
-#!date=2026-05-20 09:46:47 GMT+8
+#!date=2026-05-20 11:07:05 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ChinaUnicom.png
 #!openUrl=https://apps.apple.com/app/id416457422
 
@@ -11,14 +11,18 @@
 ^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getDeviceFloor reject-dict
 ^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getRightsFloor reject-dict
 ^https:\/\/activity\.10010\.com\/activity\d+\/floor\/get5GAFloor reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getFloor\?floorType=.+ reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getFloor\?floorType=.* reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getUpgradeFloor reject-dict
 ^https:\/\/activity\.10010\.com\/activity\d+\/out\/configure reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/activity\/queryPopInfo\?subChannel=.+ reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/activity\/queryPopInfo\?subChannel=.* reject-dict
 ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/serviceReminder reject-dict
-^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter\?((login_type|provinceCode|clientVersion|cityCode)=.+&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter\?((login_type|provinceCode|clientVersion|cityCode)=.*&?)+ reject-dict
 ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/query517Active reject-dict
-^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/queryCfig\?((province|city|version)=.+&?)+ reject-dict
-^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord\?((version|channelCode|provinceCode|methodType|yw_code|cityCode)=.+&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/queryCfig\?((province|city|version)=.*&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord\?((version|channelCode|provinceCode|methodType|yw_code|cityCode)=.*&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm reject-200
+^https:\/\/m\.client\.10010\.com\/edoprinterface\/service\/appInfo\/2\/iphone_c@\d+\.\d+\/edop_unicom_.+\/.+ reject-200
+^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/myWallet reject-dict
 # 附近营业厅 - 优惠券
 ^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/foodTicket reject-dict
 # 附近营业厅 - 本地精选
@@ -35,6 +39,9 @@
 
 [Script]
 http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/.+\/.+\?adCode=.* script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_home_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
+http-response ^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_comm_ads.js, requires-body=true, timeout=20, tag=移除视频广告
+http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_home_nav.js, requires-body=true, timeout=20, tag=移除首页无用导航项
+http-response ^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_comm_ads.js, requires-body=true, timeout=20, tag=移除首页无用导航项
 
 [MITM]
 hostname = activity.10010.com, m.client.10010.com, card.10010.com

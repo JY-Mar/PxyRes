@@ -1,12 +1,13 @@
-# NAME            : ChinaTelecom
+# NAME            : ChinaTelecomm
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-20 08:13:21 GMT+8
-# DOMAIN-SUFFIX   : 3
-# TOTAL           : 3
+# UPDATED         : 2026-05-20 09:58:24 GMT+8
+# DOMAIN-SUFFIX   : 4
+# TOTAL           : 4
 
 payload:
   # 中国联通
   - DOMAIN-SUFFIX,10010.com
   - DOMAIN-SUFFIX,unicompayment.com
   - DOMAIN-SUFFIX,chinaunicom.cn
+  - DOMAIN-SUFFIX,mucfc.com
