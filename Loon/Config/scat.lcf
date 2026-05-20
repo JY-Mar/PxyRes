@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-19 10:34:55 GMT+8
+# UPDATED         : 2026-05-20 08:27:40 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -175,6 +175,7 @@ https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, ena
 https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaLand.lsr, policy=🎯全球直连, tag=ChinaLand, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaTelecomm.lsr, policy=🎯全球直连, tag=ChinaTelecomm, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=🎯全球直连, tag=ChinaBank, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=🎯全球直连, tag=ChinaHosp, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
@@ -322,6 +323,7 @@ https://kelee.one/Tool/Loon/Lpx/Aiinquiry_remove_ads.lpx, tag=爱企查去广告
 https://kelee.one/Tool/Loon/Lpx/555DY_remove_ads.lpx, tag=555电影去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/51Job_remove_ads.lpx, tag=前程无忧去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/123NetWorkDisk_remove_ads.lpx, tag=123网盘去广告, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Plugins/ChinaUnicom_remove_ads.lpx, tag=中国联通去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, tag=12306去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag=广告平台拦截器, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag=可莉广告过滤器, enabled=true

@@ -1,0 +1,37 @@
+#!name=中国联通去广告
+#!desc=移除开屏广告、推广横幅
+#!homepage=https://github.com/JY-Mar/PxyRes
+#!author=JY-Mar
+#!tag=ChinaUnion,中国联通,去广告
+#!date=2026-05-20 09:16:11 GMT+8
+#!icon=https://jy-mar.github.io/PxyRes/Icons/App/ChinaUnicom.png
+#!openUrl=https://apps.apple.com/app/id416457422
+
+[Rewrite]
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getDeviceFloor reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getRightsFloor reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/get5GAFloor reject-dict
+^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getFloor\?floorType=.+ reject-dict
+^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/serviceReminder reject-dict
+^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter\?((login_type|provinceCode|clientVersion|cityCode)=.+&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/queryCfig\?((province|city|version)=.+&?)+ reject-dict
+^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWorld\?((version|channelCode|provinceCode|methodType|yw_code|cityCode)=.+&?)+ reject-dict
+# 附近营业厅 - 优惠券
+^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/foodTicket reject-dict
+# 附近营业厅 - 本地精选
+^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/localBusiness reject-dict
+# 首页卡片广告
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/tabs reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTab\/activityShow reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/smartHome reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/unicomCulture reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTerminalShow reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topBanner reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/query\/waterfallFlow reject-dict
+^https:\/\/card\.10010\.com\/mall-access\/searchRecommend\/query reject-dict
+
+[Script]
+http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/.+\/.+\?adCode=.* script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_home_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
+
+[MITM]
+hostname = *.10010.com

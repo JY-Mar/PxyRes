@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-19 10:30:01 GMT+8
+# UPDATED         : 2026-05-20 08:25:28 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -372,9 +372,10 @@ rule-providers:
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
   ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
-  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
+  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProviders}
   ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
   ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProviders}
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
@@ -447,6 +448,7 @@ rules:
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaLand,🎯全球直连
+  - RULE-SET,ChinaTelecomm,🎯全球直连
   - RULE-SET,ChinaBank,🎯全球直连
   - RULE-SET,ChinaHosp,🎯全球直连
   - RULE-SET,ChinaAI,🎯全球直连
