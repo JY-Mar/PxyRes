@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=JY-Mar
 #!tag=ChinaUnion,中国联通,去广告
-#!date=2026-05-20 11:07:05 GMT+8
+#!date=2026-05-20 11:22:29 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ChinaUnicom.png
 #!openUrl=https://apps.apple.com/app/id416457422
 
@@ -42,6 +42,7 @@ http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/que
 http-response ^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_comm_ads.js, requires-body=true, timeout=20, tag=移除视频广告
 http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_home_nav.js, requires-body=true, timeout=20, tag=移除首页无用导航项
 http-response ^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_comm_ads.js, requires-body=true, timeout=20, tag=移除首页无用导航项
+http-response ^https:\/\/m\.client\.10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+ script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_comm_ads.js, requires-body=true, timeout=20, tag=修改用户配置项
 
 [MITM]
 hostname = activity.10010.com, m.client.10010.com, card.10010.com

@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-20 10:26:27 +0800
+ * UPDATED         : 2026-05-20 11:55:00 +0800
  * DESC            : 移除首页无用导航项
  */
 
@@ -17,14 +17,16 @@ if ($response.body) {
       Array.isArray(obj.data.homeTopMenuItems)
     ) {
       const blacklist = ['通通', '签到']
-      obj.data.homeTopMenuItems.forEach((v) => {
-        if (v && typeof v === 'object' && Object.prototype.toString.call(v) === '[object Object]') {
-          if (v?.urlType === '1' && blacklist.includes(v?.menuName)) {
-            v = null
-          }
+      const recursiveRemove = (val) => {
+        const index =  obj.data.homeTopMenuItems.findIndex((v) => v?.urlType === '1' && v?.menuName === val)
+        if (index > -1) {
+          obj.data.homeTopMenuItems.splice(index, 1)
+          recursiveRemove(val)
         }
+      }
+      blacklist.forEach((blackListItem) => {
+        recursiveRemove(blackListItem)
       })
-      obj.data.homeTopMenuItems = obj.data.homeTopMenuItems.filter((v) => !!v)
     }
     if (
       Object.prototype.hasOwnProperty.call(obj.data, 'homeMenuItems') &&
@@ -33,14 +35,16 @@ if ($response.body) {
       Array.isArray(obj.data.homeMenuItems)
     ) {
       const blacklist = ['PLUS', '开发票']
-      obj.data.homeMenuItems.forEach((v) => {
-        if (v && typeof v === 'object' && Object.prototype.toString.call(v) === '[object Object]') {
-          if (v?.sysCode === 'ST5' && blacklist.includes(v?.title)) {
-            v = null
-          }
+      const recursiveRemove = (val) => {
+        const index =  obj.data.homeMenuItems.findIndex((v) => v?.sysCode === 'ST5' && v?.title === val)
+        if (index > -1) {
+          obj.data.homeMenuItems.splice(index, 1)
+          recursiveRemove(val)
         }
+      }
+      blacklist.forEach((blackListItem) => {
+        recursiveRemove(blackListItem)
       })
-      obj.data.homeMenuItems = obj.data.homeMenuItems.filter((v) => !!v)
     }
   }
   $done({ body: JSON.stringify(obj) })
