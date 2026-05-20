@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-20 08:25:28 GMT+8
+# UPDATED         : 2026-05-20 13:23:22 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -358,7 +358,7 @@ proxy-groups:
 
 #region 规则集
 rule-providers:
-  # 国内直连规则
+  # 国内匹配规则
   VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
   ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProviders}
   DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
@@ -367,21 +367,6 @@ rule-providers:
   JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
   KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProviders}
   CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProviders}
-  # --- Direct ---
-  Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
-  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
-  China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
-  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
-  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProviders}
-  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
-  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProviders}
-  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
-  ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
-  ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
-  ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
-  Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
-  GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProviders}
-  GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
   # 精准匹配规则
   # --- AI ---
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
@@ -430,11 +415,26 @@ rule-providers:
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # --- Adv ---
   AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProviders}
+  # 直连匹配规则
+  Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
+  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
+  China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
+  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
+  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProviders}
+  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
+  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProviders}
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
+  ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
+  ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
+  ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
+  Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
+  GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProviders}
+  GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
 #endregion
 
 #region 规则匹配
 rules:
-  # 国内直连规则
+  # 国内匹配规则
   - RULE-SET,VidHub,🎯全球直连
   - RULE-SET,ByteDance,🎯全球直连
   - RULE-SET,DouYin,🎯全球直连
@@ -443,21 +443,6 @@ rules:
   - RULE-SET,JueJin,🎯全球直连
   - RULE-SET,KeleeOne,🎯全球直连
   - RULE-SET,CodeCDN,🎯全球直连
-  # --- Direct ---
-  - RULE-SET,Direct,🎯全球直连
-  - RULE-SET,Download,🎯全球直连
-  - RULE-SET,China,🎯全球直连
-  - RULE-SET,ChinaLand,🎯全球直连
-  - RULE-SET,ChinaTelecomm,🎯全球直连
-  - RULE-SET,ChinaBank,🎯全球直连
-  - RULE-SET,ChinaHosp,🎯全球直连
-  - RULE-SET,ChinaAI,🎯全球直连
-  - RULE-SET,ChinaDNS,🎯全球直连
-  - RULE-SET,ChinaMedia,🎯全球直连
-  - RULE-SET,ChinaDownloadCDN,🎯全球直连
-  - RULE-SET,Lan,🎯全球直连
-  - RULE-SET,GeoLAN,🎯全球直连
-  - RULE-SET,GeoCN,🎯全球直连
   # 精准匹配规则
   # --- AI ---
   - RULE-SET,AI,✨AI
@@ -506,6 +491,21 @@ rules:
   - RULE-SET,Proxy,🚀节点选择
   # --- Adv ---
   - RULE-SET,AdvLite,🛑全球拦截
+  # 直连匹配规则
+  - RULE-SET,Direct,🎯全球直连
+  - RULE-SET,Download,🎯全球直连
+  - RULE-SET,China,🎯全球直连
+  - RULE-SET,ChinaLand,🎯全球直连
+  - RULE-SET,ChinaTelecomm,🎯全球直连
+  - RULE-SET,ChinaBank,🎯全球直连
+  - RULE-SET,ChinaHosp,🎯全球直连
+  - RULE-SET,ChinaAI,🎯全球直连
+  - RULE-SET,ChinaDNS,🎯全球直连
+  - RULE-SET,ChinaMedia,🎯全球直连
+  - RULE-SET,ChinaDownloadCDN,🎯全球直连
+  - RULE-SET,Lan,🎯全球直连
+  - RULE-SET,GeoLAN,🎯全球直连
+  - RULE-SET,GeoCN,🎯全球直连
   # 兜底规则
   - MATCH,🐟漏网之鱼
 #endregion
