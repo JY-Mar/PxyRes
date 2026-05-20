@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=JY-Mar
 #!tag=ChinaUnion,中国联通,去广告
-#!date=2026-05-20 09:38:46 GMT+8
+#!date=2026-05-20 09:46:47 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ChinaUnicom.png
 #!openUrl=https://apps.apple.com/app/id416457422
 
@@ -37,4 +37,4 @@
 http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/.+\/.+\?adCode=.* script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_home_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
 
 [MITM]
-hostname = *.10010.com
+hostname = activity.10010.com, m.client.10010.com, card.10010.com
