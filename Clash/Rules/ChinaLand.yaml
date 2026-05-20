@@ -47,6 +47,9 @@ payload:
   - DOMAIN,id6.me
   - DOMAIN,syssdk.cl2009.com
 
+  # 无忧享
+  - DOMAIN-SUFFIX,wuuxiang.com
+
   # 信息上报
   - DOMAIN,api.qttunion.com
   - DOMAIN,tracelog-debug.aiclk.com
