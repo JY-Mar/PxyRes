@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-26 11:08:31 GMT+8
+# UPDATED         : 2026-05-26 11:26:04 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -412,6 +412,7 @@ rule-providers:
   # --- Code ---
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
   LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
+  Discord: {url: https://rule.kelee.one/Clash/Discord.yaml, path: ./ruleset/Discord.yaml, <<: *RuleProviders}
   # --- Proxy ---
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # --- Adv ---
@@ -488,6 +489,7 @@ rules:
   # --- Code ---
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,LinuxDo,🚀节点选择
+  - RULE-SET,Discord,🚀节点选择
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
   # --- Adv ---

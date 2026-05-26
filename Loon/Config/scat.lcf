@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-26 11:08:34 GMT+8
+# UPDATED         : 2026-05-26 11:26:14 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -215,6 +215,7 @@ https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦Twitter, tag=Twitter, enable
 # --- Code ---
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
+https://rule.kelee.one/Loon/Discord.lsr, policy=🚀节点选择, tag=Discord, enabled=true
 # --- Proxy ---
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 # --- Adv ---
