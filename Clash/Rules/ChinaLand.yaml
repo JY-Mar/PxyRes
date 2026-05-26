@@ -1,11 +1,11 @@
 # NAME            : ChinaLand
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-20 07:38:26 GMT+8
+# UPDATED         : 2026-05-26 11:10:24 GMT+8
 # DOMAIN          : 4
-# DOMAIN-SUFFIX   : 21
+# DOMAIN-SUFFIX   : 22
 # IP-CIDR         : 6
-# TOTAL           : 31
+# TOTAL           : 32
 
 payload:
   # 上海临港
