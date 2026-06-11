@@ -1,0 +1,9 @@
+# NAME            : ChinaProxy
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-06-11 15:25:57 GMT+8
+# DOMAIN-SUFFIX   : 1
+# TOTAL           : 1
+
+payload:
+  - DOMAIN-SUFFIX,yfamilys.com

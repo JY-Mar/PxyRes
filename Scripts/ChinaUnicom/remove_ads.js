@@ -1,9 +1,9 @@
 /*
- * NAME            : remove_comm_ads
+ * NAME            : remove_ads
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-20 11:32:49 +0800
+ * UPDATED         : 2026-06-11 13:45:51 +0800
  * DESC            : 移除广告
  */
 
@@ -11,7 +11,7 @@ const url = $request.url
 
 if ($response.body) {
   let obj = JSON.parse($response.body)
-  if (/10010.com\/video_recommend\/content\/screenSwitch/.test(url)) {
+  if (/10010\.com\/video_recommend\/content\/screenSwitch/.test(url)) {
     if (obj.data && typeof obj.data === 'object') {
       if (Object.prototype.hasOwnProperty.call(obj.data, 'detailsAdShow')) {
         obj.data.detailsAdShow = 'N'
@@ -36,7 +36,7 @@ if ($response.body) {
       }
     }
   }
-  if (/10010.com\/clientMyPage\/v1\/api\/aggregateFloorConfig/.test(url)) {
+  if (/10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig/.test(url)) {
     // 移除“我的”页面的“合计配置”
     if (obj.data && typeof obj.data === 'object') {
       delete obj.data.aggregateFloorMore
@@ -95,7 +95,7 @@ if ($response.body) {
       }
     }
   }
-  if (/10010.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+/.test(url)) {
+  if (/10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+/.test(url)) {
     if (obj.response && typeof obj.response === 'object') {
       if (Object.prototype.hasOwnProperty.call(obj.response, 'body') && obj.response.body && typeof obj.response.body === 'object' && Object.prototype.toString.call(obj.response.body) === '[object Object]') {
         if (Object.prototype.hasOwnProperty.call(obj.response.body, 'configData') && obj.response.body.configData && typeof obj.response.body.configData === 'object' && Array.isArray(obj.response.body.configData)) {

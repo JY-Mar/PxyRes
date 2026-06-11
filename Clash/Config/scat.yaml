@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-05-26 11:26:04 GMT+8
+# UPDATED         : 2026-06-11 15:27:29 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -415,6 +415,7 @@ rule-providers:
   Discord: {url: https://rule.kelee.one/Clash/Discord.yaml, path: ./ruleset/Discord.yaml, <<: *RuleProviders}
   # --- Proxy ---
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
+  ChinaProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaProxy.yaml, path: ./ruleset/ChinaProxy.yaml, <<: *RuleProviders}
   # --- Adv ---
   AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProviders}
   # 直连匹配规则
