@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-11 15:27:58 GMT+8
+# UPDATED         : 2026-06-11 16:18:17 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -260,7 +260,6 @@ https://kelee.one/Tool/Loon/Lpx/BaiduWenku_remove_ads.lpx, tag=百度文库去�
 https://yfamilys.com/plugin/bdwk.plugin, tag=百度文库解锁, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, tag=高德地图去广告, enabled=true
 https://yfamilys.com/plugin/gddt.plugin, tag=高德地图去广告, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Plugins/AMap_ex_remove_ads.lpx, tag=高德地图去广告Ex, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, tag=哔哩哔哩去广告, enabled=true
 https://yfamilys.com/plugin/biliad.plugin, tag=哔哩哔哩去广告+, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BiliComic_remove_ads.lpx, tag=哔哩哔哩漫画去广告, enabled=true
