@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-11 16:18:17 GMT+8
+# UPDATED         : 2026-06-17 10:44:51 GMT+8
 
 [General]
 # IPv4 / IPv6 模式
@@ -12,7 +12,7 @@ ipv6-vif = auto
 disable-stun = true
 # UDP 回退模式
 udp-fallback-mode = REJECT
-# SNI辅助规则匹配
+# 开启 SNI 嗅探器
 sni-sniffing = true
 # 域名拦截行为
 domain-reject-mode = DNS
@@ -40,14 +40,14 @@ internet-test-url = https://connectivitycheck.platform.hicloud.com/generate_204
 proxy-test-url = https://cp.cloudflare.com/generate_204
 # 资源解析器
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
-# GeoIP 数据，IP 地址与国家/地区的映射
+# GeoIP 数据库，IP 地址与国家/地区的映射
 geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
-# GeoASN 数据，GeoIP 数据的来源
+# ASN 数据库，GeoIP 数据的来源
 ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
-# 跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
+# 绕过代理，跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
 skip-proxy = localhost,*.local,captive.apple.com,e.crashlytics.com,www.baidu.com,passenger.t3go.cn,yunbusiness.ccb.com,wxh.wo.cn,gate.lagou.com,www.abchina.com.cn,login-service.mobile-bank.psbc.com,mobile-bank.psbc.com,10.0.0.0/8,127.0.0.1/32,172.16.0.0/12,192.168.0.0/16,192.168.122.1/32,193.168.0.1/32,::1/128,fe80::/10
 # 绕过路由
-bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,240.0.0.0/4,255.255.255.255/32
+bypass-tun = 0.0.0.0/32,0.0.0.0/8,10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,240.0.0.0/4,255.255.255.255/32
 
 [Proxy]
 

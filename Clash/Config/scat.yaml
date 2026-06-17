@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-11 15:27:29 GMT+8
+# UPDATED         : 2026-06-17 10:44:29 GMT+8
 
 #region 主要端口设置
 # HTTP 代理端口
@@ -23,10 +23,10 @@ geodata-mode: false
 geodata-loader: standard
 # GEO 数据文件自动更新
 geo-auto-update: true
-# 每隔 N小时 自动检查并更新 GEO 数据文件
+# 每隔 N 小时 自动检查并更新 GEO 数据文件
 geo-update-interval: 168
 geox-url:
-  # IP 地址与国家/地区的映射
+  # GeoIP 数据库，IP 地址与国家/地区的映射
   geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
   # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
   # 域名与分类的映射（如广告、社交媒体等）
@@ -34,7 +34,7 @@ geox-url:
   # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
   # 更高精度的 IP 数据库
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
-  # GeoIP 数据的来源
+  # ASN 数据库，GeoIP 数据的来源
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # TCP 并发
 tcp-concurrent: false
@@ -47,7 +47,7 @@ allow-lan: true
 mode: rule
 # 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
 # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
-log-level: warning
+log-level: silent
 # IPv6 支持
 ipv6: true
 # UDP 支持
@@ -74,7 +74,7 @@ bind-address: '*'
 #region 配置文件
 profile:
   store-selected: true
-  store-fake-ip: false
+  store-fake-ip: true
 #endregion
 
 #region 嗅探器
@@ -83,7 +83,7 @@ sniffer:
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
   # 包含 Tun、Redir 和 TProxy 或 DNS 为 redir-host
   # 全端口嗅探会解析所有 HTTP/TLS/QUIC 流量，内存占用高
-  enable: false
+  enable: true
   # 是否强制将 IP 映射为域名（即使已有域名）
   force-dns-mapping: false
   # 是否对纯 IP 流量进行嗅探
@@ -111,17 +111,20 @@ sniffer:
 #region TUN 模块
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
-  enable: false
-  # system 或 gvisor
+  enable: true
+  # system / gvisor / mixed（tcp - system,udp - gvisor）
   stack: system
-  endpoint-independent-nat: false
-  # 自动路由
-  auto-route: false
-  auto-redirect: false
-  auto-detect-interface: false
+  # 自动设置全局路由
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
   # 清空 DNS 劫持，减少 Fake-IP 映射
-  dns-hijack: []
+  dns-hijack: [any:53, tcp://any:53]
+  endpoint-independent-nat: false
+  route-exclude-address: [0.0.0.0/32,0.0.0.0/8,10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,240.0.0.0/4,255.255.255.255/32]
 #endregion
+system-proxy:
+  bypass:
 
 #region DNS 设置
 # 可选；若不配置，程序内置的 DNS 服务会被关闭
@@ -141,8 +144,19 @@ dns:
   enhanced-mode: fake-ip
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
+  # Fake IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）/ rule（规则）
+  fake-ip-filter-mode: blacklist
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter: ["*", +.lan]
+  fake-ip-filter: [
+    "*",
+    +.lan,
+    +.local,
+    # 全局屏蔽所有STUN子域名
+    +.stun.*,
+    +.stun.*.*,
+    +.stun.*.*.*,
+    +.stun.*.*.*.*
+  ]
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver: [223.5.5.5, 223.6.6.6]
@@ -360,6 +374,7 @@ proxy-groups:
 #region 规则集
 rule-providers:
   # 国内匹配规则
+  SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProviders}
   VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
   ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProviders}
   DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
@@ -438,6 +453,7 @@ rule-providers:
 #region 规则匹配
 rules:
   # 国内匹配规则
+  - RULE-SET,SkipProxy,🎯全球直连
   - RULE-SET,VidHub,🎯全球直连
   - RULE-SET,ByteDance,🎯全球直连
   - RULE-SET,DouYin,🎯全球直连
@@ -493,6 +509,7 @@ rules:
   - RULE-SET,Discord,🚀节点选择
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
+  - RULE-SET,ChinaProxy,🚀节点选择
   # --- Adv ---
   - RULE-SET,AdvLite,🛑全球拦截
   # 直连匹配规则

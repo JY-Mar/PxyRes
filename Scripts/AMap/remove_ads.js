@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-06-11 16:26:05 +0800
+ * UPDATED         : 2026-06-17 09:05:17 +0800
  * DESC            : 高德地图移除广告
  */
 
@@ -128,7 +128,7 @@ if (url.includes('/aos/perception/publicTravel/beforeNavi')) {
   if (obj?.data?.rankEntry?.data?.length > 0) {
     obj.data.rankEntry.data = []
   }
-  // #endregion
+  // #endregion JY-Mar新增
 } else if (url.includes('/faas/amap-navigation/card-service-plan-home')) {
   // 路线规划页
   if (obj?.data?.children?.length > 0) {
@@ -312,7 +312,7 @@ if (url.includes('/aos/perception/publicTravel/beforeNavi')) {
     'trade_portal_config',
     'water_brand_video',
     'weather_restrict_config'
-    // #endregion
+    // #endregion JY-Mar新增
   ]
   if (obj?.data) {
     for (let i of items) {
