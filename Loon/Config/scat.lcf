@@ -1,52 +1,66 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-22 19:21:45 GMT+8
+# UPDATED         : 2026-06-22 19:45:32 GMT+8
 
 [General]
-# IPv4 / IPv6 模式
+# IP 模式
+# - ipv4-only: 只使用 IPv4 进行请求，不发起 AAAA 的 DNS 查询，拒绝所有 IPv6 连接
+# - dual: 并发发起 A 和 AAAA 的 DNS 查询，优先使用响应速度更快的结果，不判断是否是IPv4或者IPv6
+# - ipv4-preferred: 并发发起 A 和 AAAA 的 DNS 查询，优先使用 IPv6 结果，如无 IPv6 记录则切换到 IPv4 结果
+# - ipv6-Preferred: 并发发起 A 和 AAAA 的 DNS 查询，优先使用 IPv4 结果，如无 IPv4 记录则切换到 IPv6 结果
 ip-mode = dual
 # IPv6 支持
 ipv6-vif = auto
-# 禁用 STUN 流量
+# 是否禁用stun协议的udp数据，禁用后可以有效解决webrtc的ip泄露
 disable-stun = true
-# UDP 回退模式
+# 当 UDP 的流量规则匹配到相关节点，但该节点不支持UDP或未未开启UDP转发时使用的策略，可选 `DIRECT`、`REJECT`
 udp-fallback-mode = REJECT
 # 开启 SNI 嗅探器
 sni-sniffing = true
-# 域名拦截行为
+# 域名拒绝规则执行的阶段
+# - DNS：使用 LoopbackIP、No Answer 或 NXDomain 的方式阻止 DNS 查询以达到拦截请求的目的
+# - Request：在请求转发阶段拦截请求
 domain-reject-mode = DNS
-# DNS 服务
-dns-server = system, 119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114
-# DNS 拦截行为
+# 在DNS阶段拒绝域名时采用的方式
+# - LOOPBACKIP：回环IP
+# - NOANSWER：DNS响应为空
+# - NXDOMAIN：错误码为3的DNS响应
 dns-reject-mode = LoopbackIP
-# WiFi http 代理
-wifi-access-http-port = 7222
-# WiFi socks5 代理
-wifi-access-socks5-port = 7221
-# 允许 WiFi 访问
+# udp类的dns服务器，用“,”隔开多个服务器，system表示系统dns
+dns-server = system, 119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114
+# 是否开启局域网代理访问
 allow-wifi-access = false
-# 网络接口
+# 开启局域网访问后的http代理端口
+wifi-access-http-port = 7222
+# 开启局域网访问后的socks5代理端口
+wifi-access-socks5-port = 7221
+# 指定流量使用哪个网络接口进行转发
+# - Auto: 系统自动分配
+# - Cellular: 在WiFi和蜂窝数据都开启的情况下指定使用蜂窝网络
+# - Performace: 在WiFi和蜂窝数据都开启的情况下使用最优的网络接口
+# - Balance: 在WiFi和蜂窝数据都开启的情况下，均衡使用网络接口
 interface-mode = auto
-# 测速超时 (s)
+# 节点测速时的超时秒数
 test-timeout = 5
 # 策略组切换时关闭连接
 disconnect-on-policy-change = false
-# 当节点连续失败多少次后开始切换节点
+# 一个节点连接失败几次后会进行节点切换，默认3次
+# 已弃用，目前会自动检测节点可用性，根据上下文自动切换
 switch-node-after-failure-times = 3
-# 检测设备是否能正常访问互联网（整体网络连通性）
+# 检测网络可用性时的链接，一般填写可以直连访问的链接
 internet-test-url = https://connectivitycheck.platform.hicloud.com/generate_204
-# 检测代理节点是否可用，测试延迟与稳定性
+# 测速所用的测试链接，如果策略组没有自定义测试链接就会使用这里配置的
 proxy-test-url = https://cp.cloudflare.com/generate_204
-# 资源解析器
+# 订阅资源解析器链接
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
-# GeoIP 数据库，IP 地址与国家/地区的映射
+# 自定义geoip数据库的下载地址
 geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
-# ASN 数据库，GeoIP 数据的来源
+# 自定义asn数据库的下载地址
 ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
-# 绕过代理，跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
+# skip-proxy则和HTTP Proxy有关，如果配置了该参数，那么所配置的这些IP段、域名将不会转发到Loon，而是由系统处理
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
-# 绕过路由
+# bypass-tun则和TUN有关，如果配置了该参数，那么所配置的这些IP段、域名就会不交给Loon来处理，系统直接处理
 bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
 
 
