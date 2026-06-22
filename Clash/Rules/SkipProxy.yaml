@@ -1,30 +1,16 @@
 # NAME            : skipProxy
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-17 10:45:20 GMT+8
-# DOMAIN-SUFFIX   : 12
-# IP-CIDR         : 6
-# IP-CIDR6        : 2
-# TOTAL           : 20
+# UPDATED         : 2026-06-22 19:18:12 GMT+8
+# DOMAIN          : 2
+# DOMAIN-SUFFIX   : 1
+# IP-CIDR         : 3
+# TOTAL           : 6
 
 payload:
-  - DOMAIN-SUFFIX,localhost
-  - DOMAIN-SUFFIX,local
-  - DOMAIN-SUFFIX,captive.apple.com
-  - DOMAIN-SUFFIX,e.crashlytics.com
-  - DOMAIN-SUFFIX,baidu.com
-  - DOMAIN-SUFFIX,passenger.t3go.cn
-  - DOMAIN-SUFFIX,yunbusiness.ccb.com
-  - DOMAIN-SUFFIX,wxh.wo.cn
-  - DOMAIN-SUFFIX,gate.lagou.com
-  - DOMAIN-SUFFIX,abchina.com.cn
-  - DOMAIN-SUFFIX,login-service.mobile-bank.psbc.com
-  - DOMAIN-SUFFIX,mobile-bank.psbc.com
-  - IP-CIDR,10.0.0.0/8,no-resolve
-  - IP-CIDR,127.0.0.1/32,no-resolve
-  - IP-CIDR,172.16.0.0/12,no-resolve
   - IP-CIDR,192.168.0.0/16,no-resolve
-  - IP-CIDR,192.168.122.1/32,no-resolve
-  - IP-CIDR,193.168.0.1/32,no-resolve
-  - IP-CIDR6,::1/128,no-resolve
-  - IP-CIDR6,fe80::/10,no-resolve
+  - IP-CIDR,10.0.0.0/8,no-resolve
+  - IP-CIDR,172.16.0.0/12,no-resolve
+  - DOMAIN,localhost
+  - DOMAIN-SUFFIX,local
+  - DOMAIN,e.crashlytics.com
