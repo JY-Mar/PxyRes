@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-22 19:45:32 GMT+8
+# UPDATED         : 2026-06-23 08:31:53 GMT+8
 
 [General]
 # IP 模式
@@ -46,7 +46,7 @@ test-timeout = 5
 # 策略组切换时关闭连接
 disconnect-on-policy-change = false
 # 一个节点连接失败几次后会进行节点切换，默认3次
-# 已弃用，目前会自动检测节点可用性，根据上下文自动切换
+# > 已弃用，目前会自动检测节点可用性，根据上下文自动切换
 switch-node-after-failure-times = 3
 # 检测网络可用性时的链接，一般填写可以直连访问的链接
 internet-test-url = https://connectivitycheck.platform.hicloud.com/generate_204
@@ -62,7 +62,6 @@ ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
 # bypass-tun则和TUN有关，如果配置了该参数，那么所配置的这些IP段、域名就会不交给Loon来处理，系统直接处理
 bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
-
 
 [Proxy]
 
