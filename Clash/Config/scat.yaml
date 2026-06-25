@@ -1,48 +1,76 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-23 09:47:22 GMT+8
+# UPDATED         : 2026-06-25 11:01:23 GMT+8
 
-#MARK: General
-# HTTP 代理端口
-port: 7890
-# SOCKS5 代理端口
-socks-port: 7891
+# MARK: General
 # HTTP(S) and SOCKS5 共用端口
-mixed-port: 7892
+mixed-port: 7890
+# HTTP 代理端口
+port: 7891
+# SOCKS5 代理端口
+socks-port: 7892
 # Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
 redir-port: 7893
 # Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 tproxy-port: 7894
-
-# 统一延迟
-unified-delay: true
-# GeoIP 使用 Country.mmdb
-geodata-mode: false
-# GeoIP 加载模式：standard（懒加载） / mem（预加载）
-geodata-loader: standard
-# GEO 数据文件自动更新
-geo-auto-update: true
-# 每隔 N 小时 自动检查并更新 GEO 数据文件
-geo-update-interval: 168
-# TCP 并发
-tcp-concurrent: false
-# 识别进程模式：off（关闭进程识别，不启用 PROCESS-NAME 规则。性能最佳，适合路由器等设备） / strict（严格模式，只有成功识别进程才应用 PROCESS-NAME 规则。失败则不匹配） / always（始终尝试识别进程，即使失败也会继续尝试匹配规则。可能影响性能）
-find-process-mode: strict
-
-# 允许局域网
-# > 允许其他设备经过内核的代理端口访问互联网
-allow-lan: true
-# 工作模式：rule（规则） / global（全局代理）/ direct（全局直连）
+# 运行模式
+# > 允许的值：
+# > - rule: 规则匹配
+# > - global: 全局代理
+# > - direct: 全局直连
 mode: rule
-# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
-# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+# UDP 支持
+udp: true
+# 日志级别
+# > 允许的值：
+# > - warning: 输出发生错误但不影响运行的日志,以及error级别内容
+# > - debug: 尽可能的输出运行中所有的信息
+# > - info: 输出一般运行的内容，以及error和warning级别的日志
+# > - error: 仅输出发生错误至无法使用的日志
+# > - silent: 静默,不输出log-level: warning
 log-level: warning
 # 是否允许内核接受 IPv6 流量
 ipv6: true
-# UDP 支持
-udp: true
-
+# 允许局域网
+# > 允许其他设备经过内核的代理端口访问互联网
+allow-lan: false
+# 更换延迟计算方式
+# > 去除握手等额外延迟
+unified-delay: true
+# 进程匹配模式
+# > 允许的值：
+# > - strict: 由内核判断是否开启
+# > - always: 强制匹配所有进程
+# > - off: 不匹配进程,推荐在路由器上使用此模式
+find-process-mode: strict
+# TCP并发
+# > 当域名解析出多个 IP 时，并发向所有 IP 发起 TCP 连接，并使用最快握手的连接
+tcp-concurrent: false
+tcp-keep-alive-interval: 30
+# GeoIP 使用 Country.mmdb
+geodata-mode: false
+# Geo文件加载器
+# > 允许的值：
+# > - standard: 标准加载器
+# > - memconservative: 专为内存受限(小内存)设备优化的加载器
+# > - memc: memconservative的别名
+geodata-loader: memconservative
+# GEO 数据文件自动更新
+geo-auto-update: true
+# Geo自动更新间隔
+# > 单位:h
+geo-update-interval: 168
+# geox-url配置
+geox-url:
+  # 自定义geoip数据库的下载地址
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # 域名与分类的映射（如广告、社交媒体等）
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  # mmdb文件下载地址
+  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  # asn文件下载地址
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # 外部控制器(HTTP)监听地址
 # > ipv4:端口
 external-controller: 0.0.0.0:9090
@@ -54,35 +82,30 @@ external-controller: 0.0.0.0:9090
 # external-ui: ui
 # external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
 
-geox-url:
-  # 自定义geoip数据库的下载地址
-  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
-  # 域名与分类的映射（如广告、社交媒体等）
-  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
-  # 更高精度的 IP 数据库
-  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
-  # 自定义asn数据库的下载地址
-  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
-
-#MARK: Profile
+# MARK: Profile
 profile:
+  # 持久化策略组的选择
+  # > 缓存对策略组的选择,以供下次启动时使用
   store-selected: true
+  # 持久化缓存fake-ip映射表
+  # > 缓存fake-ip映射表,域名再次发生连接时,使用原有映射地址
   store-fake-ip: true
 
-#MARK: Sniffer
+# MARK: Sniffer
 sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
   # 包含 Tun、Redir 和 TProxy 或 DNS 为 redir-host
   # 全端口嗅探会解析所有 HTTP/TLS/QUIC 流量，内存占用高
   enable: true
-  # 是否强制将 IP 映射为域名（即使已有域名）
+  # 启用redir-host强制嗅探
+  # > 对redir-host类型识别的流量进行强制嗅探
   force-dns-mapping: true
-  # 是否对纯 IP 流量进行嗅探
-  # 风险：对纯 IP 流量进行嗅探会增加 CPU 开销。在 iOS 环境下，过高的资源占用可能导致网络扩展进程（Tunnel）被系统杀掉
+  # 启用未获取到域名强制嗅探
+  # > 对所有未获取到域名的流量进行强制嗅探
   parse-pure-ip: true
-  # 是否使用嗅探出的域名替代原始目标地址
-  # 风险：强行将目标地址替换为嗅探出的域名。如果嗅探结果有误，或者该 App 使用了特殊的安全校验，会导致连接直接中断
+  # 启用嗅探结果作为实际访问
+  # > 全局配置,优先级低于sniffer.sniff中的配置
   override-destination: true
   sniff:
     # HTTP 嗅探端口范围
@@ -99,36 +122,28 @@ sniffer:
   # 跳过嗅探的域名黑名单
   skip-domain: ['Mijia Cloud']
 
-#MARK: Tun
-tun:
-  # 如果需要启用 TUN 模式，请设置为 true
-  enable: true
-  # system / gvisor / mixed（tcp - system,udp - gvisor）
-  stack: system
-  # 自动设置全局路由
-  auto-route: true
-  auto-detect-interface: true
-  # 清空 DNS 劫持，减少 Fake-IP 映射
-  dns-hijack: [any:53]
-  route-exclude-address: [10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32]
-
-#MARK: Listeners
-listeners:
-  # P2P下载端口
-  - { name: socks5-in-1, type: socks, port: 10808, listen: 0.0.0.0, udp: true, users: [], proxy: DIRECT }
-
-#MARK: Dns
+# MARK: Dns
 # 可选；若不配置，程序内置的 DNS 服务会被关闭
 dns:
+  # 启用DNS
+  # > 关闭将使用系统DNS
   enable: true
-  prefer-h3: true
+  # DNS服务器监听地址
+  # > ipv4:端口
   listen: 0.0.0.0:1053
-  # 当此选项为 false 时, AAAA 请求将返回空
+  # 启用配置中的hosts配置
+  use-hosts: true
+  # 查询系统hosts文件
+  # > 优先级低于配置中的hosts配置
+  use-system-hosts: true
+  # 是否解析IPV6
+  # > 如为false,则回应内容为AAAA的空解析
   ipv6: true
-  # 处理 DNS 请求时，是否强制先匹配 rules（规则）再决定解析策略
+  # DNS请求遵循规则路由
+  # > 需配置 `proxy-server-nameserver`
   respect-rules: false
-  # 使用系统 hosts 文件
-  use-system-hosts: false
+  # 启用DoH的HTTP/3支持
+  prefer-h3: true
   # fake-ip 或 redir-host
   enhanced-mode: fake-ip
   # Fake IP 地址池 (CIDR 形式)
@@ -136,52 +151,60 @@ dns:
   # Fake IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）/ rule（规则）
   fake-ip-filter-mode: blacklist
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter: ['*', +.lan, +.local, +.stun.*]
-  # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
-  # 仅填写 DNS 服务器的 IP 地址
-  default-nameserver: [223.5.5.5, 223.6.6.6]
-  # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
-  # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
-  # Clash 会使用最先获得的解析记录回复 DNS 请求
-  nameserver: [https://223.5.5.5/dns-query, https://223.6.6.6/dns-query]
-  # proxy-server-nameserver: [223.5.5.5, 223.6.6.6]
-  # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
-  # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  # fallback: []
-  # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
-  # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
-  #
-  # 当 fallback-filter.geoip 为 true 且 IP 地址的地理位置为 CN 时，
-  # Clash 会选用 nameserver 列表中配置 DNS 服务器解析得到的结果。
-  #
-  # 当 fallback-filter.geoip 为 false, 如果解析结果不在 fallback-filter.ipcidr 范围内，
-  # Clash 总会选用 nameserver 列表中配置 DNS 服务器解析得到的结果。
-  #
-  # 采取以上逻辑进行域名解析是为了对抗 DNS 投毒攻击。
-  # fallback-filter:
-  #   geoip: false
-  #   geoip-code: CN
-  #   ipcidr:
-  #     - 0.0.0.0/32
-  #     - 0.0.0.0/8
-  #     - 10.0.0.0/8
-  #     - 100.64.0.0/10
-  #     - 127.0.0.0/8
-  #     - 169.254.0.0/16
-  #     - 172.16.0.0/12
-  #     - 192.0.0.0/24
-  #     - 192.0.2.0/24
-  #     - 192.88.99.0/24
-  #     - 192.168.0.0/16
-  #     - 198.18.0.0/15
-  #     - 198.51.100.0/24
-  #     - 203.0.113.0/24
-  #     - 224.0.0.0/4
-  #     - 240.0.0.0/4
-  #     - 255.255.255.255/32
-  #   domain: []
+  fake-ip-filter: ['*', +.lan, localhost, '*.local', +.stun.*, e.crashlynatics.com]
+  # 元域名解析服务器
+  # > 解析nameserver,fallback以及其他DNS服务器配置的DNS服务器(只能使用纯IP地址,支持 `UDP`,`TCP`,`DoT`,`DoH`,`DoQ`)
+  default-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
+  # 默认域名解析服务器
+  # > 支持 `UDP`,`TCP`,`DoT`,`DoH`,`DoQ`
+  nameserver: [https://223.5.5.5/dns-query, https://223.6.6.6/dns-query, https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  # 代理节点DNS解析服务器
+  # > 用于解析代理节点的域名
+  proxy-server-nameserver: [https://doh.pub/dns-query]
+  # 备用域名解析服务器
+  # > 一般情况下使用境外DNS服务器,保证结果可信
+  fallback: [tls://8.8.4.4, tls://1.1.1.1]
+  # 启用fallback-filter
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    nameserver-policy: ['gfw']
+    # DNS污染网段列表
+    # > 这些网段的结果会被视为污染,将采用fallback的解析结果
+    ipcidr: [240.0.0.0/4]
+    # DNS污染域名列表
+    # > 这些域名的结果会被视为污染,将采用fallback的解析结果
+    domain: [+.google.com, +.facebook.com, +.youtube.com]
 
-#MARK: Mitm
+# MARK: Tun
+tun:
+  # 启用 TUN 模式
+  enable: true
+  # TUN模式堆栈
+  # > 如无使用问题,建议使用mixed(默认gvisor)
+  # > 允许的值：
+  # > - system: 基于系统网络栈执行L3到L4转换。可以提供更稳定/全面的TUN体验,且占用相对其他堆栈更低。
+  # > - gvisor: 基于gVisor虚拟网络栈执行L3到L4转换。通过在用户空间中实现网络协议栈,可以提供更高的安全性和隔离性,同时可以避免操作系统内核和用户空间之间的切换,从而在特定情况下具有更好的网络处理性能。
+  # > - mixed: 混合堆栈,tcp使用system栈,udp使用gvisor栈,使用体验可能相对更好。
+  stack: system
+  # 自动设置全局路由
+  # > 可以自动将全局流量路由进入TUN网卡
+  auto-route: true
+  # 自动选择流量出口接口
+  # > 多出口网卡同时连接的设备建议手动指定出口网卡
+  auto-detect-interface: true
+  # DNS劫持
+  # > 一般设置为any:53即可,即劫持所有53端口的udp流量
+  dns-hijack: [any:53, tcp://any:53]
+  # 启用auto-route时,指定这些网段不会被路由（使用默认路由）
+  route-exclude-address: [10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32]
+
+# MARK: Listeners
+listeners:
+  # P2P下载端口
+  - { name: socks5-in-1, type: socks, port: 10808, listen: 0.0.0.0, udp: true, users: [], proxy: DIRECT }
+
+# MARK: Mitm
 # mitm:
 #   enable: true
 #   ca:
@@ -243,8 +266,19 @@ Anchors:
   # 规则集 [每 provider-update-interval 秒更新一次订阅规则]
   RuleProviders: &RuleProviders {
     type: http,
-    behavior: classical,
     interval: *provider-update-interval
+  }
+  RuleProvidersClassical: &RuleProvidersClassical {
+    <<: *RuleProviders,
+    behavior: classical
+  }
+  RuleProvidersDomain: &RuleProvidersDomain {
+    <<: *RuleProviders,
+    behavior: domain
+  }
+  RuleProvidersIpcidr: &RuleProvidersIpcidr {
+    <<: *RuleProviders,
+    behavior: ipcidr
   }
   HealthCheck: &HealthCheck {
     enable: true,
@@ -260,7 +294,7 @@ Anchors:
   }
 #endregion
 
-#MARK: Remote Proxy
+# MARK: Remote Proxy
 # proxy-providers:
 #   [订阅名称]:
 #     type: http
@@ -272,66 +306,66 @@ Anchors:
 #       # 秒
 #       interval: 600
 
-#MARK: Remote Filter
+# MARK: Remote Filter
 # 正则筛选（正则中避免出现中文、emoji，会不兼容）
 RemoteFilter:
-  Filter_Nat_HK: &Filter_Nat_HK '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_MO: &Filter_Nat_MO '^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_TW: &Filter_Nat_TW '^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__HK: &Filter_Nat__HK '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__MO: &Filter_Nat__MO '^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__TW: &Filter_Nat__TW '^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Nat_CHN: &Filter_Nat_CHN '^(?=.*((?i)🇭🇰|香港|🇲🇴|澳门|🇹🇼|台湾|(\b(HK|HKG|Hong|MO|MAC|Macau|Macao|TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_JP: &Filter_Nat_JP '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_KR: &Filter_Nat_KR '^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_SG: &Filter_Nat_SG '^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_MY: &Filter_Nat_MY '^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_IN: &Filter_Nat_IN '^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__JP: &Filter_Nat__JP '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__KR: &Filter_Nat__KR '^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__SG: &Filter_Nat__SG '^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__MY: &Filter_Nat__MY '^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__IN: &Filter_Nat__IN '^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_ASI: &Filter_Reg_ASI '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|🇰🇷|韩国|韓|南朝鲜|首尔|🇸🇬|新加坡|星洲|狮城|狮|🇲🇾|马来西亚|大马|马来|🇮🇳|印度|新德里|印|(\b(JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|MY|Malaysia|IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_US: &Filter_Nat_US '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_CA: &Filter_Nat_CA '^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__US: &Filter_Nat__US '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__CA: &Filter_Nat__CA '^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_NAM: &Filter_Reg_NAM '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(US|USA|United States|CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_AU: &Filter_Nat_AU '^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__AU: &Filter_Nat__AU '^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_OCE: &Filter_Reg_OCE '^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_UK: &Filter_Nat_UK '^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_FR: &Filter_Nat_FR '^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_DE: &Filter_Nat_DE '^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_IT: &Filter_Nat_IT '^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_NL: &Filter_Nat_NL '^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands|Nederland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_LU: &Filter_Nat_LU '^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Nat_LT: &Filter_Nat_LT '^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__UK: &Filter_Nat__UK '^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__FR: &Filter_Nat__FR '^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__DE: &Filter_Nat__DE '^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__IT: &Filter_Nat__IT '^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__NL: &Filter_Nat__NL '^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands|Nederland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__LU: &Filter_Nat__LU '^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+  Filter_Nat__LT: &Filter_Nat__LT '^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_EUR: &Filter_Reg_EUR '^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter_Game: &Filter_Game '^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$'
-  Filter_Global: &Filter_Global '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
+  Filter____Game: &Filter____Game '^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$'
+  Filter__Global: &Filter__Global '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 
-#MARK: Proxy Group
+# MARK: Proxy Group
 proxy-groups:
   # 基础策略
-  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
-  - {name: ♻️自动选择, <<: *url-test-all, filter: *Filter_Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
-  - {name: 🚀手动切换, type: select, proxies: [🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
+  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
+  - {name: ♻️自动选择, <<: *url-test-all, filter: *Filter__Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
+  - {name: 👉手动切换, type: select, proxies: [🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
-  - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *fallback, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png}
-  # - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
-  - {name: 🐟漏网之鱼, type: select, proxies: [🎯全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
+  - {name: ⛔全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
+  - {name: 🛠️故障转移, <<: *fallback, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png}
+  # - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
+  - {name: 🐟漏网之鱼, type: select, proxies: [🎯全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
   # App专属 App-Specific
-  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
-  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
-  - {name: ✨Gemini, type: select, proxies: [✨AI, 🤖Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
-  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
-  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🪟MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 🪟Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
-  - {name: 🪟OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
-  - {name: 🤖Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
-  - {name: 🐦Twitter, type: select, proxies: [🌎北美, 🌎北美手动, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
-  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
-  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
-  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
-  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
-  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
-  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
-  - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
+  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
+  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
+  - {name: ✨Gemini, type: select, proxies: [✨AI, 🍩Google, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
+  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
+  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 💠MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 💠Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 💠Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
+  - {name: 💠OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
+  - {name: 🍩Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
+  - {name: 🐦Twitter, type: select, proxies: [🌎北美, 🌎北美手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
+  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
+  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
+  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
+  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
+  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
+  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
+  - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
   # 区域选择
   - {name: 🌏港台手动, type: select, proxies: [🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
   - {name: 🌏亚洲手动, type: select, proxies: [🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png}
@@ -344,104 +378,104 @@ proxy-groups:
   - {name: 🌎北美, <<: *url-test-all, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
   - {name: 🌏洋洲, <<: *url-test-all, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
   - {name: 🌍欧洲, <<: *url-test-all, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
-  - {name: 🇭🇰香港, <<: *url-test-all, filter: *Filter_Nat_HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
-  - {name: 🇲🇴澳门, <<: *url-test-all, filter: *Filter_Nat_MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
-  - {name: 🇨🇳台湾, <<: *url-test-all, filter: *Filter_Nat_TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
-  - {name: 🇯🇵日本, <<: *url-test-all, filter: *Filter_Nat_JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
-  - {name: 🇰🇷韩国, <<: *url-test-all, filter: *Filter_Nat_KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
-  - {name: 🇸🇬星洲, <<: *url-test-all, filter: *Filter_Nat_SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
-  - {name: 🇲🇾马来, <<: *url-test-all, filter: *Filter_Nat_MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
-  - {name: 🇮🇳印度, <<: *url-test-all, filter: *Filter_Nat_IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
-  - {name: 🇺🇸美国, <<: *url-test-all, filter: *Filter_Nat_US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
-  - {name: 🇨🇦加拿大, <<: *url-test-all, filter: *Filter_Nat_CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
-  - {name: 🇦🇺澳洲, <<: *url-test-all, filter: *Filter_Nat_AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
-  - {name: 🇬🇧英国, <<: *url-test-all, filter: *Filter_Nat_UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
-  - {name: 🇫🇷法国, <<: *url-test-all, filter: *Filter_Nat_FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
-  - {name: 🇩🇪德国, <<: *url-test-all, filter: *Filter_Nat_DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
-  - {name: 🇮🇹意大利, <<: *url-test-all, filter: *Filter_Nat_IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
-  - {name: 🇳🇱荷兰, <<: *url-test-all, filter: *Filter_Nat_NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
-  - {name: 🇱🇺卢森堡, <<: *url-test-all, filter: *Filter_Nat_LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
-  - {name: 🇱🇹立陶宛, <<: *url-test-all, filter: *Filter_Nat_LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
+  - {name: 🇭🇰香港, <<: *url-test-all, filter: *Filter_Nat__HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
+  - {name: 🇲🇴澳门, <<: *url-test-all, filter: *Filter_Nat__MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
+  - {name: 🇨🇳台湾, <<: *url-test-all, filter: *Filter_Nat__TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
+  - {name: 🇯🇵日本, <<: *url-test-all, filter: *Filter_Nat__JP, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png}
+  - {name: 🇰🇷韩国, <<: *url-test-all, filter: *Filter_Nat__KR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png}
+  - {name: 🇸🇬星洲, <<: *url-test-all, filter: *Filter_Nat__SG, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png}
+  - {name: 🇲🇾马来, <<: *url-test-all, filter: *Filter_Nat__MY, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png}
+  - {name: 🇮🇳印度, <<: *url-test-all, filter: *Filter_Nat__IN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png}
+  - {name: 🇺🇸美国, <<: *url-test-all, filter: *Filter_Nat__US, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png}
+  - {name: 🇨🇦加拿大, <<: *url-test-all, filter: *Filter_Nat__CA, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png}
+  - {name: 🇦🇺澳洲, <<: *url-test-all, filter: *Filter_Nat__AU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png}
+  - {name: 🇬🇧英国, <<: *url-test-all, filter: *Filter_Nat__UK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png}
+  - {name: 🇫🇷法国, <<: *url-test-all, filter: *Filter_Nat__FR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png}
+  - {name: 🇩🇪德国, <<: *url-test-all, filter: *Filter_Nat__DE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png}
+  - {name: 🇮🇹意大利, <<: *url-test-all, filter: *Filter_Nat__IT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png}
+  - {name: 🇳🇱荷兰, <<: *url-test-all, filter: *Filter_Nat__NL, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png}
+  - {name: 🇱🇺卢森堡, <<: *url-test-all, filter: *Filter_Nat__LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
+  - {name: 🇱🇹立陶宛, <<: *url-test-all, filter: *Filter_Nat__LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
 
-#MARK: Remote Rule
+# MARK: Remote Rule
 rule-providers:
   # 国内匹配规则
-  SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProviders}
-  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
-  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProviders}
-  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProviders}
-  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProviders}
-  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProviders}
-  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
-  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProviders}
-  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProviders}
+  SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProvidersClassical}
+  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProvidersClassical}
+  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProvidersClassical}
+  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProvidersClassical}
+  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProvidersClassical}
+  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProvidersClassical}
+  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProvidersClassical}
+  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProvidersClassical}
+  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProvidersClassical}
   # 精准匹配规则
   # --- AI ---
-  AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
-  Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProviders}
-  Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProviders}
-  OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProviders}
+  AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProvidersClassical}
+  Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProvidersClassical}
+  Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProvidersClassical}
+  OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProvidersClassical}
   # --- Apple ---
-  Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
-  AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
-  AppStore: {url: https://rule.kelee.one/Clash/AppStore.yaml, path: ./ruleset/AppStore.yaml, <<: *RuleProviders}
-  AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProviders}
-  AppleMail: {url: https://rule.kelee.one/Clash/AppleMail.yaml, path: ./ruleset/AppleMail.yaml, <<: *RuleProviders}
-  AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProviders}
-  iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProviders}
-  iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProviders}
+  Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProvidersClassical}
+  AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProvidersClassical}
+  AppStore: {url: https://rule.kelee.one/Clash/AppStore.yaml, path: ./ruleset/AppStore.yaml, <<: *RuleProvidersClassical}
+  AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProvidersClassical}
+  AppleMail: {url: https://rule.kelee.one/Clash/AppleMail.yaml, path: ./ruleset/AppleMail.yaml, <<: *RuleProvidersClassical}
+  AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProvidersClassical}
+  iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProvidersClassical}
+  iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProvidersClassical}
   # --- Microsoft ---
-  MicrosoftProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProviders}
-  OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
-  Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
-  Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
+  MicrosoftProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProvidersClassical}
+  OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProvidersClassical}
+  Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProvidersClassical}
+  Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProvidersClassical}
   # --- Google ---
-  GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProviders}
-  GoogleEarth: {url: https://rule.kelee.one/Clash/GoogleEarth.yaml, path: ./ruleset/GoogleEarth.yaml, <<: *RuleProviders}
-  GoogleFCM: {url: https://rule.kelee.one/Clash/GoogleFCM.yaml, path: ./ruleset/GoogleFCM.yaml, <<: *RuleProviders}
-  GoogleSearch: {url: https://rule.kelee.one/Clash/GoogleSearch.yaml, path: ./ruleset/GoogleSearch.yaml, <<: *RuleProviders}
-  GoogleVoice: {url: https://rule.kelee.one/Clash/GoogleVoice.yaml, path: ./ruleset/GoogleVoice.yaml, <<: *RuleProviders}
-  Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
+  GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProvidersClassical}
+  GoogleEarth: {url: https://rule.kelee.one/Clash/GoogleEarth.yaml, path: ./ruleset/GoogleEarth.yaml, <<: *RuleProvidersClassical}
+  GoogleFCM: {url: https://rule.kelee.one/Clash/GoogleFCM.yaml, path: ./ruleset/GoogleFCM.yaml, <<: *RuleProvidersClassical}
+  GoogleSearch: {url: https://rule.kelee.one/Clash/GoogleSearch.yaml, path: ./ruleset/GoogleSearch.yaml, <<: *RuleProvidersClassical}
+  GoogleVoice: {url: https://rule.kelee.one/Clash/GoogleVoice.yaml, path: ./ruleset/GoogleVoice.yaml, <<: *RuleProvidersClassical}
+  Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProvidersClassical}
   # --- Media ---
-  Spotify: {url: https://rule.kelee.one/Clash/Spotify.yaml, path: ./ruleset/Spotify.yaml, <<: *RuleProviders}
-  YouTube: {url: https://rule.kelee.one/Clash/YouTube.yaml, path: ./ruleset/YouTube.yaml, <<: *RuleProviders}
-  YouTubeMusic: {url: https://rule.kelee.one/Clash/YouTubeMusic.yaml, path: ./ruleset/YouTubeMusic.yaml, <<: *RuleProviders}
-  Netflix: {url: https://rule.kelee.one/Clash/Netflix.yaml, path: ./ruleset/Netflix.yaml, <<: *RuleProviders}
-  Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
-  Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProviders}
-  Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
+  Spotify: {url: https://rule.kelee.one/Clash/Spotify.yaml, path: ./ruleset/Spotify.yaml, <<: *RuleProvidersClassical}
+  YouTube: {url: https://rule.kelee.one/Clash/YouTube.yaml, path: ./ruleset/YouTube.yaml, <<: *RuleProvidersClassical}
+  YouTubeMusic: {url: https://rule.kelee.one/Clash/YouTubeMusic.yaml, path: ./ruleset/YouTubeMusic.yaml, <<: *RuleProvidersClassical}
+  Netflix: {url: https://rule.kelee.one/Clash/Netflix.yaml, path: ./ruleset/Netflix.yaml, <<: *RuleProvidersClassical}
+  Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProvidersClassical}
+  Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProvidersClassical}
+  Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProvidersClassical}
   # --- Social ---
-  Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
-  Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProviders}
-  Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProviders}
-  TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProviders}
-  Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProviders}
+  Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProvidersClassical}
+  Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProvidersClassical}
+  Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProvidersClassical}
+  TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProvidersClassical}
+  Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProvidersClassical}
   # --- Code ---
-  GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
-  LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
-  Discord: {url: https://rule.kelee.one/Clash/Discord.yaml, path: ./ruleset/Discord.yaml, <<: *RuleProviders}
+  GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProvidersClassical}
+  LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProvidersClassical}
+  Discord: {url: https://rule.kelee.one/Clash/Discord.yaml, path: ./ruleset/Discord.yaml, <<: *RuleProvidersClassical}
   # --- Proxy ---
-  Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
-  ChinaProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaProxy.yaml, path: ./ruleset/ChinaProxy.yaml, <<: *RuleProviders}
+  Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProvidersClassical}
+  ChinaProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaProxy.yaml, path: ./ruleset/ChinaProxy.yaml, <<: *RuleProvidersClassical}
   # --- Adv ---
-  AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProviders}
+  AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProvidersClassical}
   # 直连匹配规则
-  Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
-  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
-  China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
-  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProviders}
-  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProviders}
-  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProviders}
-  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProviders}
-  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProviders}
-  ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
-  ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
-  ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
-  Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
-  GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProviders}
-  GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
+  Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProvidersClassical}
+  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProvidersClassical}
+  China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProvidersClassical}
+  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProvidersClassical}
+  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProvidersClassical}
+  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProvidersClassical}
+  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProvidersClassical}
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProvidersClassical}
+  ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProvidersClassical}
+  ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProvidersClassical}
+  ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProvidersClassical}
+  Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProvidersClassical}
+  GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProvidersClassical}
+  GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProvidersClassical}
 
-#MARK: Rule
+# MARK: Rule
 rules:
   # 国内匹配规则
   - RULE-SET,SkipProxy,🎯全球直连
@@ -469,17 +503,17 @@ rules:
   - RULE-SET,iCloud,🍎Apple
   - RULE-SET,iCloudPrivateRelay,🍎AppleVPN
   # --- Microsoft ---
-  - RULE-SET,MicrosoftProxy,🪟MicrosoftProxy
-  - RULE-SET,OneDrive,🪟OneDrive
-  - RULE-SET,Bing,🪟Bing
-  - RULE-SET,Microsoft,🪟Microsoft
+  - RULE-SET,MicrosoftProxy,💠MicrosoftProxy
+  - RULE-SET,OneDrive,💠OneDrive
+  - RULE-SET,Bing,💠Bing
+  - RULE-SET,Microsoft,💠Microsoft
   # --- Google ---
-  - RULE-SET,GoogleDrive,🤖Google
-  - RULE-SET,GoogleEarth,🤖Google
-  - RULE-SET,GoogleFCM,🤖Google
-  - RULE-SET,GoogleSearch,🤖Google
-  - RULE-SET,GoogleVoice,🤖Google
-  - RULE-SET,Google,🤖Google
+  - RULE-SET,GoogleDrive,🍩Google
+  - RULE-SET,GoogleEarth,🍩Google
+  - RULE-SET,GoogleFCM,🍩Google
+  - RULE-SET,GoogleSearch,🍩Google
+  - RULE-SET,GoogleVoice,🍩Google
+  - RULE-SET,Google,🍩Google
   # --- Media ---
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,YouTube,🎬YouTube
@@ -502,7 +536,7 @@ rules:
   - RULE-SET,Proxy,🚀节点选择
   - RULE-SET,ChinaProxy,🚀节点选择
   # --- Adv ---
-  - RULE-SET,AdvLite,🛑全球拦截
+  - RULE-SET,AdvLite,⛔全球拦截
   # 直连匹配规则
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
