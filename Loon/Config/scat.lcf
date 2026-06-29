@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-25 11:01:20 GMT+8
+# UPDATED         : 2026-06-29 12:04:59 GMT+8
 
 [General]
 # IP 模式
@@ -280,7 +280,6 @@ https://kelee.one/Tool/Loon/Lpx/BiliComic_remove_ads.lpx, tag=哔哩哔哩漫画
 https://yfamilys.com/plugin/CamScanner.plugin, tag=扫描全能王解锁VIP, enabled=true
 https://yfamilys.com/plugin/xzjhz.plugin, tag=小组件盒子解锁VIP, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taopiaopiao_remove_ads.lpx, tag=淘票票去广告, enabled=true
-https://kelee.one/Tool/Loon/Lpx/MojiWeather_remove_ads.lpx, tag=墨迹天气去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/DragonRead_remove_ads.lpx, tag=番茄小说去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Damai_remove_ads.lpx, tag=大麦去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LiveLab_remove_ads.lpx, tag=纷玩岛去广告, enabled=true
@@ -332,7 +331,9 @@ https://kelee.one/Tool/Loon/Lpx/Google.lpx, tag=谷歌搜索重定向, enabled=t
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, tag=闲鱼去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Douyu_remove_ads.lpx, tag=斗鱼去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, tag=酷安去广告, enabled=true
+https://kelee.one/Tool/Loon/Lpx/AppleWeatherEnhancer.lpx, tag=苹果天气增强, enabled=true
 https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=true
+https://kelee.one/Tool/Loon/Lpx/MojiWeather_remove_ads.lpx, tag=墨迹天气去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, tag=菜鸟去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AutoHome_remove_ads.lpx, tag=汽车之家去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AliYunDrive_remove_ads.lpx, tag=阿里云盘去广告, enabled=true
