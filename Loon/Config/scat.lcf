@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-06-29 12:04:59 GMT+8
+# UPDATED         : 2026-07-01 11:33:18 GMT+8
 
 [General]
 # IP 模式
@@ -332,7 +332,8 @@ https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, tag=闲鱼去广告, 
 https://kelee.one/Tool/Loon/Lpx/Douyu_remove_ads.lpx, tag=斗鱼去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, tag=酷安去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AppleWeatherEnhancer.lpx, tag=苹果天气增强, enabled=true
-https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=true
+https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=false
+https://jy-mar.github.io/PxyRes/Loon/Plugins/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/MojiWeather_remove_ads.lpx, tag=墨迹天气去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, tag=菜鸟去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AutoHome_remove_ads.lpx, tag=汽车之家去广告, enabled=true
