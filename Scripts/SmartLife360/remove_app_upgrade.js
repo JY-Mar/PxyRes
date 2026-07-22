@@ -9,11 +9,9 @@
 
 if ($response.body) {
   let obj = JSON.parse($response.body)
-  if (obj.data && typeof obj.data === 'object' && Object.prototype.hasOwnProperty.call(obj.data, 'result')) {
-    if (obj.data.result && typeof obj.data.result === 'object' && Object.prototype.hasOwnProperty.call(obj.data.result, 'hasNew')) {
-      // 固定为0，不显示
-      obj.data.result.hasNew = 0
-    }
+  if (obj?.data?.result?.hasNew) {
+    // 固定为0，不显示
+    obj.data.result.hasNew = 0
   }
   $done({ body: JSON.stringify(obj) })
 } else {

@@ -3,7 +3,7 @@
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-09 14:31:01 +0800
+ * UPDATED         : 2026-07-22 10:32:18 +0800
  * DESC            : 移除富媒体广告
  */
 
@@ -15,9 +15,6 @@
 // hostname = richmedia.video.qq.com
 // #endregion
 
-function has(obj, key) {
-  return Object.prototype.hasOwnProperty.call(obj, key)
-}
 function isObject(obj) {
   return !!obj && typeof obj === 'object'
 }

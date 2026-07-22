@@ -9,10 +9,8 @@
 
 if ($response.body) {
   let obj = JSON.parse($response.body)
-  if (obj.data && typeof obj.data === 'object' && Object.prototype.hasOwnProperty.call(obj.data, 'tabBars')) {
-    if (obj.data.tabBars && typeof obj.data.tabBars === 'object' && Array.isArray(obj.data.tabBars)) {
-      obj.data.tabBars = obj.data.tabBars.filter(v => v.nameEn !== "My Gold" && v.name !== "麦金卡" && v.nameEn !== "M-Mall" && v.name !== "麦麦商城")
-    }
+  if (obj?.data?.tabBars) {
+    obj.data.tabBars = obj.data.tabBars.filter((v) => v.nameEn !== 'My Gold' && v.name !== '麦金卡' && v.nameEn !== 'M-Mall' && v.name !== '麦麦商城')
   }
   $done({ body: JSON.stringify(obj) })
 } else {

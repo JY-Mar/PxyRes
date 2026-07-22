@@ -3,7 +3,7 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=Mixed,ddgksf2013,可莉🅥,RuCu6,JY-Mar
 #!tag=彩云天气,去广告
-#!date=2026-07-01 11:38:53 GMT+8
+#!date=2026-07-22 09:53:09 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ColorfulCloudsPro.png
 #!openUrl=https://apps.apple.com/app/id1067198688
 
@@ -17,10 +17,10 @@ DOMAIN,gather.colorfulclouds.net,REJECT
 ^https:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) reject-dict
 
 [Script]
-http-response ^https:\/\/(wrapper\.cyapi\.cn|api\.caiyunapp\.com|cdn-w\.caiyunapp\.com)\/v1\/activity\? script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=彩云天气去广告
-http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/features script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, 彩云天气移除工具箱
-http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/banners script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, 彩云天气移除Banner
-http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/campaigns script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, 彩云天气移除推广信息
+http-response ^https:\/\/(wrapper\.cyapi\.cn|api\.caiyunapp\.com|cdn-w\.caiyunapp\.com)\/v1\/activity\? script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=去广告
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/features script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除工具箱
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/banners script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除Banner
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/campaigns script-path=https://jy-mar.github.io/PxyRes/Scripts/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除推广信息
 
 [MITM]
 hostname = biz.cyapi.cn, wrapper.cyapi.cn, api.caiyunapp.com, cdn-w.caiyunapp.com, starplucker.cyapi.cn
