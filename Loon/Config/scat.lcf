@@ -360,6 +360,7 @@ https://kelee.one/Tool/Loon/Lpx/51Job_remove_ads.lpx, tag=前程无忧去广告,
 https://kelee.one/Tool/Loon/Lpx/123NetWorkDisk_remove_ads.lpx, tag=123网盘去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/ChinaUnicom_remove_ads.lpx, tag=中国联通去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, tag=12306去广告, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Qbb_remove_ads.lpx, tag=亲宝宝去广告, enabled=true
 https://yfamilys.com/plugin/adultra.plugin, tag=APP启动页去广告ultra, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag=广告平台拦截器, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag=可莉广告过滤器, enabled=true
