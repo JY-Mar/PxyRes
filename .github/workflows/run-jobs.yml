@@ -27,7 +27,6 @@ on:
       - "Loon/Plugins/*.lpx"
       - "Loon/Rules/*.lsr"
       - "Loon/Rules/*.list"
-      - "Scripts/**/*.js"
       - "scriptsForPython/**/*.py"
       - "scriptsForPython/**/*.css"
       - 'templates/**/*.html'
@@ -69,7 +68,6 @@ jobs:
           mkdir -p docs
           cp -r Clash docs/Clash
           cp -r Loon docs/Loon
-          cp -r Scripts docs/Scripts
           cp -r Icons docs/Icons
 
       - name: 🧠 Run grouping script in Icons/
