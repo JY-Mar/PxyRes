@@ -38,11 +38,11 @@
 ^https:\/\/card\.10010\.com\/mall-access\/searchRecommend\/query reject-dict
 
 [Script]
-http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/\d+\/\d+\?adCode=.* script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页头部tab、顶部tab
-http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页导航
-http-response ^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页无用导航项
-http-response ^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除视频广告
-http-response ^https:\/\/m\.client\.10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+ script-path=https://jy-mar.github.io/PxyRes/Scripts/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=修改用户配置项
+http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/\d+\/\d+\?adCode=.* script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页头部tab、顶部tab
+http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页导航
+http-response ^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页无用导航项
+http-response ^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除视频广告
+http-response ^https:\/\/m\.client\.10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+ script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=修改用户配置项
 
 [MITM]
 hostname = activity.10010.com, m.client.10010.com, card.10010.com

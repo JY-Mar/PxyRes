@@ -8,7 +8,7 @@
 #!openUrl=https://apps.apple.com/app/id1054598922
 
 [Script]
-http-response ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/tabBar script-path=https://jy-mar.github.io/PxyRes/Scripts/McDonald/remove_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
+http-response ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/tabBar script-path=https://jy-mar.github.io/PxyScr/McDonald/remove_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
 
 [MITM]
 hostname = api.mcd.cn
