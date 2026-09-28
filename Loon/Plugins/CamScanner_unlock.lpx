@@ -12,4 +12,4 @@ hostname =ap*.intsig.net
 
 [Script]
 
-http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1, script-path=https://jy-mar.github.io/PxyRes/Scripts/CamScanner/unlock.js, tag=扫描全能王
+http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1, script-path=https://jy-mar.github.io/PxyRes/Scripts/CamScanner/_CamScanner.js, tag=扫描全能王
