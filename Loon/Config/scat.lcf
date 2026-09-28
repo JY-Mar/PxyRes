@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-09-10 11:17:03 GMT+8
+# UPDATED         : 2026-09-28 09:46:38 GMT+8
 
 [General]
 # IP 模式
@@ -278,7 +278,6 @@ https://client.ash.do/downloads/ashnet-loon.lpx, tag=AshNet, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, tag=微信公众号去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, tag=微信小程序去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, tag=微信外部链接解锁, enabled=true
-https://yfamilys.com/plugin/wxds.plugin, tag=微信读书, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, tag=QQ外部链接解锁, enabled=true
 https://kelee.one/Tool/Loon/Lpx/TXDocs_remove_ads.lpx, tag=腾讯文档去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/TencentVideo_remove_ads.lpx, tag=腾讯视频去广告, enabled=true
@@ -288,14 +287,12 @@ https://kelee.one/Tool/Loon/Lpx/Tieba_remove_ads.lpx, tag=百度贴吧去广告,
 https://kelee.one/Tool/Loon/Lpx/BaiduSearchWebpage_remove_ads.lpx, tag=百度网页去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BaiduMap_remove_ads.lpx, tag=百度地图去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BaiduWenku_remove_ads.lpx, tag=百度文库去广告, enabled=true
-https://yfamilys.com/plugin/bdwk.plugin, tag=百度文库解锁, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, tag=高德地图去广告, enabled=true
-https://yfamilys.com/plugin/gddt.plugin, tag=高德地图去广告, enabled=true
+https://yfamilys.com/plugin/gddt.plugin, tag=高德地图去广告+, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, tag=哔哩哔哩去广告, enabled=true
-https://yfamilys.com/plugin/biliad.plugin, tag=哔哩哔哩去广告+, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Plugins/BiliBili_remove_ads.lpx, tag=哔哩哔哩去广告+, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BiliComic_remove_ads.lpx, tag=哔哩哔哩漫画去广告, enabled=true
-https://yfamilys.com/plugin/CamScanner.plugin, tag=扫描全能王解锁VIP, enabled=true
-https://yfamilys.com/plugin/xzjhz.plugin, tag=小组件盒子解锁VIP, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Plugins/CamScanner_unlock.lpx, tag=扫描全能王解锁, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taopiaopiao_remove_ads.lpx, tag=淘票票去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/DragonRead_remove_ads.lpx, tag=番茄小说去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Damai_remove_ads.lpx, tag=大麦去广告, enabled=true

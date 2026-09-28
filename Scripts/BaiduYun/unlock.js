@@ -1,15 +1,15 @@
 /*
- * NAME            : Unlock
+ * NAME            : unlock
  * AUTHOR          : Nobyda,JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-13 09:07:14 +0800
+ * UPDATED         : 2026-09-28 09:35:26 +0800
  * DESC            : 百度网盘整合版（NobyDa、chengkongyiban） 解锁 SVIP、在线视频倍率/清晰度（动态数值）
  */
 
 // #region QuantumultX
 // [rewrite_local]
-// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/PxyRes/Scripts/BaiduYun/Unlock.js
+// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/PxyRes/Scripts/BaiduYun/unlock.js
 
 // [mitm]
 // hostname = pan.baidu.com
@@ -17,7 +17,7 @@
 
 // #region Surge4 / Loon
 // [Script]
-// http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js
+// http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_unlock.js
 
 // [MITM]
 // hostname = pan.baidu.com

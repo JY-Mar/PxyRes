@@ -1,9 +1,9 @@
 /*
- * NAME            : Simplify_tabs
+ * NAME            : remove_tabs
  * AUTHOR          : JY-Mar
  * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
- * UPDATED         : 2026-05-15 10:07:23 +0800
+ * UPDATED         : 2026-09-28 09:37:24 +0800
  * DESC            : 精简Tab栏
  */
 
