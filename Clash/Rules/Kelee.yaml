@@ -7,5 +7,5 @@
 # TOTAL           : 2
 
 payload:
-  - DOMAIN,kelee.one
-  - DOMAIN-SUFFIX,kelee.one
+#   - DOMAIN,kelee.one
+#   - DOMAIN-SUFFIX,kelee.one
