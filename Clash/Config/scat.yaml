@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-09-10 11:17:00 GMT+8
+# UPDATED         : 2026-10-08 10:50:34 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -408,7 +408,6 @@ rule-providers:
   SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProvidersClassical}
   # 精准匹配规则
   # MARK: --- AI ---
-  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProvidersClassical}
   Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProvidersClassical}
   Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProvidersClassical}
   OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProvidersClassical}
@@ -444,7 +443,6 @@ rule-providers:
   Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProvidersClassical}
   BiliBiliIntl: {url: https://rule.kelee.one/Clash/BiliBiliIntl.yaml, path: ./ruleset/BiliBiliIntl.yaml, <<: *RuleProvidersClassical}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProvidersClassical}
-  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Social ---
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProvidersClassical}
   Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProvidersClassical}
@@ -454,10 +452,7 @@ rule-providers:
   Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProvidersClassical}
   ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProvidersClassical}
   DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProvidersClassical}
-  # MARK: --- Security ---
-  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Code ---
-  ChinaCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaCDN.yaml, path: ./ruleset/ChinaCDN.yaml, <<: *RuleProvidersClassical}
   JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProvidersClassical}
   Kelee: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Kelee.yaml, path: ./ruleset/Kelee.yaml, <<: *RuleProvidersClassical}
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProvidersClassical}
@@ -474,16 +469,13 @@ rule-providers:
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProvidersClassical}
   Proxy+: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Proxy+.yaml, path: ./ruleset/Proxy+.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Adv ---
-  AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProvidersClassical}
+  AdvertisingLite: {url: https://rule.kelee.one/Clash/AdvertisingLite.yaml, path: ./ruleset/AdvertisingLite.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Direct ---
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProvidersClassical}
-  ChinaDirect: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaDirect.yaml, path: ./ruleset/ChinaDirect.yaml, <<: *RuleProvidersClassical}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProvidersClassical}
   ChinaMobile: {url: https://rule.kelee.one/Clash/ChinaMobile.yaml, path: ./ruleset/ChinaMobile.yaml, <<: *RuleProvidersClassical}
   ChinaTelecom: {url: https://rule.kelee.one/Clash/ChinaTelecom.yaml, path: ./ruleset/ChinaTelecom.yaml, <<: *RuleProvidersClassical}
   ChinaUnicom: {url: https://rule.kelee.one/Clash/ChinaUnicom.yaml, path: ./ruleset/ChinaUnicom.yaml, <<: *RuleProvidersClassical}
-  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProvidersClassical}
-  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProvidersClassical}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProvidersClassical}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProvidersClassical}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProvidersClassical}
@@ -495,7 +487,6 @@ rules:
   # --- Top ---
   - RULE-SET,SkipProxy,⭕全球直连
   # --- AI ---
-  - RULE-SET,ChinaAI,⭕全球直连
   - RULE-SET,Copilot,✨Copilot
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
@@ -531,7 +522,6 @@ rules:
   - RULE-SET,Bahamut,📺Bahamut
   - RULE-SET,BiliBiliIntl,💻BiliBiliIntl
   - RULE-SET,Pixiv,🚀节点选择
-  - RULE-SET,VidHub,⭕全球直连
   # --- Social ---
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
@@ -541,10 +531,7 @@ rules:
   - RULE-SET,Alibaba,⭕全球直连
   - RULE-SET,ByteDance,⭕全球直连
   - RULE-SET,DouYin,⭕全球直连
-  # --- Security ---
-  - RULE-SET,Hmbaby,⭕全球直连
   # --- Code ---
-  - RULE-SET,ChinaCDN,⭕全球直连
   - RULE-SET,JueJin,⭕全球直连
   - RULE-SET,Kelee,⭕全球直连
   - RULE-SET,GitHub,🚀节点选择
@@ -561,16 +548,13 @@ rules:
   - RULE-SET,Proxy,🚀节点选择
   - RULE-SET,Proxy+,🚀节点选择
   # --- Adv ---
-  - RULE-SET,AdvLite,⛔全球拦截
+  - RULE-SET,AdvertisingLite,⛔全球拦截
   # --- Direct ---
   - RULE-SET,Direct,⭕全球直连
-  - RULE-SET,ChinaDirect,⭕全球直连
   - RULE-SET,China,⭕全球直连
   - RULE-SET,ChinaMobile,⭕全球直连
   - RULE-SET,ChinaTelecom,⭕全球直连
   - RULE-SET,ChinaUnicom,⭕全球直连
-  - RULE-SET,ChinaBank,⭕全球直连
-  - RULE-SET,ChinaHosp,⭕全球直连
   - RULE-SET,ChinaDNS,⭕全球直连
   - RULE-SET,ChinaMedia,⭕全球直连
   - RULE-SET,Download,⭕全球直连

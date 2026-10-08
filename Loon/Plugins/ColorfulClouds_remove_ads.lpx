@@ -3,9 +3,10 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=Mixed,ddgksf2013,可莉🅥,RuCu6,JY-Mar
 #!tag=彩云天气,去广告
-#!date=2026-07-22 09:53:09 GMT+8
+#!date=2026-10-08 12:18:07 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ColorfulCloudsPro.png
 #!openUrl=https://apps.apple.com/app/id1067198688
+#!loon_version=3.4.0(962)
 
 [Rule]
 DOMAIN,abyss.cyapi.cn,REJECT
@@ -13,14 +14,22 @@ DOMAIN,ad.cyapi.cn,REJECT
 DOMAIN,gather.colorfulclouds.net,REJECT
 
 [Rewrite]
+^https?:\/\/ad\.cyapi\.cn\/v\d reject-200
 ^https:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) reject-dict
 ^https:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) reject-dict
 
 [Script]
-http-response ^https:\/\/(wrapper\.cyapi\.cn|api\.caiyunapp\.com|cdn-w\.caiyunapp\.com)\/v1\/activity\? script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=去广告
-http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/features script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除工具箱
+http-response ^https?:\/\/biz\.cyapi\.cn\/api\/v\d\/user_detail script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除用户详细信息
+http-response ^https?:\/\/biz\.cyapi\.cn\/v\d\/user script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=改写用户信息
+http-response ^https?:\/\/wrapper\.cyapi\.cn\/v\d\/activity script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=去广告
+http-response ^https?:\/\/api\.caiyunapp\.com\/v\d\/activity script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除AI助手
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/homefeatures script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除APP内部消息
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/notification\/message_center script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除工具箱
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/config\/cypage script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除弹窗广告
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/feeds script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除工具箱
 http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/banners script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除Banner
+http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/operation\/features script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除工具箱
 http-response ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/campaigns script-path=https://jy-mar.github.io/PxyScr/ColorfulClouds/remove_ads.js, requires-body=true, timeout=20, tag=移除推广信息
 
 [MITM]
-hostname = biz.cyapi.cn, wrapper.cyapi.cn, api.caiyunapp.com, cdn-w.caiyunapp.com, starplucker.cyapi.cn
+hostname = biz.cyapi.cn, starplucker.cyapi.cn, ad.cyapi.cn, api.caiyunapp.com, cdn-w.caiyunapp.com, wrapper.cyapi.cn
