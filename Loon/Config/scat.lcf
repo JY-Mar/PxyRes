@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-08 12:38:35 GMT+8
+# UPDATED         : 2026-10-08 14:17:26 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -32,7 +32,8 @@ wifi-access-http-port = 7222
 wifi-access-socks5-port = 7221
 # ---- 测试 ----
 # 节点测速地址。策略组未单独指定地址时使用此项
-proxy-test-url = https://cp.cloudflare.com/generate_204
+# proxy-test-url = https://cp.cloudflare.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
 # 网络可用性检测地址，建议使用可直连访问的 URL
 internet-test-url = https://connectivitycheck.platform.hicloud.com/generate_204
 # 节点测速超时时间，单位为秒
@@ -246,7 +247,7 @@ https://rule.kelee.one/Loon/Steam.lsr, policy=🎮Steam, tag=Steam, enabled=true
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/Proxy+.lsr, policy=🚀节点选择, tag=Proxy+, enabled=true
 # MARK: --- Adv ---
-https://rule.kelee.one/Loon/AdvertisingLite.lsr, policy=⛔全球拦截, tag=AdvertisingLite, enabled=true
+# https://rule.kelee.one/Loon/AdvertisingLite.lsr, policy=⛔全球拦截, tag=AdvertisingLite, enabled=true
 # MARK: --- Direct ---
 https://rule.kelee.one/Loon/Direct.lsr, policy=⭕全球直连, tag=Direct, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=⭕全球直连, tag=China, enabled=true
@@ -268,8 +269,8 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/GeoCN.lsr, policy=⭕全球直连, ta
 [Script]
 
 [Plugin]
-https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag=广告平台拦截器, enabled=true
-https://client.ash.do/downloads/ashnet-loon.lpx, tag=AshNet, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag=广告平台拦截器, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, tag=HTTPDNS拦截器, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, tag=微信公众号去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, tag=微信小程序去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, tag=微信外部链接解锁, enabled=true
@@ -358,13 +359,13 @@ https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag=可莉广告过滤�
 https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, tag=DNS防泄漏, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag=节点检测工具, enabled=true
 https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, tag=代理链路检测, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, tag=HTTPDNS拦截器, enabled=true
-https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, tag=Loon插件仓库, policy=🚀节点选择, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, tag=Sub-Store, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, tag=Script-Hub, policy=⭕全球直连, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/AutoPolicy/auto-policy.plugin, tag=自动策略, enabled=true
 https://kelee.one/Tool/Loon/Lpx/1.1.1.1.lpx, tag=1_1_1_1配置管理, enabled=true
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, tag=Loon插件仓库, policy=🚀节点选择, enabled=true
+https://client.ash.do/downloads/ashnet-loon.lpx, tag=AshNet, enabled=true
 
 [Mitm]
 ca-p12 =
