@@ -22,7 +22,6 @@ configuration of proxy tools
 │   ├── Config/                # Loon 完整配置文件（无代理节点、代理组）.lcf
 │   ├── Plugins/               # Loon 插件文件目录 .plugin / .lpx
 │   └── Rules/                 # Loon 远程规则文件 .lsr / .list
-│── Scripts/                   # 去广告、Rewrite脚本
 |── scriptsForNode/            # Node脚本
 |── scriptsForPython/          # Python脚本
 ├── docs/                      # GitHub Pages输出目录
