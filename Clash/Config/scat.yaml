@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-08 10:50:34 GMT+8
+# UPDATED         : 2026-10-10 09:46:45 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -351,9 +351,9 @@ proxy-groups:
   - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
   - {name: ✨Claude, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png}
   - {name: 🍎Apple, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 💠MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 🍎AppleProxy, type: select, proxies: [🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
   - {name: 💠Microsoft, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 💠MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
   - {name: 💠Bing, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
   - {name: 💠OneDrive, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
   - {name: 🍩Google, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
@@ -367,8 +367,8 @@ proxy-groups:
   - {name: 💻BiliBiliIntl, type: select, proxies: [🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
   - {name: 🎮PlayStation, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png}
-  - {name: 🎮Nintendo, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
   - {name: 🎮Xbox, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png}
+  - {name: 🎮Nintendo, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
   - {name: 🎮Steam, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png}
   # 按大陆划分 - 自动切换
   - {name: 🌏港台自动, <<: *url-test-all, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
@@ -414,7 +414,6 @@ rule-providers:
   Claude: {url: https://rule.kelee.one/Clash/Claude.yaml, path: ./ruleset/Claude.yaml, <<: *RuleProvidersClassical}
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Apple ---
-  Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProvidersClassical}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProvidersClassical}
   AppStore: {url: https://rule.kelee.one/Clash/AppStore.yaml, path: ./ruleset/AppStore.yaml, <<: *RuleProvidersClassical}
   AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProvidersClassical}
@@ -422,6 +421,7 @@ rule-providers:
   AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProvidersClassical}
   iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProvidersClassical}
   iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProvidersClassical}
+  Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Microsoft ---
   MicrosoftProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProvidersClassical}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProvidersClassical}
@@ -470,7 +470,7 @@ rule-providers:
   Proxy+: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Proxy+.yaml, path: ./ruleset/Proxy+.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Adv ---
   AdvertisingLite: {url: https://rule.kelee.one/Clash/AdvertisingLite.yaml, path: ./ruleset/AdvertisingLite.yaml, <<: *RuleProvidersClassical}
-  # MARK: --- Direct ---
+  # MARK: --- Final ---
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProvidersClassical}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProvidersClassical}
   ChinaMobile: {url: https://rule.kelee.one/Clash/ChinaMobile.yaml, path: ./ruleset/ChinaMobile.yaml, <<: *RuleProvidersClassical}
@@ -493,14 +493,14 @@ rules:
   - RULE-SET,Claude,✨Claude
   - RULE-SET,AI,✨AI
   # --- Apple ---
-  - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
   - RULE-SET,AppStore,🍎Apple
   - RULE-SET,AppleMusic,🍎Apple
   - RULE-SET,AppleMail,🍎Apple
-  - RULE-SET,AppleProxy,🍎AppleVPN
+  - RULE-SET,AppleProxy,🍎AppleProxy
   - RULE-SET,iCloud,🍎Apple
-  - RULE-SET,iCloudPrivateRelay,🍎AppleVPN
+  - RULE-SET,iCloudPrivateRelay,🍎AppleProxy
+  - RULE-SET,Apple,🍎Apple
   # --- Microsoft ---
   - RULE-SET,MicrosoftProxy,💠MicrosoftProxy
   - RULE-SET,OneDrive,💠OneDrive
@@ -541,8 +541,8 @@ rules:
   - RULE-SET,Discord,🚀节点选择
   # --- Game ---
   - RULE-SET,PlayStation,🎮PlayStation
-  - RULE-SET,Nintendo,🎮Nintendo
   - RULE-SET,Xbox,🎮Xbox
+  - RULE-SET,Nintendo,🎮Nintendo
   - RULE-SET,Steam,🎮Steam
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
