@@ -361,8 +361,8 @@ https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag=节点检测工具,
 https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, tag=代理链路检测, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, tag=Sub-Store, policy=🚀节点选择, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, tag=Script-Hub, policy=🚀节点选择, enabled=true
-https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
-https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/AutoPolicy/auto-policy.plugin, tag=自动策略, enabled=true
+# https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
+# https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/AutoPolicy/auto-policy.plugin, tag=自动策略, enabled=true
 https://kelee.one/Tool/Loon/Lpx/1.1.1.1.lpx, tag=1_1_1_1配置管理, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, tag=Loon插件仓库, policy=🚀节点选择, enabled=true
 https://client.ash.do/downloads/ashnet-loon.lpx, tag=AshNet, enabled=true
