@@ -286,7 +286,6 @@ https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, tag=百度云去广
 https://kelee.one/Tool/Loon/Lpx/BaiduSearchWebpage_remove_ads.lpx, tag=百度网页去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BaiduWenku_remove_ads.lpx, tag=百度文库去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, tag=高德地图去广告, enabled=true
-https://yfamilys.com/plugin/gddt.plugin, tag=高德地图去广告+, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BaiduMap_remove_ads.lpx, tag=百度地图去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/DiDi_remove_ads.lpx, tag=滴滴出行去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/CamScanner_unlock.lpx, tag=扫描全能王解锁, enabled=true
@@ -353,7 +352,7 @@ https://kelee.one/Tool/Loon/Lpx/123NetWorkDisk_remove_ads.lpx, tag=123网盘去�
 https://jy-mar.github.io/PxyRes/Loon/Plugins/ChinaUnicom_remove_ads.lpx, tag=中国联通去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, tag=12306去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Qbb_remove_ads.lpx, tag=亲宝宝去广告, enabled=true
-https://yfamilys.com/plugin/adlite.plugin, tag=APP启动页去广告Lite, enabled=true
+# https://yfamilys.com/plugin/adlite.plugin, tag=APP启动页去广告Lite, enabled=true
 # https://yfamilys.com/plugin/startingad.plugin, tag=APP启动页去广告Standard, enabled=true
 # https://yfamilys.com/plugin/adultra.plugin, tag=APP启动页去广告Ultra, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag=可莉广告过滤器, policy=🚀节点选择, enabled=true
