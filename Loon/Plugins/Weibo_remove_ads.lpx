@@ -1,9 +1,9 @@
 #!name=微博去广告
-#!desc=微博去广告
+#!desc=过滤微博广告及去除各部分推广模块
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=ddgksf2013,JY-Mar
 #!tag=Weibo,微博,去广告
-#!date=2026-10-26 16:49:23 GMT+8
+#!date=2026-10-26 16:55:41 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/Weibo.png
 #!openUrl=https://apps.apple.com/app/id350962117
 #!loon_version=3.5.1(978)
