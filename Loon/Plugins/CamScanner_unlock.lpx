@@ -5,6 +5,7 @@
 #!tag=CamScanner,扫描全能王,解锁
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/CamScanner.png
 #!openUrl=https://apps.apple.com/app/id388627783
+#!loon_version=3.5.1(978)
 
 [Mitm]
 
@@ -12,4 +13,4 @@ hostname =ap*.intsig.net
 
 [Script]
 
-http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1, script-path=https://jy-mar.github.io/PxyScr/CamScanner/_CamScanner.js, tag=扫描全能王
+response if ${url} ~= /https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?/i then script("https://jy-mar.github.io/PxyScr/CamScanner/_CamScanner.js") with tag="扫描全能王", requires_body=true

@@ -3,46 +3,47 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=JY-Mar
 #!tag=ChinaUnion,中国联通,去广告
-#!date=2026-07-22 10:24:42 GMT+8
+#!date=2026-10-26 16:22:46 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/ChinaUnicom.png
 #!openUrl=https://apps.apple.com/app/id416457422
+#!loon_version=3.5.1(978)
 
 [Rewrite]
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getDeviceFloor reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getRightsFloor reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/get5GAFloor reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getFloor\?floorType=.* reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getUpgradeFloor reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/out\/configure reject-dict
-^https:\/\/activity\.10010\.com\/activity\d+\/activity\/queryPopInfo\?subChannel=.* reject-dict
-^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/serviceReminder reject-dict
-^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter\?((login_type|provinceCode|clientVersion|cityCode)=.*&?)+ reject-dict
-^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/query517Active reject-dict
-^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/queryCfig\?((province|city|version)=.*&?)+ reject-dict
-^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord\?((version|channelCode|provinceCode|methodType|yw_code|cityCode)=.*&?)+ reject-dict
-^https:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm reject-200
-^https:\/\/m\.client\.10010\.com\/edoprinterface\/service\/appInfo\/2\/iphone_c@\d+\.\d+\/edop_unicom_.+\/.+ reject-200
-^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/myWallet reject-dict
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getDeviceFloor/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getRightsFloor/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/floor\/get5GAFloor/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getFloor\?floorType=.*/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/floor\/getUpgradeFloor/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/out\/configure/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/activity\.10010\.com\/activity\d+\/activity\/queryPopInfo\?subChannel=.*/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/serviceReminder/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter\?((login_type|provinceCode|clientVersion|cityCode)=.*&?)+/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/query517Active/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/queryCfig\?((province|city|version)=.*&?)+/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord\?((version|channelCode|provinceCode|methodType|yw_code|cityCode)=.*&?)+/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm/i then reject(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/edoprinterface\/service\/appInfo\/2\/iphone_c@\d+\.\d+\/edop_unicom_.+\/.+/i then reject(200)
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/myWallet/i then reject_dict(200)
 # 附近营业厅 - 优惠券
-^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/foodTicket reject-dict
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/foodTicket/i then reject_dict(200)
 # 附近营业厅 - 本地精选
-^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/localBusiness reject-dict
+request if ${url} ~= /^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/indexNearHall\/localBusiness/i then reject_dict(200)
 # 首页卡片广告
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/tabs reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTab\/activityShow reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/smartHome reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/unicomCulture reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTerminalShow reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topBanner reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/query\/waterfallFlow reject-dict
-^https:\/\/card\.10010\.com\/mall-access\/searchRecommend\/query reject-dict
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/tabs/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTab\/activityShow/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/smartHome/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/query\/unicomCulture/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topTerminalShow/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/homePage\/v25\/topBanner/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/query\/waterfallFlow/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/card\.10010\.com\/mall-access\/searchRecommend\/query/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/\d+\/\d+\?adCode=.* script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页头部tab、顶部tab
-http-response ^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页导航
-http-response ^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除首页无用导航项
-http-response ^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=移除视频广告
-http-response ^https:\/\/m\.client\.10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+ script-path=https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js, requires-body=true, timeout=20, tag=修改用户配置项
+response if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexCfig\/\d+\/\d+\?adCode=.*/i then script("https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js") with tag="移除首页头部tab、顶部tab", timeout=20, requires_body=true
+response if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome/i then script("https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js") with tag="移除首页导航", timeout=20, requires_body=true
+response if ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/aggregateFloorConfig/i then script("https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js") with tag="移除首页无用导航项", timeout=20, requires_body=true
+response if ${url} ~= /^https:\/\/m\.client\.10010\.com\/video_recommend\/content\/screenSwitch/i then script("https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js") with tag="移除视频广告", timeout=20, requires_body=true
+response if ${url} ~= /^https:\/\/m\.client\.10010\.com\/edopinterface\/service\/getMenuAutoCheckConfig\/iphone_c@\d+\.\d+/i then script("https://jy-mar.github.io/PxyScr/ChinaUnicom/remove_ads.js") with tag="修改用户配置项", timeout=20, requires_body=true
 
 [MITM]
 hostname = activity.10010.com, m.client.10010.com, card.10010.com

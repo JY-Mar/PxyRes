@@ -3,12 +3,13 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=JY-Mar
 #!tag=McDonald,麦当劳,去广告
-#!date=2026-09-28 09:37:07 GMT+8
+#!date=2026-10-26 16:23:54 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/McDonald's.png
 #!openUrl=https://apps.apple.com/app/id1054598922
+#!loon_version=3.5.1(978)
 
 [Script]
-http-response ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/tabBar script-path=https://jy-mar.github.io/PxyScr/McDonald/remove_tabs.js, requires-body=true, timeout=20, tag=精简Tab栏
+response if ${url} ~= /^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/tabBar/i then script("https://jy-mar.github.io/PxyScr/McDonald/remove_tabs.js") with tag="精简Tab栏", timeout=20, requires_body=true
 
 [MITM]
 hostname = api.mcd.cn

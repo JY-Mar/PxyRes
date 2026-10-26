@@ -3,22 +3,23 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=可莉🅥,JY-Mar
 #!tag=360,360智慧生活,去广告
-#!date=2026-07-01 11:39:04 GMT+8
+#!date=2026-10-26 16:24:06 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/SmartLife360.png
 #!openUrl=https://apps.apple.com/app/id1488904375
+#!loon_version=3.5.1(978)
 
 [Rule]
 DOMAIN,ad.iot.360.cn,REJECT
 DOMAIN,ad.life.360.cn,REJECT
 
 [Rewrite]
-^https:\/\/app\.home\.360\.cn\/v1\/config\/custom_config reject-dict
-^https:\/\/app\.home\.360\.cn\/v1\/push_assist\/get_message reject-dict
+request if ${url} ~= /^https:\/\/app\.home\.360\.cn\/v1\/config\/custom_config/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.home\.360\.cn\/v1\/push_assist\/get_message/i then reject_dict(200)
 
 [Script]
-http-response ^https?:\/\/app\.home\.360\.cn\/v1\/voice_assistant\/get_entrance script-path=https://jy-mar.github.io/PxyScr/SmartLife360/remove_assist.js, requires-body=true, timeout=20, tag=移除AI助手
-http-response ^https?:\/\/jia\.360\.cn\/conf\/v1\.json script-path=https://jy-mar.github.io/PxyScr/SmartLife360/remove_banner_ads.js, requires-body=true, timeout=20, tag=移除推广横幅广告
-http-response ^https?:\/\/ota5\.jia\.360\.cn\/upgrade\/getNewVersion script-path=https://jy-mar.github.io/PxyScr/SmartLife360/remove_app_upgrade.js, requires-body=true, timeout=20, tag=移除应用升级
+response if ${url} ~= /^https?:\/\/app\.home\.360\.cn\/v1\/voice_assistant\/get_entrance/i then script("https://jy-mar.github.io/PxyScr/SmartLife360/remove_assist.js") with tag="移除AI助手", timeout=20, requires_body=true
+response if ${url} ~= /^https?:\/\/jia\.360\.cn\/conf\/v1\.json/i then script("https://jy-mar.github.io/PxyScr/SmartLife360/remove_banner_ads.js") with tag="移除推广横幅广告", timeout=20, requires_body=true
+response if ${url} ~= /^https?:\/\/ota5\.jia\.360\.cn\/upgrade\/getNewVersion/i then script("https://jy-mar.github.io/PxyScr/SmartLife360/remove_app_upgrade.js") with tag="移除应用升级", timeout=20, requires_body=true
 
 [MITM]
 hostname = app.home.360.cn, *jia.360.cn

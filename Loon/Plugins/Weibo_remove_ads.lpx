@@ -1,0 +1,71 @@
+#!name=微博去广告
+#!desc=微博去广告
+#!homepage=https://github.com/JY-Mar/PxyRes
+#!author=ddgksf2013,JY-Mar
+#!tag=Weibo,微博,去广告
+#!date=2026-10-26 16:49:23 GMT+8
+#!icon=https://jy-mar.github.io/PxyRes/Icons/App/Weibo.png
+#!openUrl=https://apps.apple.com/app/id350962117
+#!loon_version=3.5.1(978)
+
+[Rewrite]
+# == 国际版微博 / 微博国际客户端
+request if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_coopen_ads/i then reject(404)
+request if ${url} ~= /^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=tqtad/i then reject(404)
+request if ${url} ~= /^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?.+?tqt_sdkad/i then reject(404)
+request if ${url} ~= /^https?:\/\/tqt\.weibo\.cn\/.+advert\.index/i then reject(404)
+request if ${url} ~= /^https?:\/\/tqt\.weibo\.cn\/api\/advert\//i then reject(404)
+request if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\?/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/cardlist\?v_f=.*Weibo_intl/i then reject_dict(200)
+# == 主端微博 / 信息流 & 开屏 & 推送
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_positive/i then reject(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/push\/info/i then reject(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/.*account\/recommend_interesttags/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/.*\/media_homelist/i then reject(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/.*finder\/searchbarchange/i then reject(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/ad\/preload/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/api\.weibo\.cn\/.*discovery_home_bottom_getdotinfo/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime/i then reject(200)
+request if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/push\/daily/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight/i then reject_dict(200)
+# == 微博广告 SDK / 监测埋点
+request if ${url} ~= /^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(interface\/wbpullad\/wbpullad_click\.php|wbapplua\/get_wbpullad_log\.lua)/i then reject(404)
+request if ${url} ~= /^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php/i then reject(404)
+# == 新浪广告（微博系）
+request if ${url} ~= /^https?:\/\/ad\.cj\.sina\.cn\/(osa\/adpreload|fax\/impress)/i then reject(200)
+# 打卡流卡片位剔除
+response if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream/ then response.json.jq(`.items |= map(select(.category != "card"))`)
+
+[Script]
+# == 微博 JSON 净化（ddgksf2013/weibo_json.js）
+response if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/\w{5}\/cardlist/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https:\/\/api.weibo.cn\/2\/!\/client\/light_skin/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https:\/\/new.vip.weibo.cn\/littleskin\/preview/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|0flowpage)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses\/(unread_)?friends(\/|_)timeline/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups\/timeline/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses\/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile\/(me|container_timeline)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video\/(community_tab|remind_info|tiny_stream_video_list)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search\/(finder|container_timeline|container_discover)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin\/show|\!\/live\/media_homelist|container\/get_item)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=open_app/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/(sdk|wb)app\.uve\.weibo\.com(\/interface\/sdk\/sdkad.php|\/wbapplua\/wbpullad.lua)/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_json.js") with requires_body=true
+# 搜索相关（独立脚本）
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_search_info.json") with requires_body=true
+response if ${url} ~= /^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic/i then script("https://jy-mar.github.io/PxyScr/Weibo/_weibo_search_topic.json") with requires_body=true
+
+[MITM]
+hostname = api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, new.vip.weibo.cn, tqt.weibo.cn, mapi.weibo.com, boot.biz.weibo.com, *.uve.weibo.com, ad.cj.sina.cn

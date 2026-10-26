@@ -3,12 +3,13 @@
 #!homepage=https://github.com/JY-Mar/PxyRes
 #!author=Nobyda,JY-Mar
 #!tag=Baidu,百度,百度云,解锁
-#!date=2026-09-28 09:35:56 GMT+8
+#!date=2026-10-26 16:29:02 GMT+8
 #!icon=https://jy-mar.github.io/PxyRes/Icons/App/BaiduNetDisk.png
 #!openUrl=https://apps.apple.com/app/id547166701
+#!loon_version=3.5.1(978)
+
+[Script]
+response if ${url} ~= /https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user/i then script("https://jy-mar.github.io/PxyScr/BaiduYun/unlock.js") with tag="百度云解锁", requires_body=true
 
 [MITM]
 hostname = pan.baidu.com
-
-[Script]
-http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/PxyScr/BaiduYun/unlock.js, requires-body=true, script-update-interval=0, tag=百度云解锁
