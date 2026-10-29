@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 12:00:47 GMT+8
+# UPDATED         : 2026-10-29 13:40:22 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -68,9 +68,11 @@ geox-url:
   # 域名与分类的映射（如广告、社交媒体等）
   # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   # mmdb文件下载地址
-  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  # mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  mmdb: 'https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb'
   # asn文件下载地址
-  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+  # asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+  asn: 'https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb'
 # 外部控制器(HTTP)监听地址
 # > ipv4:端口
 external-controller: 0.0.0.0:9090

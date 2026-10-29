@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 12:00:43 GMT+8
+# UPDATED         : 2026-10-29 13:40:31 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -57,9 +57,11 @@ disconnect-on-policy-change = false
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
 # ---- 数据库 ----
 # 自定义 GeoIP 数据库下载地址
-geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+# geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+geoip-url = https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb
 # 自定义 ASN 数据库下载地址
-ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+# ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+ipasn-url = https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
 # ---- 域名拒绝 ----
 # 域设置域名拒绝规则的执行阶段
 # - DNS：使用 LoopbackIP、No Answer 或 NXDomain 的方式阻止 DNS 查询以达到拦截请求的目的
