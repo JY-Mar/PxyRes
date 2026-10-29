@@ -24,8 +24,6 @@ on:
       - "Loon/Plugins/*.lpx"
       - "Loon/Rules/*.lsr"
       - "Loon/Rules/*.list"
-      - "scriptsForPython/**/*.py"
-      - "scriptsForPython/**/*.css"
 
 # 设置权限
 permissions:
