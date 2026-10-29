@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-26 16:56:22 GMT+8
+# UPDATED         : 2026-10-29 11:45:08 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -243,6 +243,7 @@ https://rule.kelee.one/Loon/PlayStation.lsr, policy=🎮PlayStation, tag=PlaySta
 https://rule.kelee.one/Loon/Xbox.lsr, policy=🎮Xbox, tag=Xbox, enabled=true
 https://rule.kelee.one/Loon/Nintendo.lsr, policy=🎮Nintendo, tag=Nintendo, enabled=true
 https://rule.kelee.one/Loon/Steam.lsr, policy=🎮Steam, tag=Steam, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/GamesIntl.lsr, policy=🎮游戏节点, tag=GamesIntl, enabled=true
 # MARK: --- Proxy ---
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/Proxy+.lsr, policy=🚀节点选择, tag=Proxy+, enabled=true

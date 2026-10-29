@@ -1,0 +1,23 @@
+# NAME            : GamesIntl
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/PxyRes
+# UPDATED         : 2026-10-29 11:42:00 GMT+8
+# DOMAIN-SUFFIX   : 12
+# DOMAIN-KEYWORD  : 1
+# TOTAL           : 13
+
+# Monster Hunter Outlanders
+DOMAIN-SUFFIX,monsterhunteroutlanders.com
+DOMAIN-SUFFIX,mhoutlanders.com
+DOMAIN-KEYWORD,mhadv
+DOMAIN-SUFFIX,proximabeta.com
+DOMAIN-SUFFIX,levelinfinite.com
+DOMAIN-SUFFIX,igamecj.com
+DOMAIN-SUFFIX,tencentgames.com
+DOMAIN-SUFFIX,gcloud.qq.com
+DOMAIN-SUFFIX,deltaverse-intl.com
+DOMAIN-SUFFIX,gcloudplat.com
+DOMAIN-SUFFIX,garena.com
+DOMAIN-SUFFIX,garenanow.com
+DOMAIN-SUFFIX,garena.live
+IP-ASN,132203,no-resolve

@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-10 09:46:45 GMT+8
+# UPDATED         : 2026-10-29 11:44:07 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -465,6 +465,7 @@ rule-providers:
   Nintendo: {url: https://rule.kelee.one/Clash/Nintendo.yaml, path: ./ruleset/Nintendo.yaml, <<: *RuleProvidersClassical}
   Xbox: {url: https://rule.kelee.one/Clash/Xbox.yaml, path: ./ruleset/Xbox.yaml, <<: *RuleProvidersClassical}
   Steam: {url: https://rule.kelee.one/Clash/Steam.yaml, path: ./ruleset/Steam.yaml, <<: *RuleProvidersClassical}
+  GamesIntl: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GamesIntl.yaml, path: ./ruleset/GamesIntl.yaml, <<: *RuleProvidersClassical}
   # MARK: --- Proxy ---
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProvidersClassical}
   Proxy+: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Proxy+.yaml, path: ./ruleset/Proxy+.yaml, <<: *RuleProvidersClassical}
@@ -544,6 +545,7 @@ rules:
   - RULE-SET,Xbox,🎮Xbox
   - RULE-SET,Nintendo,🎮Nintendo
   - RULE-SET,Steam,🎮Steam
+  - RULE-SET,GamesIntl,🎮游戏节点
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
   - RULE-SET,Proxy+,🚀节点选择
