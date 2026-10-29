@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 13:40:31 GMT+8
+# UPDATED         : 2026-10-29 14:43:44 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -108,71 +108,71 @@ Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 
 [Proxy Group]
 # 基础策略
-🚀节点选择 = select, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png
-♻️自动切换 = url-test, Filter__Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png
-👆手动切换 = select, Filter__Global, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Available.png
-⭕全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png
-⛔全球拦截 = select, REJECT, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png
-🛠️故障转移 = fallback, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png
-🐟漏网之鱼 = select, ⭕全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动切换, 👆手动切换, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png
+🚀节点选择 = select, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Filter.png
+♻️自动切换 = url-test, Filter__Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Auto.png
+👆手动切换 = select, Filter__Global, img-url = https://jy-mar.github.io/PxyIco/Color/Available.png
+⭕全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/PxyIco/Color/Direct.png
+⛔全球拦截 = select, REJECT, DIRECT, img-url = https://jy-mar.github.io/PxyIco/Color/Reject.png
+🛠️故障转移 = fallback, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/PxyIco/Color/Drill.png
+🐟漏网之鱼 = select, ⭕全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动切换, 👆手动切换, img-url = https://jy-mar.github.io/PxyIco/Color/Dinosaur.png
 # 按功能划分
-✨AI = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png
-✨Copilot = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png
-✨Gemini = select, ✨AI, 🍩Google, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png
-✨OpenAI = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png
-✨Claude = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png
-🍎Apple = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-🍎AppleProxy = select, 🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-💠Microsoft = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-💠MicrosoftProxy = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-💠Bing = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png
-💠OneDrive = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png
-🍩Google = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Google.png
-🦜Twitter = select, 🌎北美自动, 🌎北美手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/X.png
-🌠TikTok = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png
-🛫Telegram = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png
-🎬YouTube = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png
-🎥Netflix = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
-🐭Disney = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
-📺Bahamut = select, 🇨🇳台湾, 👆手动切换, ⭕全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
-💻BiliBiliIntl = select, 🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png
-🎮游戏节点 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Game.png
-🎮PlayStation = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png
-🎮Xbox = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png
-🎮Nintendo = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png
-🎮Steam = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png
-🎮Mobile = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/App_Store.png
+✨AI = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Ai.png
+✨Copilot = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Copilot.png
+✨Gemini = select, ✨AI, 🍩Google, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Gemini.png
+✨OpenAI = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/OpenAI.png
+✨Claude = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Claude.png
+🍎Apple = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Apple.png
+🍎AppleProxy = select, 🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Apple.png
+💠Microsoft = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Microsoft.png
+💠MicrosoftProxy = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Microsoft.png
+💠Bing = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Bing.png
+💠OneDrive = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/OneDrive.png
+🍩Google = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Google.png
+🦜Twitter = select, 🌎北美自动, 🌎北美手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/X.png
+🌠TikTok = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/TikTok.png
+🛫Telegram = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Netflix.png
+🐭Disney = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Disney+.png
+📺Bahamut = select, 🇨🇳台湾, 👆手动切换, ⭕全球直连, img-url = https://jy-mar.github.io/PxyIco/Color/Bahamut.png
+💻BiliBiliIntl = select, 🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/BiliBili_1.png
+🎮游戏节点 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyIco/Color/Game.png
+🎮PlayStation = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/PlayStation.png
+🎮Xbox = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Xbox.png
+🎮Nintendo = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Nintendo.png
+🎮Steam = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Steam.png
+🎮Mobile = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/App_Store.png
 # 按大陆划分 - 自动切换
-🌏港台自动 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png
-🌏亚洲自动 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png
-🌎北美自动 = url-test, Filter_Reg_NAM, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png
-🌏洋洲自动 = url-test, Filter_Reg_OCE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png
-🌍欧洲自动 = url-test, Filter_Reg_EUR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png
+🌏港台自动 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/China_Auto.png
+🌏亚洲自动 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Asia_Auto.png
+🌎北美自动 = url-test, Filter_Reg_NAM, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/America_Auto.png
+🌏洋洲自动 = url-test, Filter_Reg_OCE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Oceania_Auto.png
+🌍欧洲自动 = url-test, Filter_Reg_EUR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Europe_Auto.png
 # 按大陆划分 - 手动切换
-🌏港台手动 = select, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png
-🌏亚洲手动 = select, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png
-🌎北美手动 = select, 🇺🇸美国, 🇨🇦加拿大, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png
-🌏洋洲手动 = select, 🇦🇺澳洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png
-🌍欧洲手动 = select, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png
+🌏港台手动 = select, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, img-url = https://jy-mar.github.io/PxyIco/Color/Area/China.png
+🌏亚洲手动 = select, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Asia.png
+🌎北美手动 = select, 🇺🇸美国, 🇨🇦加拿大, img-url = https://jy-mar.github.io/PxyIco/Color/Area/America.png
+🌏洋洲手动 = select, 🇦🇺澳洲, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Oceania.png
+🌍欧洲手动 = select, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Europe.png
 # 按地区划分
-🇭🇰香港 = url-test, Filter_Nat__HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png
-🇲🇴澳门 = url-test, Filter_Nat__MO, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png
-🇨🇳台湾 = url-test, Filter_Nat__TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png
-🇯🇵日本 = url-test, Filter_Nat__JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Japan.png
-🇰🇷韩国 = url-test, Filter_Nat__KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Korea.png
-🇸🇬星洲 = url-test, Filter_Nat__SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Singapore.png
-🇲🇾马来 = url-test, Filter_Nat__MY, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Malaysia.png
-🇮🇳印度 = url-test, Filter_Nat__IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/India.png
-🇺🇸美国 = url-test, Filter_Nat__US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/America.png
-🇨🇦加拿大 = url-test, Filter_Nat__CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Canada.png
-🇦🇺澳洲 = url-test, Filter_Nat__AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Australia.png
-🇬🇧英国 = url-test, Filter_Nat__GB, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Britain.png
-🇫🇷法国 = url-test, Filter_Nat__FR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/France.png
-🇩🇪德国 = url-test, Filter_Nat__DE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Germany.png
-🇮🇹意大利 = url-test, Filter_Nat__IT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Italy.png
-🇳🇱荷兰 = url-test, Filter_Nat__NL, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Netherlands.png
-🇱🇺卢森堡 = url-test, Filter_Nat__LU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png
-🇱🇹立陶宛 = url-test, Filter_Nat__LT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png
+🇭🇰香港 = url-test, Filter_Nat__HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/HongKong.png
+🇲🇴澳门 = url-test, Filter_Nat__MO, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Macau.png
+🇨🇳台湾 = url-test, Filter_Nat__TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Taiwan.png
+🇯🇵日本 = url-test, Filter_Nat__JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Japan.png
+🇰🇷韩国 = url-test, Filter_Nat__KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Korea.png
+🇸🇬星洲 = url-test, Filter_Nat__SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Singapore.png
+🇲🇾马来 = url-test, Filter_Nat__MY, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Malaysia.png
+🇮🇳印度 = url-test, Filter_Nat__IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/India.png
+🇺🇸美国 = url-test, Filter_Nat__US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/America.png
+🇨🇦加拿大 = url-test, Filter_Nat__CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Canada.png
+🇦🇺澳洲 = url-test, Filter_Nat__AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Australia.png
+🇬🇧英国 = url-test, Filter_Nat__GB, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Britain.png
+🇫🇷法国 = url-test, Filter_Nat__FR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/France.png
+🇩🇪德国 = url-test, Filter_Nat__DE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Germany.png
+🇮🇹意大利 = url-test, Filter_Nat__IT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Italy.png
+🇳🇱荷兰 = url-test, Filter_Nat__NL, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Netherlands.png
+🇱🇺卢森堡 = url-test, Filter_Nat__LU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Luxembourg.png
+🇱🇹立陶宛 = url-test, Filter_Nat__LT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Nation/Lithuania.png
 
 [Rule]
 # Local Rule
