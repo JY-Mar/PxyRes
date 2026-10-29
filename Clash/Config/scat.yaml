@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 11:44:07 GMT+8
+# UPDATED         : 2026-10-29 12:00:47 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -370,6 +370,7 @@ proxy-groups:
   - {name: 🎮Xbox, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png}
   - {name: 🎮Nintendo, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
   - {name: 🎮Steam, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png}
+  - {name: 🎮Mobile, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/App_Store.png}
   # 按大陆划分 - 自动切换
   - {name: 🌏港台自动, <<: *url-test-all, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
   - {name: 🌏亚洲自动, <<: *url-test-all, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
@@ -545,7 +546,7 @@ rules:
   - RULE-SET,Xbox,🎮Xbox
   - RULE-SET,Nintendo,🎮Nintendo
   - RULE-SET,Steam,🎮Steam
-  - RULE-SET,GamesIntl,🎮游戏节点
+  - RULE-SET,GamesIntl,🎮Mobile
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
   - RULE-SET,Proxy+,🚀节点选择

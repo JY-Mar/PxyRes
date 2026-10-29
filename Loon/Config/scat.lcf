@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 11:45:08 GMT+8
+# UPDATED         : 2026-10-29 12:00:43 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -139,6 +139,7 @@ Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 🎮Xbox = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png
 🎮Nintendo = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png
 🎮Steam = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png
+🎮Mobile = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/App_Store.png
 # 按大陆划分 - 自动切换
 🌏港台自动 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png
 🌏亚洲自动 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png
@@ -243,7 +244,7 @@ https://rule.kelee.one/Loon/PlayStation.lsr, policy=🎮PlayStation, tag=PlaySta
 https://rule.kelee.one/Loon/Xbox.lsr, policy=🎮Xbox, tag=Xbox, enabled=true
 https://rule.kelee.one/Loon/Nintendo.lsr, policy=🎮Nintendo, tag=Nintendo, enabled=true
 https://rule.kelee.one/Loon/Steam.lsr, policy=🎮Steam, tag=Steam, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/GamesIntl.lsr, policy=🎮游戏节点, tag=GamesIntl, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/GamesIntl.lsr, policy=🎮Mobile, tag=GamesIntl, enabled=true
 # MARK: --- Proxy ---
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/Proxy+.lsr, policy=🚀节点选择, tag=Proxy+, enabled=true
