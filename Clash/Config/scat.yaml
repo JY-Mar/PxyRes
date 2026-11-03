@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 14:43:55 GMT+8
+# UPDATED         : 2026-11-03 09:53:38 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -334,7 +334,7 @@ RemoteFilter:
   Filter_Nat__LT: &Filter_Nat__LT '^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_EUR: &Filter_Reg_EUR '^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter____Game: &Filter____Game '^(?=.*((?i)游戏|蒸汽平台|索尼|任天堂|(\b(GAME|Steam|PS|PlayStation|NS|Nintendo|Switch|Xbox)(\d+)?\b)))(?!.*((?i)回国|校园)).*$'
-  Filter__Global: &Filter__Global '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
+  Filter__Global: &Filter__Global '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|\.com|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 
 # MARK: [Proxy Group]
 proxy-groups:
@@ -367,12 +367,13 @@ proxy-groups:
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Disney+.png}
   - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 👆手动切换, ⭕全球直连], icon: https://jy-mar.github.io/PxyIco/Color/Bahamut.png}
   - {name: 💻BiliBiliIntl, type: select, proxies: [🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/BiliBili_1.png}
-  - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyIco/Color/Game.png}
-  - {name: 🎮PlayStation, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/PlayStation.png}
-  - {name: 🎮Xbox, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Xbox.png}
-  - {name: 🎮Nintendo, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Nintendo.png}
-  - {name: 🎮Steam, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Steam.png}
-  - {name: 🎮Mobile, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/App_Store.png}
+  - {name: 🕹️游戏专线, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyIco/Color/Game.png}
+  - {name: 🎮游戏, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Game.png}
+  - {name: 🎮PlayStation, type: select, proxies: [🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/PlayStation.png}
+  - {name: 🎮Xbox, type: select, proxies: [🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Xbox.png}
+  - {name: 🎮Nintendo, type: select, proxies: [🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Nintendo.png}
+  - {name: 🎮Steam, type: select, proxies: [🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/Steam.png}
+  - {name: 🎮Mobile, type: select, proxies: [🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyIco/Color/App_Store.png}
   # 按大陆划分 - 自动切换
   - {name: 🌏港台自动, <<: *url-test-all, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyIco/Color/Area/China_Auto.png}
   - {name: 🌏亚洲自动, <<: *url-test-all, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyIco/Color/Area/Asia_Auto.png}

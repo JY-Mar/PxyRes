@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-10-29 14:43:44 GMT+8
+# UPDATED         : 2026-11-03 09:54:29 GMT+8
 
 [General]
 # ---- 流量绕过 ----
@@ -104,7 +104,7 @@ Filter_Nat__LU = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Lu
 Filter_Nat__LT = NameRegex, FilterKey = "^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Reg_EUR = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter____Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|索尼|任天堂|(\b(GAME|Steam|PS|PlayStation|NS|Nintendo|Switch|Xbox)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
-Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|\.com|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
 # 基础策略
@@ -136,12 +136,13 @@ Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 🐭Disney = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Disney+.png
 📺Bahamut = select, 🇨🇳台湾, 👆手动切换, ⭕全球直连, img-url = https://jy-mar.github.io/PxyIco/Color/Bahamut.png
 💻BiliBiliIntl = select, 🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/BiliBili_1.png
-🎮游戏节点 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyIco/Color/Game.png
-🎮PlayStation = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/PlayStation.png
-🎮Xbox = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Xbox.png
-🎮Nintendo = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Nintendo.png
-🎮Steam = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Steam.png
-🎮Mobile = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/App_Store.png
+🕹️游戏专线 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyIco/Color/Game.png
+🎮游戏 = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Game.png
+🎮PlayStation = select, 🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/PlayStation.png
+🎮Xbox = select, 🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Xbox.png
+🎮Nintendo = select, 🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Nintendo.png
+🎮Steam = select, 🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/Steam.png
+🎮Mobile = select, 🎮游戏, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🕹️游戏专线, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyIco/Color/App_Store.png
 # 按大陆划分 - 自动切换
 🌏港台自动 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/China_Auto.png
 🌏亚洲自动 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyIco/Color/Area/Asia_Auto.png
