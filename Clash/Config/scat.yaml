@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-11-03 09:53:38 GMT+8
+# UPDATED         : 2026-11-04 09:29:21 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -211,9 +211,9 @@ Anchors:
   # [url-test | fallback | load-balance] 策略组自动择优测速地址 url
   proxy-test-url: &proxy-test-url 'https://cp.cloudflare.com/generate_204'
   # [url-test | fallback | load-balance] 策略组测速间隔（秒）
-  proxy-test-interval: &proxy-test-interval 300
+  proxy-test-interval: &proxy-test-interval 480
   # [url-test | fallback | load-balance] 策略组代理节点切换容差（毫秒）
-  proxy-test-tolerance: &proxy-test-tolerance 50
+  proxy-test-tolerance: &proxy-test-tolerance 100
   # [url-test | fallback | load-balance] 策略组测速超时（毫秒）（超出则判定为失败）
   test-timeout: &test-timeout 5000
   # [url-test | fallback | load-balance] 策略组测速失败次数（在 timeout 时间长度内,请求失败 max-failed-times 次,强制提前主动触发健康检查）
