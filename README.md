@@ -31,7 +31,9 @@ configuration of proxy tools
 
 ## rule.kelee.one整理
 
-[https://github.com/luestr/ShuntRules/blob/main/README.md](https://github.com/luestr/ShuntRules/blob/main/README.md)
+[https://github.com/luestr/ShuntRules](https://github.com/luestr/ShuntRules)
+## kelee插件镜像
+[https://github.com/iKaysenLee/Loon](https://github.com/iKaysenLee/Loon)
 
 ## blackmatrix7规则
 
