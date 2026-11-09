@@ -1,16 +1,15 @@
 # PxyRes
 
-configuration of proxy tools
 
-## 项目结构
+## Project Structure
 
 ```text
 ├── .github/workflows/
-│   └── run-jobs.yml           # GitHub Actions工作流
-├── Clash/                     # Clash 配置
+│   └── run-jobs.yml           # GitHub Actions
+├── Clash/                     # Clash
 │   ├── Config/                # Clash 完整配置文件（无代理节点、代理组）.yaml
 │   └── Rules/                 # Clash 远程规则文件 .yaml
-├── Loon/                      # Loon 配置
+├── Loon/                      # Loon
 │   ├── Config/                # Loon 完整配置文件（无代理节点、代理组）.lcf
 │   ├── Plugins/               # Loon 插件文件目录 .plugin / .lpx
 │   └── Rules/                 # Loon 远程规则文件 .lsr / .list
@@ -18,7 +17,7 @@ configuration of proxy tools
 |── scriptsForPython/          # Python脚本
 ├── docs/                      # GitHub Pages输出目录
 │   ├── index.html             # 主页面
-目录下的 Clash 配置
+│   ├── Clash                  # 拷贝到doc目录下的 Clash 配置
 │   │   ├── Config/            # 拷贝到doc目录下的 Clash 完整配置文件（无代理节点、代理组）.yaml
 │   │   └── Rules/             # 拷贝到doc目录下的 Clash 远程规则文件 .yaml
 │   └── Loon/                  # 拷贝到doc目录下的 Loon 配置
@@ -27,14 +26,16 @@ configuration of proxy tools
 └── README.md
 ```
 
-# 分流规则
+# Bypass Rules
 
-## rule.kelee.one整理
+## `kelee` PLugins Repository
 
 [https://github.com/luestr/ShuntRules](https://github.com/luestr/ShuntRules)
-## kelee插件镜像
+
+## `kelee` Plugins Repository Mirror
+
 [https://github.com/iKaysenLee/Loon](https://github.com/iKaysenLee/Loon)
 
-## blackmatrix7规则
+## blackmatrix7 Rules
 
 [https://github.com/blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
